@@ -1,0 +1,435 @@
+///////////////////////////////
+////      BASE COLORS      ////
+///////////////////////////////
+
+/* Palette generate with [colorffy tool](https://colorffy.com/css-generator) */
+
+//// Private values ////
+$_surface: #eeffff;
+$_ink: #001818;
+$_brand: #066060;
+$_contrast: #d92fc9;
+$_neutral: #8c8c8c;
+$_highlight: #72ffff;
+$_disable: #bdbcbc;
+$_info: #00304e;
+$_success: #009a31;
+$_error: #a60d31;
+$_warning: #834800;
+
+
+//// Base colors ////
+$mcs-color--surface: $_surface;
+$mcs-color--ink: $_ink;
+$mcs-color--brand: $_brand;
+$mcs-color--contrast: $_contrast;
+$mcs-color--neutral: $_neutral;
+$mcs-color--highlight: $_highlight;
+$mcs-color--disable: $_disable;
+$mcs-color--info: $_info;
+$mcs-color--success: $_success;
+$mcs-color--error: $_error;
+$mcs-color--warning: $_warning;
+
+$mcs-color-map: (
+  surface: $mcs-color--surface,
+  ink: $mcs-color--ink,
+  brand: $mcs-color--brand,
+  contrast: $mcs-color--contrast,
+  neutral: $mcs-color--neutral,
+  highlight: $mcs-color--highlight,
+  disable: $mcs-color--disable,
+  info: $mcs-color--info,
+  success: $mcs-color--success,
+  error: $mcs-color--error,
+  warning: $mcs-color--warning,
+);
+
+//// Palettes ////
+
+// Brand
+$mcs-color-brand--05: #ffffff;
+$mcs-color-brand--10: #e5ecec;
+$mcs-color-brand--15: #cbdad9;
+$mcs-color-brand--20: #b1c8c7;
+$mcs-color-brand--25: #98b6b5;
+$mcs-color-brand--30: #7ea4a3;
+$mcs-color-brand--35: #659392;
+$mcs-color-brand--40: #4b8181;
+$mcs-color-brand--45: #307170;
+$mcs-color-brand--50: $mcs-color--brand;
+$mcs-color-brand--55: #0c5555;
+$mcs-color-brand--60: #104b4b;
+$mcs-color-brand--65: #114040;
+$mcs-color-brand--70: #123636;
+$mcs-color-brand--75: #112c2c;
+$mcs-color-brand--80: #102323;
+$mcs-color-brand--85: #0e1a1a;
+$mcs-color-brand--90: #071010;
+$mcs-color-brand--95: #000000;
+
+$mcs-palette-brand: (
+  05: $mcs-color-brand--05,
+  10: $mcs-color-brand--10,
+  15: $mcs-color-brand--15,
+  20: $mcs-color-brand--20,
+  25: $mcs-color-brand--25,
+  30: $mcs-color-brand--30,
+  35: $mcs-color-brand--35,
+  40: $mcs-color-brand--40,
+  45: $mcs-color-brand--45,
+  50: $mcs-color-brand--50,
+  55: $mcs-color-brand--55,
+  60: $mcs-color-brand--60,
+  65: $mcs-color-brand--65,
+  70: $mcs-color-brand--70,
+  75: $mcs-color-brand--75,
+  80: $mcs-color-brand--80,
+  85: $mcs-color-brand--85,
+  90: $mcs-color-brand--90,
+  95: $mcs-color-brand--95,
+);
+
+// Contrast
+$mcs-color-contrast--05: #ffffff;
+$mcs-color-contrast--10: #fdebf9;
+$mcs-color-contrast--15: #fbd6f4;
+$mcs-color-contrast--20: #f8c2ee;
+$mcs-color-contrast--25: #f4ade8;
+$mcs-color-contrast--30: #f098e2;
+$mcs-color-contrast--35: #eb82dc;
+$mcs-color-contrast--40: #e56bd6;
+$mcs-color-contrast--45: #df51cf;
+$mcs-color-contrast--50: $mcs-color--contrast;
+$mcs-color-contrast--55: #bf2db0;
+$mcs-color-contrast--60: #a52b98;
+$mcs-color-contrast--65: #8c2881;
+$mcs-color-contrast--70: #73246b;
+$mcs-color-contrast--75: #5c2055;
+$mcs-color-contrast--80: #451b40;
+$mcs-color-contrast--85: #30162c;
+$mcs-color-contrast--90: #1c0f1a;
+$mcs-color-contrast--95: #000000;
+
+$mcs-palette-contrast: (
+  05: $mcs-color-contrast--05,
+  10: $mcs-color-contrast--10,
+  15: $mcs-color-contrast--15,
+  20: $mcs-color-contrast--20,
+  25: $mcs-color-contrast--25,
+  30: $mcs-color-contrast--30,
+  35: $mcs-color-contrast--35,
+  40: $mcs-color-contrast--40,
+  45: $mcs-color-contrast--45,
+  50: $mcs-color-contrast--50,
+  55: $mcs-color-contrast--55,
+  60: $mcs-color-contrast--60,
+  65: $mcs-color-contrast--65,
+  70: $mcs-color-contrast--70,
+  75: $mcs-color-contrast--75,
+  80: $mcs-color-contrast--80,
+  85: $mcs-color-contrast--85,
+  90: $mcs-color-contrast--90,
+  95: $mcs-color-contrast--95,
+);
+
+// Neutral
+$mcs-color-neutral--05: #ffffff;
+$mcs-color-neutral--10: #f2f2f2;
+$mcs-color-neutral--15: #e4e4e4;
+$mcs-color-neutral--20: #d7d7d7;
+$mcs-color-neutral--25: #cacaca;
+$mcs-color-neutral--30: #bebebe;
+$mcs-color-neutral--35: #b1b1b1;
+$mcs-color-neutral--40: #a4a4a4;
+$mcs-color-neutral--45: #989898;
+$mcs-color-neutral--50: $mcs-color--neutral;
+$mcs-color-neutral--55: #7b7b7b;
+$mcs-color-neutral--60: #6b6b6b;
+$mcs-color-neutral--65: #5b5b5b;
+$mcs-color-neutral--70: #4c4c4c;
+$mcs-color-neutral--75: #3d3d3d;
+$mcs-color-neutral--80: #2f2f2f;
+$mcs-color-neutral--85: #212121;
+$mcs-color-neutral--90: #141414;
+$mcs-color-neutral--95: #000000;
+
+$mcs-palette-neutral: (
+  05: $mcs-color-neutral--05,
+  10: $mcs-color-neutral--10,
+  15: $mcs-color-neutral--15,
+  20: $mcs-color-neutral--20,
+  25: $mcs-color-neutral--25,
+  30: $mcs-color-neutral--30,
+  35: $mcs-color-neutral--35,
+  40: $mcs-color-neutral--40,
+  45: $mcs-color-neutral--45,
+  50: $mcs-color-neutral--50,
+  55: $mcs-color-neutral--55,
+  60: $mcs-color-neutral--60,
+  65: $mcs-color-neutral--65,
+  70: $mcs-color-neutral--70,
+  75: $mcs-color-neutral--75,
+  80: $mcs-color-neutral--80,
+  85: $mcs-color-neutral--85,
+  90: $mcs-color-neutral--90,
+  95: $mcs-color-neutral--95,
+);
+
+// Highlight
+$mcs-color-highlight--05: #ffffff;
+$mcs-color-highlight--10: #f2ffff;
+$mcs-color-highlight--15: #e6ffff;
+$mcs-color-highlight--20: #d8ffff;
+$mcs-color-highlight--25: #caffff;
+$mcs-color-highlight--30: #bbffff;
+$mcs-color-highlight--35: #acffff;
+$mcs-color-highlight--40: #9bffff;
+$mcs-color-highlight--45: #88ffff;
+$mcs-color-highlight--50: $mcs-color--highlight;
+$mcs-color-highlight--55: #66dfdf;
+$mcs-color-highlight--60: #5ac0c0;
+$mcs-color-highlight--65: #4ea2a2;
+$mcs-color-highlight--70: #438585;
+$mcs-color-highlight--75: #376969;
+$mcs-color-highlight--80: #2c4f4e;
+$mcs-color-highlight--85: #203535;
+$mcs-color-highlight--90: #141e1e;
+$mcs-color-highlight--95: #000000;
+
+$mcs-palette-highlight: (
+  05: $mcs-color-highlight--05,
+  10: $mcs-color-highlight--10,
+  15: $mcs-color-highlight--15,
+  20: $mcs-color-highlight--20,
+  25: $mcs-color-highlight--25,
+  30: $mcs-color-highlight--30,
+  35: $mcs-color-highlight--35,
+  40: $mcs-color-highlight--40,
+  45: $mcs-color-highlight--45,
+  50: $mcs-color-highlight--50,
+  55: $mcs-color-highlight--55,
+  60: $mcs-color-highlight--60,
+  65: $mcs-color-highlight--65,
+  70: $mcs-color-highlight--70,
+  75: $mcs-color-highlight--75,
+  80: $mcs-color-highlight--80,
+  85: $mcs-color-highlight--85,
+  90: $mcs-color-highlight--90,
+  95: $mcs-color-highlight--95,
+);
+
+// Disable
+$mcs-color-disable--05: #ffffff;
+$mcs-color-disable--10: #f7f7f7;
+$mcs-color-disable--15: #f0f0f0;
+$mcs-color-disable--20: #e9e8e8;
+$mcs-color-disable--25: #e1e1e1;
+$mcs-color-disable--30: #dad9d9;
+$mcs-color-disable--35: #d3d2d2;
+$mcs-color-disable--40: #cbcbcb;
+$mcs-color-disable--45: #c4c3c3;
+$mcs-color-disable--50: $mcs-color--disable;
+$mcs-color-disable--55: #a6a5a5;
+$mcs-color-disable--60: #8f8f8f;
+$mcs-color-disable--65: #7a7979;
+$mcs-color-disable--70: #646464;
+$mcs-color-disable--75: #505050;
+$mcs-color-disable--80: #3c3c3c;
+$mcs-color-disable--85: #2a2a2a;
+$mcs-color-disable--90: #191818;
+$mcs-color-disable--95: #000000;
+
+$mcs-palette-disable: (
+  05: $mcs-color-disable--05,
+  10: $mcs-color-disable--10,
+  15: $mcs-color-disable--15,
+  20: $mcs-color-disable--20,
+  25: $mcs-color-disable--25,
+  30: $mcs-color-disable--30,
+  35: $mcs-color-disable--35,
+  40: $mcs-color-disable--40,
+  45: $mcs-color-disable--45,
+  50: $mcs-color-disable--50,
+  55: $mcs-color-disable--55,
+  60: $mcs-color-disable--60,
+  65: $mcs-color-disable--65,
+  70: $mcs-color-disable--70,
+  75: $mcs-color-disable--75,
+  80: $mcs-color-disable--80,
+  85: $mcs-color-disable--85,
+  90: $mcs-color-disable--90,
+  95: $mcs-color-disable--95,
+);
+
+// Info
+$mcs-color-info--05: #ffffff;
+$mcs-color-info--10: #e2e5ea;
+$mcs-color-info--15: #c6ccd5;
+$mcs-color-info--20: #aab4c0;
+$mcs-color-info--25: #8e9cac;
+$mcs-color-info--30: #748599;
+$mcs-color-info--35: #596e85;
+$mcs-color-info--40: #3f5972;
+$mcs-color-info--45: #244460;
+$mcs-color-info--50: $mcs-color--info;
+$mcs-color-info--55: #052b45;
+$mcs-color-info--60: #08273d;
+$mcs-color-info--65: #0b2235;
+$mcs-color-info--70: #0c1e2d;
+$mcs-color-info--75: #0c1925;
+$mcs-color-info--80: #0b151e;
+$mcs-color-info--85: #070f17;
+$mcs-color-info--90: #04080d;
+$mcs-color-info--95: #000000;
+
+$mcs-palette-info: (
+  05: $mcs-color-info--05,
+  10: $mcs-color-info--10,
+  15: $mcs-color-info--15,
+  20: $mcs-color-info--20,
+  25: $mcs-color-info--25,
+  30: $mcs-color-info--30,
+  35: $mcs-color-info--35,
+  40: $mcs-color-info--40,
+  45: $mcs-color-info--45,
+  50: $mcs-color-info--50,
+  55: $mcs-color-info--55,
+  60: $mcs-color-info--60,
+  65: $mcs-color-info--65,
+  70: $mcs-color-info--70,
+  75: $mcs-color-info--75,
+  80: $mcs-color-info--80,
+  85: $mcs-color-info--85,
+  90: $mcs-color-info--90,
+  95: $mcs-color-info--95,
+);
+
+// Success
+$mcs-color-success--05: #ffffff;
+$mcs-color-success--10: #e8f4e7;
+$mcs-color-success--15: #d1e9d0;
+$mcs-color-success--20: #badeb9;
+$mcs-color-success--25: #a3d3a2;
+$mcs-color-success--30: #8cc88b;
+$mcs-color-success--35: #73bc75;
+$mcs-color-success--40: #59b15f;
+$mcs-color-success--45: #3ba649;
+$mcs-color-success--50: $mcs-color--success;
+$mcs-color-success--55: #0e882d;
+$mcs-color-success--60: #147629;
+$mcs-color-success--65: #176424;
+$mcs-color-success--70: #185320;
+$mcs-color-success--75: #17431c;
+$mcs-color-success--80: #153317;
+$mcs-color-success--85: #122412;
+$mcs-color-success--90: #0c160a;
+$mcs-color-success--95: #000000;
+
+$mcs-palette-success: (
+  05: $mcs-color-success--05,
+  10: $mcs-color-success--10,
+  15: $mcs-color-success--15,
+  20: $mcs-color-success--20,
+  25: $mcs-color-success--25,
+  30: $mcs-color-success--30,
+  35: $mcs-color-success--35,
+  40: $mcs-color-success--40,
+  45: $mcs-color-success--45,
+  50: $mcs-color-success--50,
+  55: $mcs-color-success--55,
+  60: $mcs-color-success--60,
+  65: $mcs-color-success--65,
+  70: $mcs-color-success--70,
+  75: $mcs-color-success--75,
+  80: $mcs-color-success--80,
+  85: $mcs-color-success--85,
+  90: $mcs-color-success--90,
+  95: $mcs-color-success--95,
+);
+
+// Error
+$mcs-color-error--05: #ffffff;
+$mcs-color-error--10: #f9e6e5;
+$mcs-color-error--15: #f2cecd;
+$mcs-color-error--20: #eab5b4;
+$mcs-color-error--25: #e09d9c;
+$mcs-color-error--30: #d78585;
+$mcs-color-error--35: #cc6c6f;
+$mcs-color-error--40: #c05359;
+$mcs-color-error--45: #b33744;
+$mcs-color-error--50: $mcs-color--error;
+$mcs-color-error--55: #93122c;
+$mcs-color-error--60: #801527;
+$mcs-color-error--65: #6d1623;
+$mcs-color-error--70: #5b161e;
+$mcs-color-error--75: #491519;
+$mcs-color-error--80: #391315;
+$mcs-color-error--85: #28100f;
+$mcs-color-error--90: #1a0908;
+$mcs-color-error--95: #000000;
+
+$mcs-palette-error: (
+  05: $mcs-color-error--05,
+  10: $mcs-color-error--10,
+  15: $mcs-color-error--15,
+  20: $mcs-color-error--20,
+  25: $mcs-color-error--25,
+  30: $mcs-color-error--30,
+  35: $mcs-color-error--35,
+  40: $mcs-color-error--40,
+  45: $mcs-color-error--45,
+  50: $mcs-color-error--50,
+  55: $mcs-color-error--55,
+  60: $mcs-color-error--60,
+  65: $mcs-color-error--65,
+  70: $mcs-color-error--70,
+  75: $mcs-color-error--75,
+  80: $mcs-color-error--80,
+  85: $mcs-color-error--85,
+  90: $mcs-color-error--90,
+  95: $mcs-color-error--95,
+);
+
+// warning
+$mcs-color-warning--05: #ffffff;
+$mcs-color-warning--10: #f3e9e1;
+$mcs-color-warning--15: #e7d4c4;
+$mcs-color-warning--20: #dabea7;
+$mcs-color-warning--25: #cdaa8b;
+$mcs-color-warning--30: #bf9570;
+$mcs-color-warning--35: #b18156;
+$mcs-color-warning--40: #a26e3b;
+$mcs-color-warning--45: #935b21;
+$mcs-color-warning--50: $mcs-color--warning;
+$mcs-color-warning--55: #744004;
+$mcs-color-warning--60: #653907;
+$mcs-color-warning--65: #573108;
+$mcs-color-warning--70: #492a09;
+$mcs-color-warning--75: #3c2309;
+$mcs-color-warning--80: #2f1c07;
+$mcs-color-warning--85: #221505;
+$mcs-color-warning--90: #160d03;
+$mcs-color-warning--95: #000000;
+
+$mcs-palette-warning: (
+  05: $mcs-color-warning--05,
+  10: $mcs-color-warning--10,
+  15: $mcs-color-warning--15,
+  20: $mcs-color-warning--20,
+  25: $mcs-color-warning--25,
+  30: $mcs-color-warning--30,
+  35: $mcs-color-warning--35,
+  40: $mcs-color-warning--40,
+  45: $mcs-color-warning--45,
+  50: $mcs-color-warning--50,
+  55: $mcs-color-warning--55,
+  60: $mcs-color-warning--60,
+  65: $mcs-color-warning--65,
+  70: $mcs-color-warning--70,
+  75: $mcs-color-warning--75,
+  80: $mcs-color-warning--80,
+  85: $mcs-color-warning--85,
+  90: $mcs-color-warning--90,
+  95: $mcs-color-warning--95,
+);

@@ -1,0 +1,69 @@
+/** Generate custom properties
+ *
+ * This mixin generates CSS custom properties (`--variables`) from a SCSS map.
+ * Each key/value pair in the map is transformed into a CSS variable, prefixed by the given name.
+ *
+ * Typically used inside a `:root` selector to expose design tokens
+ * (e.g. colors, spacings, typography scales...) as CSS variables.
+ *
+ * @param {Map} $map - SCSS map containing key/value pairs to convert.
+ * @param {String} $prefix - Prefix for the generated CSS variables (e.g. "mcs-color-brand").
+ *
+ * Usage:
+ * ```
+ * :root {
+ *   @include mixins.generate-custom-properties(colors.$mcs-palette-brand, 'mcs-color-brand');
+ * }
+ * ```
+ *
+ * Result (for the first item of the map):
+ * ```
+ * :root {
+ *   --mcs-color-brand--05: #f5f0ff;
+ *   --mcs-color-brand--10: #e0ccff;
+ *   ...
+ * }
+ * ```
+ */
+@mixin generate-custom-properties($map, $prefix) {
+  @each $key, $value in $map {
+    --#{$prefix}--#{$key}: #{$value};
+  }
+}
+
+/** Generate host context rules
+ *
+ * This mixin generates contextual CSS rules based on a SCSS map.
+ * It provides a `var()` reference for each map entry as an argument to the `@content` block.
+ *
+ * This is useful when you need to apply multiple CSS properties dynamically
+ * from a map (e.g. colors, gaps, spacing...) while keeping full flexibility
+ * inside the content block.
+ *
+ * @param {Map} $map - SCSS map containing key/value pairs.
+ * @param {String} $prefix - Prefix of the CSS class (e.g. "mcs-color").
+ * @param {String | null} $suffix [optional] - Optional suffix for the CSS variable name (e.g. "-brand").
+ *
+ * Usage:
+ * ```
+ * @include mixins.generate-host-context-rules(colors.$mcs-color-map, "mcs-color") using ($var) {
+ *   background-color: $var;
+ *   border-color: $var;
+ * }
+ * ```
+ *
+ * Result (for the first item of the map):
+ * ```
+ * :host-context(.mcs-color--primary) {
+ *   background-color: var(--mcs-color--primary);
+ *   border-color: var(--mcs-color--primary);
+ * }
+ * ```
+ */
+@mixin generate-host-context-rules($map, $prefix, $suffix: null) {
+  @each $name, $value in $map {
+    :host-context(.#{$prefix}--#{$name}) {
+      @content(var(--#{$prefix}#{$suffix}--#{$name}));
+    }
+  }
+}

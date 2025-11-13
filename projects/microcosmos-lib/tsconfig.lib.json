@@ -1,0 +1,27 @@
+/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
+/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "./src/lib",
+    "outDir": "../../out-tsc/lib",
+    "declaration": true,
+    "declarationMap": true,
+    "emitDeclarationOnly": false,
+    "stripInternal": false,
+    "preserveConstEnums": true,
+    "verbatimModuleSyntax": true,
+    "inlineSources": true,
+    "types": [],
+//    "paths": {
+//      "@constants/*": [ "constants/*"],
+//      "@components/*": [ "components/*"],
+//    }
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "**/*.spec.ts"
+  ],
+}

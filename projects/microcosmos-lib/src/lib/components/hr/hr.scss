@@ -1,0 +1,27 @@
+@use "../../styles/colors" as colors;
+@use "../../styles/mixins" as mixins;
+@use "../../styles/sizes" as sizes;
+
+:host {
+  display: block;
+}
+
+// Color
+@include mixins.generate-host-context-rules(colors.$mcs-color-map, "mcs-color") using ($var) {
+  background-color: $var;
+}
+
+// Gap
+@include mixins.generate-host-context-rules(sizes.$mcs-gap-map, "mcs-gap") using ($var) {
+  margin: $var 0;
+}
+
+// Rounded
+:host-context(.mcs-rounded--true) {
+  border-radius: .2rem;
+}
+
+// Thickness
+@include mixins.generate-host-context-rules(sizes.$mcs-thickness-map, "mcs-thickness") using ($var) {
+  height: $var;
+}

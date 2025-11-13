@@ -1,0 +1,8 @@
+@use "../../styles/microcosm-styles" as token;
+@use "../../styles/mixins" as mixins;
+@use "../../styles/colors" as colors;
+
+// Color
+@include mixins.generate-host-context-rules(colors.$mcs-color-map, "mcs-color") using($var) {
+  color: $var
+}

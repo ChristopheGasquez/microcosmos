@@ -31,6 +31,27 @@
           "options": {
             "tsConfig": "projects/microcosmos-lib/tsconfig.spec.json"
           }
+        },
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "configDir": "projects/microcosmos-lib/.storybook",
+            "browserTarget": "microcosmos-lib:build",
+            "compodoc": false,
+            "port": 6006,
+            "styles": [
+              "projects/microcosmos-lib/src/lib/styles"
+            ]
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "configDir": "projects/microcosmos-lib/.storybook",
+            "browserTarget": "microcosmos-lib:build",
+            "compodoc": false,
+            "outputDir": "dist/storybook/microcosmos-lib"
+          }
         }
       }
     },
@@ -64,7 +85,9 @@
               "projects/microcosmos-demo/src/styles.scss"
             ],
             "stylePreprocessorOptions": {
-              "includePaths": ["projects/microcosmos-lib/src/lib/styles"]
+              "includePaths": [
+                "projects/microcosmos-lib/src/lib/styles"
+              ]
             }
           },
           "configurations": {

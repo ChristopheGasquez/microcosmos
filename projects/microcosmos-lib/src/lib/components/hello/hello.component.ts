@@ -8,7 +8,7 @@ import { COLORS, type Colors } from '../../constants';
   styleUrls: [ './hello.component.scss' ],
   template: `
     <h2>
-      Bonjour Microcosmos
+      Hello Microcosmos
     </h2>
   `,
   host: {

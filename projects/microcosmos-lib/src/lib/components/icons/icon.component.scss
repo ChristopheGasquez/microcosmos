@@ -1,0 +1,18 @@
+@use "../../styles/colors" as colors;
+@use "../../styles/mixins" as mixins;
+
+:host {
+  //display: inline-flex;
+  //vertical-align: middle;
+  //line-height: 0;
+
+  svg {
+    width: 1em;
+    height: 1em;
+  }
+}
+
+
+@include mixins.generate-host-context-rules(colors.$mcs-color-map, 'mcs-color') using ($var) {
+  color: $var;
+}

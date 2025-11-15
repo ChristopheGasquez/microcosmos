@@ -4,6 +4,9 @@
   "scripts": {
     "demo:start": "ng serve microcosmos-demo",
     "demo:build": "ng build microcosmos-demo",
+    "lib:scrap-icons": "tsx ./projects/microcosmos-lib/src/lib/components/icons/scripts/scrap-icon-svg.ts",
+    "lib:generate-icons": "tsx ./projects/microcosmos-lib/src/lib/components/icons/scripts/generate-icon-names.ts",
+    "prebuild": "npm run generate-icons",
     "lib:build": "ng build microcosmos-lib",
     "lib:build:watch": "ng build microcosmos-lib --watch --configuration development",
     "test": "ng test",
@@ -43,6 +46,7 @@
     "@storybook/angular": "^10.0.7",
     "@storybook/cli": "^10.0.7",
     "@types/jasmine": "~5.1.0",
+    "fs-extra": "^11.3.2",
     "jasmine-core": "~5.9.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
@@ -50,7 +54,9 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "ng-packagr": "^20.3.0",
+    "simple-git": "^3.30.0",
     "storybook": "^10.0.7",
+    "tsx": "^4.20.6",
     "typescript": "~5.9.2"
   }
 }

@@ -6,7 +6,7 @@ import { COLORS, type Colors, type Gaps, GAPS, type Thickness, THICKNESS } from 
   selector: 'mcs-hr',
   imports: [],
   template: ``,
-  styleUrl: './hr.scss',
+  styleUrls: ['./hr.scss'],
   host: {
     'class': `mcs-hr`,
   },

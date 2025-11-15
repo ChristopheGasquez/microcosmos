@@ -1,0 +1,46 @@
+import { Component, HostBinding, inject, Input, signal } from '@angular/core';
+import { DomSanitizer, type SafeHtml } from '@angular/platform-browser';
+import type { Colors } from '../../constants';
+import { type IconName } from './icon-names';
+import { registerAllIcons } from './icon-register';
+import { IconRegistry } from './icon-registry.service';
+
+@Component({
+  selector: 'mcs-icon',
+  standalone: true,
+  templateUrl: './icon.component.html',
+  styleUrls: [ './icon.component.scss' ],
+  host: { 'class': 'mcs-icon' },
+})
+export class IconComponent {
+  #registry: IconRegistry = inject(IconRegistry);
+  #sanitizer: DomSanitizer = inject(DomSanitizer);
+
+  svg = signal<SafeHtml | null>(null);
+
+  @Input()
+  set name(value: IconName) {
+    if (!value) {
+      this.svg.set(null);
+      return;
+    }
+    this.#loadIcon(value);
+  }
+
+  @Input() color?: Colors;
+
+  @HostBinding('class') get hostClasses(): string {
+    return `
+    ${this.color ? `mcs-color--${this.color}` : ''}
+    `.trim();
+  }
+
+  constructor() {
+    registerAllIcons(this.#registry);
+  }
+
+  async #loadIcon(name: string): Promise<void> {
+    const raw = await this.#registry.get(name);
+    this.svg.set(raw ? this.#sanitizer.bypassSecurityTrustHtml(raw) : null);
+  }
+}

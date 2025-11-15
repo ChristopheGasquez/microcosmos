@@ -10,6 +10,11 @@
       "input": "src/assets",
       "glob": "**/*",
       "output": "assets"
+    },
+    {
+      "input": "src/lib/components/icons/icons",
+      "glob": "**/*.svg",
+      "output": "icons"
     }
   ]
 }

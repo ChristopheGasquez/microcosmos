@@ -1,5 +1,5 @@
 import { Component, HostBinding, Input } from '@angular/core';
-import { COLORS, type Colors } from '../../constants';
+import { COLORS, type Colors, WEIGHT, type Weight } from '../../constants';
 
 @Component({
   standalone: true,
@@ -17,11 +17,12 @@ import { COLORS, type Colors } from '../../constants';
 })
 export class Hello {
   @Input() public color: Colors = COLORS.BRAND;
-
+  @Input() public weight: Weight = WEIGHT.REGULAR;
 
   @HostBinding('class') get hostClasses(): string {
     return `
     mcs-color--${ this.color }
+    mcs-weight--${ this.weight }
     `.trim();
   }
 }

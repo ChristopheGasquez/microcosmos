@@ -2,6 +2,11 @@
 @use "./sizes" as sizes;
 @use "./mixins" as mixins;
 
+//////////////////////////////
+////  DEFINED TYPOGRAPHY  ////
+//////////////////////////////
+@use "./fonts";
+
 ///////////////////////////////////
 //// DEFINED CUSTOM PROPERTIES ////
 ///////////////////////////////////
@@ -30,4 +35,14 @@
 
   // Thickness
   @include mixins.generate-custom-properties(sizes.$mcs-thickness-map, 'mcs-thickness');
+
+  //// FONTS FAMILY ////
+  @include mixins.generate-custom-properties(fonts.$font-family-map, 'mcs-font');
+  @include mixins.generate-custom-properties(fonts.$font-weight-map, 'mcs-weight');
+}
+
+
+* {
+  font-family: 'Raleway', sans-serif;
+  font-style: normal;
 }

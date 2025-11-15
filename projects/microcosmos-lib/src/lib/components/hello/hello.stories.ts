@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/angular';
-import { COLORS } from '../../constants';
+import { COLORS, WEIGHT } from '../../constants';
 import { Hello } from './hello.component';
 
 const meta: Meta<Hello> = {
@@ -10,6 +10,10 @@ const meta: Meta<Hello> = {
       control: 'select',
       options: Object.values(COLORS),
     },
+    weight: {
+      control: 'select',
+      options: Object.values(WEIGHT),
+    },
   },
 } as Meta<Hello>;
 
@@ -18,9 +22,24 @@ export default meta;
 type Story = StoryObj<Hello>;
 
 export const Default: Story = {
+  args: {
+    color: COLORS.BRAND,
+    weight: WEIGHT.REGULAR },
+} as Story;
+
+export const Neutral: Story = {
+
   args: { color: COLORS.NEUTRAL },
 } as Story;
 
-export const Brand: Story = {
-  args: { color: COLORS.BRAND },
+export const Light: Story = {
+  args: { weight: WEIGHT.LIGHT },
+} as Story;
+
+export const Succes_Heavy: Story = {
+  title: 'Contrast and Heavy',
+  args: {
+    color: COLORS.CONTRAST,
+    weight: WEIGHT.HEAVY
+  },
 } as Story;

@@ -67,3 +67,72 @@
     }
   }
 }
+
+/** Generate font-face rules for multiple ranges, styles, and weights
+ *
+ * This mixin generates multiple `@font-face` declarations for a given font family.
+ * It iterates over:
+ *   - Unicode ranges (e.g., "latin", "latin-ext"),
+ *   - Font styles (e.g., normal, italic),
+ *   - Font weights (e.g., 100, 200, ... 900),
+ * and outputs a corresponding `@font-face` rule for each combination.
+ *
+ * The generated `src` URL follows this pattern:
+ * "../../assets/fonts/$family_$range-name_$style--$weight.woff2"
+ * and the `unicode-range` property is set according to the provided map.
+ *
+ * This is useful when you want to manage local font files in a structured way
+ * and support multiple weights, styles, and subsets from a single SCSS map.
+ *
+ * @param {String} $family - Font family name.
+ * @param {Map} $unicode-ranges - Map of unicode range names to their CSS unicode-range values.
+ *                                Example:
+ *                                (
+ *                                  "latin": "U+0000-00FF",
+ *                                  "latin-ext": "U+0100-024F, U+1E00-1EFF"
+ *                                )
+ * @param {List} $styles - List of font styles to generate, e.g., (normal, italic)
+ * @param {List} $weights - List of font weights to generate, e.g., (100, 200, 300, 400, 500, 600, 700, 800, 900)
+ *
+ * Usage:
+ * ```
+ * @include generate-font-face-range(
+ *   "Raleway",
+ *   (
+ *     "latin": "U+0000-00FF",
+ *     "latin-ext": "U+0100-024F, U+1E00-1EFF"
+ *   ),
+ *   (normal, italic),
+ *   (100, 400, 700)
+ * );
+ * ```
+ *
+ * Result (example snippet for first combination):
+ * ```
+ * @font-face {
+ *   font-family: 'Raleway';
+ *   font-style: normal;
+ *   font-weight: 100;
+ *   src: url("../../assets/fonts/Raleway_latin_normal--100.woff2") format("woff2");
+ *   font-display: swap;
+ *   unicode-range: U+0000-00FF;
+ * }
+ * ```
+ */
+@mixin generate-font-face-range($family, $unicode-ranges, $styles, $weights) {
+  @each $range-name, $unicode in $unicode-ranges {
+    @each $style in $styles {
+      @for $i from 1 through length($weights) {
+        $weight: nth($weights, $i);
+        @font-face {
+          font-family: $family;
+          font-style: $style;
+          font-weight: $weight;
+          src: url("../../assets/fonts/#{$family}_#{$range-name}_#{$style}--#{$weight}.woff2") format("woff2");
+          font-display: swap;
+          unicode-range: #{$unicode};
+        }
+      }
+    }
+  }
+}

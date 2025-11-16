@@ -1,18 +1,31 @@
 @use "../../styles/colors" as colors;
 @use "../../styles/mixins" as mixins;
+@use "../../styles/sizes" as sizes;
 
 :host {
-  //display: inline-flex;
-  //vertical-align: middle;
-  //line-height: 0;
-
   svg {
     width: 1em;
     height: 1em;
   }
 }
 
-
-@include mixins.generate-host-context-rules(colors.$mcs-color-map, 'mcs-color') using ($var) {
+// Color
+@include mixins.generate-host-context-rules(colors.$mcs-color-map, "mcs-color") using($var) {
   color: $var;
+}
+
+// Generic size
+@include mixins.generate-host-context-rules(sizes.$mcs-size-map, "mcs-size") using($var) {
+  ::ng-deep .mcs-icon svg {
+    width: calc($var * 4);
+    height: calc($var * 4)
+  }
+}
+
+// Proportional to the font
+:host-context(.mcs-icon.mcs-proportional--font) {
+  ::ng-deep .mcs-icon svg {
+    width: 1em;
+    height: 1em
+  }
 }

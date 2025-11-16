@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Hr } from './hr';
+import { DividerComponent } from './divider.component';
 
 describe('Hr', () => {
-  let component: Hr;
-  let fixture: ComponentFixture<Hr>;
+  let component: DividerComponent;
+  let fixture: ComponentFixture<DividerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Hr]
+      imports: [ DividerComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Hr);
+    fixture = TestBed.createComponent(DividerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

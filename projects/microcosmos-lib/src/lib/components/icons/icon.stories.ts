@@ -1,12 +1,13 @@
+import { Input } from '@angular/core';
 import { type Meta, type StoryObj } from '@storybook/angular';
-import { COLORS } from '../../constants';
+import { COLORS, SIZES } from '../../constants';
 import { ICON_NAMES } from './icon-names';
 import { IconRegistry } from './icon-registry.service';
 import { registerAllIcons } from './icon-register';
 import { IconComponent } from './icon.component';
 
 const meta: Meta<IconComponent> = {
-  title: 'Components/Media/Icon',
+  title: 'Components/Icons/Icon',
   component: IconComponent,
   decorators: [
     (story) => {
@@ -23,11 +24,24 @@ const meta: Meta<IconComponent> = {
     color: {
       control: 'select',
       options: Object.values(COLORS)
+    },
+    size: {
+      control: 'select',
+      options: Object.values(SIZES),
+      defaultValue: { summary: SIZES.S },
+
+    },
+    proportionalToTheFont: {
+      control: 'boolean',
+      defaultValue: { summary: false },
+
     }
   },
   args: {
     name: 'home',
-    color: COLORS.INK
+    size: SIZES.XXXL,
+    color: COLORS.BRAND,
+    proportionalToTheFont: false,
   },
 } as Meta<IconComponent>;
 

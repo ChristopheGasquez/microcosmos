@@ -11,7 +11,9 @@ const entries = files.map(file => {
   const name = file.replace('.svg', '');
   const content = readFileSync(join(ICONS_DIR, file), 'utf-8')
     .replace(/\r?\n/g, '')
-    .replace(/fill="[^"]*"/g, 'fill="none"');
+    .replace(/fill="[^"]*"/g, 'fill="none"')
+    .replace(/\swidth="[^"]*"/g, '')
+    .replace(/\sheight="[^"]*"/g, '');
   return `  registry.register('${ name }', \`${ content }\`);`;
 });
 

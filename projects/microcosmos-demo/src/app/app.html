@@ -37,8 +37,8 @@
     --pill-accent: var(--bright-blue);
 
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -52,8 +52,8 @@
     letter-spacing: -0.125rem;
     margin: 0;
     font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
   }
 
   p {
@@ -134,9 +134,11 @@
   .pill-group .pill:nth-child(6n + 1) {
     --pill-accent: var(--bright-blue);
   }
+
   .pill-group .pill:nth-child(6n + 2) {
     --pill-accent: var(--electric-violet);
   }
+
   .pill-group .pill:nth-child(6n + 3) {
     --pill-accent: var(--french-violet);
   }
@@ -187,16 +189,23 @@
     <div class="left-side">
 
 
+      <mcs-icon [name]="'person-3'"
+                [color]="COLORS.NEUTRAL" [size]="SIZES.XXL"></mcs-icon>
       <mcs-hello [color]="COLORS.BRAND"></mcs-hello>
 
-      <mcs-hr></mcs-hr>
+      <mcs-divider></mcs-divider>
 
-      <mcs-icon [name]="'mail'" [color]="COLORS.WARNING"></mcs-icon>
       <mcs-icon [name]="'edit'"></mcs-icon>
 
 
-      <mcs-hr [gap]="GAPS.MD" [thickness]="THICKNESS.LG" [rounded]="true" [color]="COLORS.BRAND"></mcs-hr>
-      <mcs-hr [gap]="GAPS.XS" [thickness]="THICKNESS.SM" [rounded]="true" [color]="COLORS.CONTRAST"></mcs-hr>
+      <mcs-divider [gap]="GAPS.MD"
+                   [thickness]="THICKNESS.LG"
+                   [rounded]="true"
+                   [color]="COLORS.BRAND"></mcs-divider>
+      <mcs-divider [gap]="GAPS.XS"
+                   [thickness]="THICKNESS.SM"
+                   [rounded]="true"
+                   [color]="COLORS.CONTRAST"></mcs-divider>
 
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -223,9 +232,13 @@
             gradientTransform="rotate(118.122 171.182 60.81) scale(205.794)"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FF41F8" />
-            <stop offset=".707" stop-color="#FF41F8" stop-opacity=".5" />
-            <stop offset="1" stop-color="#FF41F8" stop-opacity="0" />
+            <stop stop-color="#FF41F8"/>
+            <stop offset=".707"
+                  stop-color="#FF41F8"
+                  stop-opacity=".5"/>
+            <stop offset="1"
+                  stop-color="#FF41F8"
+                  stop-opacity="0"/>
           </radialGradient>
           <linearGradient
             id="b"
@@ -235,24 +248,30 @@
             y2="192"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#F0060B" />
-            <stop offset="0" stop-color="#F0070C" />
-            <stop offset=".526" stop-color="#CC26D5" />
-            <stop offset="1" stop-color="#7702FF" />
+            <stop stop-color="#F0060B"/>
+            <stop offset="0"
+                  stop-color="#F0070C"/>
+            <stop offset=".526"
+                  stop-color="#CC26D5"/>
+            <stop offset="1"
+                  stop-color="#7702FF"/>
           </linearGradient>
-          <clipPath id="a"><path fill="#fff" d="M0 0h982v239H0z" /></clipPath>
+          <clipPath id="a"><path fill="#fff"
+                                 d="M0 0h982v239H0z"/></clipPath>
         </defs>
       </svg>
       <h1>Hello, {{ title() }}</h1>
       <p>Congratulations! Your app is running. 🎉</p>
     </div>
-    <div class="divider" role="separator" aria-label="Divider"></div>
+    <div class="divider"
+         role="separator"
+         aria-label="Divider"></div>
     <div class="right-side">
       <div class="pill-group">
         @for (item of [
           { title: 'Explore the Docs', link: 'https://angular.dev' },
           { title: 'Learn with Tutorials', link: 'https://angular.dev/tutorials' },
-          { title: 'Prompt and best practices for AI', link: 'https://angular.dev/ai/develop-with-ai'},
+          { title: 'Prompt and best practices for AI', link: 'https://angular.dev/ai/develop-with-ai' },
           { title: 'CLI Docs', link: 'https://angular.dev/tools/cli' },
           { title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service' },
           { title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools' },
@@ -352,4 +371,4 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 
-<router-outlet />
+<router-outlet/>

@@ -1,6 +1,7 @@
 import { Component, HostBinding, inject, Input, signal } from '@angular/core';
 import { DomSanitizer, type SafeHtml } from '@angular/platform-browser';
-import type { Colors } from '../../constants';
+import { SIZES } from '../../constants';
+import type { Colors, Sizes } from '../../constants';
 import { type IconName } from './icon-names';
 import { registerAllIcons } from './icon-register';
 import { IconRegistry } from './icon-registry.service';
@@ -28,10 +29,14 @@ export class IconComponent {
   }
 
   @Input() color?: Colors;
+  @Input() size?: Sizes = SIZES.S;
+  @Input() proportionalToTheFont?: boolean;
 
   @HostBinding('class') get hostClasses(): string {
     return `
     ${this.color ? `mcs-color--${this.color}` : ''}
+    ${this.proportionalToTheFont ? `mcs-proportional--font` : ''}
+    mcs-size--${this.size}
     `.trim();
   }
 

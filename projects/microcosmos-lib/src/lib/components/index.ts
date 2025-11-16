@@ -1,3 +1,3 @@
 export * from './hello/hello.component';
-export * from './hr/hr';
+export * from './divider/divider.component';
 export * from './icons/icon.component'

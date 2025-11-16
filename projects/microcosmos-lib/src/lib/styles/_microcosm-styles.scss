@@ -30,6 +30,9 @@
 
   //// SIZES ////
 
+  // Generic sizes
+  @include mixins.generate-custom-properties(sizes.$mcs-size-map, 'mcs-size');
+
   // Gaps
   @include mixins.generate-custom-properties(sizes.$mcs-gap-map, 'mcs-gap');
 

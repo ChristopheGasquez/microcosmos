@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { componentWrapperDecorator, type Meta, type StoryObj } from '@storybook/angular';
-import { type Colors, COLORS } from '../../constants';
+import { type Colors, COLORS, type Sizes, SIZES } from '../../constants';
 import { ICON_NAMES } from './icon-names';
 import { IconComponent } from './icon.component';
 
@@ -22,7 +22,9 @@ import { IconComponent } from './icon.component';
            [style.width]="'100px'">
         <div style="text-align: center">
           <mcs-icon [name]="name"
-                    [color]="color"></mcs-icon>
+                    [color]="color"
+                    [size]="size"
+                    [proportionalToTheFont]="proportionalToTheFont"></mcs-icon>
         </div>
         <div style="text-align: center">{{ name }}</div>
       </div>
@@ -33,6 +35,8 @@ class IconListComponent {
   @Input() names = ICON_NAMES;
   @Input() color?: Colors;
   @Input() search?: string;
+  @Input() size?: Sizes;
+  @Input() proportionalToTheFont?: boolean;
 
   get filteredNames() {
     return this.names.filter((n: string) => !this.search || n.includes(this.search));
@@ -41,7 +45,7 @@ class IconListComponent {
 
 const meta2: Meta<IconListComponent> = {
   component: IconListComponent,
-  title: 'Components/Media/Icon list',
+  title: 'Components/Icons/Icon list',
   decorators: [
     componentWrapperDecorator(
       (story) => `${ story }`,
@@ -50,15 +54,22 @@ const meta2: Meta<IconListComponent> = {
   args: {
     search: '',
     color: COLORS.INK,
+    size: SIZES.S,
+    proportionalToTheFont: false,
   },
   argTypes: {
     search: {
       control: { type: 'text' },
-      placeholder: 'Search'
+      placeholder: 'Search',
     },
     color: {
       control: 'select',
       options: Object.values(COLORS),
+    },
+    size: {
+      control: 'select',
+      options: Object.values(SIZES).slice(2,7),
+      defaultValue: { summary: SIZES.S },
     },
   },
 } as Meta<IconListComponent>;

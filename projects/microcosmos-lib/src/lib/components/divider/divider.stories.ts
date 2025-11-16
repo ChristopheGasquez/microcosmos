@@ -1,39 +1,49 @@
 import type { Meta, StoryObj } from '@storybook/angular';
 import { COLORS, GAPS, THICKNESS } from '../../constants';
-import { Hr } from './hr';
+import { DividerComponent } from './divider.component';
 
-const meta: Meta<Hr> = {
-  title: 'Components/Separators/Hr',
-  component: Hr,
+const meta: Meta<DividerComponent> = {
+  title: 'Components/Divider',
+  component: DividerComponent,
   argTypes: {
     color: {
       control: 'select',
       options: Object.values(COLORS),
-    },
-    gap: {
-      control: 'select',
-      options: Object.values(GAPS),
-    },
-    rounded: {
-      control: 'boolean',
+      defaultValue: { summary: COLORS.NEUTRAL }
     },
     thickness: {
       control: 'select',
       options: Object.values(THICKNESS),
+      defaultValue: { summary: THICKNESS.XS },
+    },
+    gap: {
+      control: 'select',
+      options: Object.values(GAPS),
+      defaultValue: { summary: GAPS.XL },
+    },
+    rounded: {
+      control: 'boolean',
+      defaultValue: { summary: false },
     },
   },
-} as Meta<Hr>;
+  args: {
+    color: COLORS.NEUTRAL,
+    thickness: THICKNESS.XS,
+    gap: GAPS.XL,
+    rounded: false
+  }
+} as Meta<DividerComponent>;
 
 export default meta;
 
-type Story = StoryObj<Hr>;
+type Story = StoryObj<DividerComponent>;
 
 export const Default: Story = {
   args: {
     color: COLORS.NEUTRAL,
+    thickness: THICKNESS.XS,
     gap: GAPS.XL,
     rounded: false,
-    thickness: THICKNESS.XS,
   },
 } as Story;
 

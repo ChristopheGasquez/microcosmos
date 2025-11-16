@@ -3,15 +3,15 @@ import { COLORS, type Colors, type Gaps, GAPS, type Thickness, THICKNESS } from 
 
 @Component({
   standalone: true,
-  selector: 'mcs-hr',
+  selector: 'mcs-divider',
   imports: [],
   template: ``,
-  styleUrls: ['./hr.scss'],
+  styleUrls: [ './divider.component.scss'],
   host: {
     'class': `mcs-hr`,
   },
 })
-export class Hr {
+export class DividerComponent {
   @Input() public color: Colors = COLORS.NEUTRAL;
   @Input() public gap: Gaps = GAPS.XL;
   @Input() public rounded: boolean = false;

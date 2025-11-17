@@ -1,9 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {
-  Hello,
   DividerComponent,
+  HelloComponent,
   IconComponent,
+  TagComponent,
   COLORS,
   GAPS,
   SIZES,
@@ -13,7 +14,7 @@ import {
 @Component({
   standalone: true,
   selector: 'app-root',
-  imports: [ RouterOutlet, Hello, DividerComponent, IconComponent ],
+  imports: [ RouterOutlet, HelloComponent, DividerComponent, IconComponent, TagComponent ],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })

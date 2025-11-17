@@ -1,6 +1,6 @@
 @use "./colors" as colors;
-@use "./sizes" as sizes;
 @use "./mixins" as mixins;
+@use "./sizes" as sizes;
 
 //////////////////////////////
 ////  DEFINED TYPOGRAPHY  ////
@@ -18,15 +18,15 @@
   @include mixins.generate-custom-properties(colors.$mcs-color-map, 'mcs-color');
 
   // Palettes
-  @include mixins.generate-custom-properties(colors.$mcs-palette-brand, 'mcs-color-brand');
-  @include mixins.generate-custom-properties(colors.$mcs-palette-contrast, 'mcs-color-contrast');
-  @include mixins.generate-custom-properties(colors.$mcs-palette-neutral, 'mcs-color-neutral');
-  @include mixins.generate-custom-properties(colors.$mcs-palette-highlight, 'mcs-color-highlight');
-  @include mixins.generate-custom-properties(colors.$mcs-palette-disable, 'mcs-color-disable');
-  @include mixins.generate-custom-properties(colors.$mcs-palette-info, 'mcs-color-info');
-  @include mixins.generate-custom-properties(colors.$mcs-palette-success, 'mcs-color-success');
-  @include mixins.generate-custom-properties(colors.$mcs-palette-error, 'mcs-color-error');
-  @include mixins.generate-custom-properties(colors.$mcs-palette-warning, 'mcs-color-warning');
+  @include mixins.generate-custom-properties(colors.$mcs-palette-brand, 'mcs-color--brand');
+  @include mixins.generate-custom-properties(colors.$mcs-palette-contrast, 'mcs-color--contrast');
+  @include mixins.generate-custom-properties(colors.$mcs-palette-neutral, 'mcs-color--neutral');
+  @include mixins.generate-custom-properties(colors.$mcs-palette-highlight, 'mcs-color--highlight');
+  @include mixins.generate-custom-properties(colors.$mcs-palette-disable, 'mcs-color--disable');
+  @include mixins.generate-custom-properties(colors.$mcs-palette-info, 'mcs-color--info');
+  @include mixins.generate-custom-properties(colors.$mcs-palette-success, 'mcs-color--success');
+  @include mixins.generate-custom-properties(colors.$mcs-palette-error, 'mcs-color--error');
+  @include mixins.generate-custom-properties(colors.$mcs-palette-warning, 'mcs-color--warning');
 
   //// SIZES ////
 

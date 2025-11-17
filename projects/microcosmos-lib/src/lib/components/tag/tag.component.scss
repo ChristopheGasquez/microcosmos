@@ -1,0 +1,22 @@
+@use "../../styles/colors" as colors;
+@use "../../styles/mixins" as mixins;
+@use "../../styles/functions" as functions;
+
+$yo: "neutral";
+:host {
+  display: inline-flex;
+  padding: .3em .5em;
+  border-radius: .4em;
+  background-color: var(--mcs-color-#{$yo}--20);
+  color: var(--mcs-color--neutral);
+}
+
+// Color
+@each $name in colors.$mcs-palette-name-map {
+  @include mixins.generate-host-context-rules(colors.$mcs-palette-name-map, "mcs-color") using($var) {
+    $prefix: functions.extract-css-var-name($var);
+    background-color: var(#{$prefix}--10);
+    color: $var;
+  }
+}
+

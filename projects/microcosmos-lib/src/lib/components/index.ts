@@ -1,3 +1,4 @@
 export * from './hello/hello.component';
 export * from './divider/divider.component';
-export * from './icons/icon.component'
+export * from './icon/icon.component'
+export * from './tag/tag.component';

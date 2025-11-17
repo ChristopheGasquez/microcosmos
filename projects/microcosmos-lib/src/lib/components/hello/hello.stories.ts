@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/angular';
 import { COLORS, WEIGHT } from '../../constants';
-import { Hello } from './hello.component';
+import { HelloComponent } from './hello.component';
 
-const meta: Meta<Hello> = {
+const meta: Meta<HelloComponent> = {
   title: 'Components/Hello',
-  component: Hello,
+  component: HelloComponent,
   argTypes: {
     color: {
       control: 'select',
@@ -15,11 +15,11 @@ const meta: Meta<Hello> = {
       options: Object.values(WEIGHT),
     },
   },
-} as Meta<Hello>;
+} as Meta<HelloComponent>;
 
 export default meta;
 
-type Story = StoryObj<Hello>;
+type Story = StoryObj<HelloComponent>;
 
 export const Default: Story = {
   args: {

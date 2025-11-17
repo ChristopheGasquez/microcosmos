@@ -15,7 +15,7 @@ import { COLORS, type Colors, WEIGHT, type Weight } from '../../constants';
     'class': `mcs-hello`,
   },
 })
-export class Hello {
+export class HelloComponent {
   @Input() public color: Colors = COLORS.BRAND;
   @Input() public weight: Weight = WEIGHT.REGULAR;
 

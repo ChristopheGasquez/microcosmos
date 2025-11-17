@@ -1,0 +1,36 @@
+/** Extract CSS custom property name from a `var()` expression
+ *
+ * This function takes a CSS variable wrapped in the `var()` function
+ * (e.g. `var(--mcs-color--brand)`) and returns only the internal
+ * custom property name (e.g. `--mcs-color--brand`).
+ *
+ * This is useful when you want to manipulate CSS variable names
+ * dynamically in SCSS — for example to append modifiers, generate
+ * variants, or build derived tokens based on an existing CSS variable.
+ *
+ * @param {String} $var - A CSS variable expressed as `var(--foo-bar)`.
+ *
+ * @return {String} The extracted CSS variable name without the `var()` wrapper.
+ *
+ * Usage:
+ * ```
+ * $value: var(--mcs-color--brand);
+ * $name: extract-css-var-name($value);
+ * // $name → "--mcs-color--brand"
+ * ```
+ *
+ * Combined with interpolation:
+ * ```
+ * .example {
+ *   color: var(#{extract-css-var-name(value)}--10);
+ *   // → color: var(--mcs-color--brand--10);
+ * }
+ * ```
+ */
+@function extract-css-var-name($var) {
+  $string: inspect($var);
+  $string: str-slice($string, 5); // remove "var("
+  $string: str-slice($string, 1, str-length($string) - 1); // remove last ")"
+  @return $string;
+}
+

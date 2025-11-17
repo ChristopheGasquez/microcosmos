@@ -4,8 +4,8 @@
   "scripts": {
     "demo:start": "ng serve microcosmos-demo",
     "demo:build": "ng build microcosmos-demo",
-    "lib:scrap-icons": "tsx ./projects/microcosmos-lib/src/lib/components/icons/scripts/scrap-icon-svg.ts",
-    "lib:generate-icons": "tsx ./projects/microcosmos-lib/src/lib/components/icons/scripts/generate-icon-names.ts",
+    "lib:scrap-icons": "tsx projects/microcosmos-lib/src/lib/components/icon/scripts/scrap-icon-svg.ts",
+    "lib:generate-icons": "tsx projects/microcosmos-lib/src/lib/components/icon/scripts/generate-icon-names.ts",
     "prebuild": "npm run generate-icons",
     "lib:build": "ng build microcosmos-lib",
     "lib:build:watch": "ng build microcosmos-lib --watch --configuration development",

@@ -3,7 +3,7 @@ import { COLORS, GAPS, THICKNESS } from '../../constants';
 import { DividerComponent } from './divider.component';
 
 const meta: Meta<DividerComponent> = {
-  title: 'Components/Divider',
+  title: 'Components/Dividers/Divider',
   component: DividerComponent,
   argTypes: {
     color: {

@@ -3,13 +3,13 @@
 @use "../../styles/colors" as colors;
 @use "../../styles/fonts" as fonts;
 
-// Color
-@include mixins.generate-host-context-rules(colors.$mcs-color-map, "mcs-color") using($var) {
+// Colors
+@include mixins.generate-host-context(colors.$mcs-color-map, "mcs-color") using($var) {
   color: $var
 }
 
-// Weight
-@include mixins.generate-host-context-rules(fonts.$font-weight-map, "mcs-weight") using($var) {
+// Weights
+@include mixins.generate-host-context(fonts.$font-weight-map, "mcs-weight") using($var) {
   h2 { // H2 tag is required because the user agent use font-weight: bold !important on heading...
     font-weight: $var !important;
   }

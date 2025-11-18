@@ -1,0 +1,66 @@
+@use './borders' as borders;
+@use './sizes' as sizes;
+@use './colors' as colors;
+
+//////////////////////////////
+////       VARIANTS       ////
+//////////////////////////////
+
+//// Private valuesd ////
+$_filled: "filled";
+$_toned: "toned";
+$_outlined: "outlined";
+
+//// Default variants ////
+
+//// Variants ////
+$mcs-variant-name: (
+  $_toned,
+  $_filled,
+  $_outlined,
+);
+
+// Toned
+$mcs-variant--toned: (
+  bg-color: 10,
+  bg-color--hover: 20,
+  color: 50,
+  color--hover: 70,
+  color--selected: 80,
+  border-style: borders.$mcs-border-style--none,
+  border-color: none,
+  border-width: 0,
+  box-shadow: none,
+);
+
+// Filed
+$mcs-variant--filled: (
+  bg-color: 70,
+  bg-color--hover: 50,
+  color: 20,
+  color--hover: 10,
+  color--selected: 30,
+  border-style: borders.$mcs-border-style--none,
+  border-color: none,
+  border-width: 0,
+  box-shadow: none,
+);
+
+// Outlined
+$mcs-variant--outlined: (
+  bg-color: 00,
+  bg-color--hover: 10,
+  color: 50,
+  color--hover: 60,
+  color--selected: 70,
+  border-style: borders.$mcs-border-style--solid,
+  border-color: 50,
+  border-width: "xxxs",
+  box-shadow: none,
+);
+
+$mcs-variants: (
+  filled: $mcs-variant--filled,
+  toned: $mcs-variant--toned,
+  outlined: $mcs-variant--outlined
+)

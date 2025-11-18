@@ -6,13 +6,13 @@
   display: block;
 }
 
-// Color
-@include mixins.generate-host-context-rules(colors.$mcs-color-map, "mcs-color") using ($var) {
+// Colors
+@include mixins.generate-host-context(colors.$mcs-color-map, "mcs-color") using($var) {
   background-color: $var;
 }
 
-// Gap
-@include mixins.generate-host-context-rules(sizes.$mcs-gap-map, "mcs-gap") using ($var) {
+// Gaps
+@include mixins.generate-host-context(sizes.$mcs-gap-map,  "mcs-gap") using($var) {
   margin: $var 0;
 }
 
@@ -21,7 +21,8 @@
   border-radius: .2rem;
 }
 
-// Thickness
-@include mixins.generate-host-context-rules(sizes.$mcs-thickness-map, "mcs-thickness") using ($var) {
+// Thicknesses
+$_thicknessPrefix: "mcs-thickness";
+@include mixins.generate-host-context(sizes.$mcs-thickness-map, "mcs-thickness") using($var) {
   height: $var;
 }

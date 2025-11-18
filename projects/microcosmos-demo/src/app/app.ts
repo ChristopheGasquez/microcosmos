@@ -1,20 +1,29 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {
+  ChipComponent,
+  COLORS,
   DividerComponent,
+  GAPS,
   HelloComponent,
   IconComponent,
-  TagComponent,
-  COLORS,
-  GAPS,
   SIZES,
+  TagComponent,
   THICKNESS,
+  VARIANTS,
 } from 'microcosmos-lib';
 
 @Component({
   standalone: true,
   selector: 'app-root',
-  imports: [ RouterOutlet, HelloComponent, DividerComponent, IconComponent, TagComponent ],
+  imports: [
+    ChipComponent,
+    DividerComponent,
+    HelloComponent,
+    IconComponent,
+    RouterOutlet,
+    TagComponent,
+  ],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
@@ -24,4 +33,7 @@ export class App {
   protected readonly THICKNESS = THICKNESS;
   protected readonly COLORS = COLORS;
   protected readonly SIZES = SIZES;
+  protected readonly VARIANTS = VARIANTS;
+
+  select = signal(false);
 }

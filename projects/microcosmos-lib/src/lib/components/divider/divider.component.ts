@@ -9,6 +9,7 @@ import { COLORS, type Colors, type Gaps, GAPS, type Thickness, THICKNESS } from 
   styleUrls: [ './divider.component.scss'],
   host: {
     'class': `mcs-divider`,
+    'role': `separator`
   },
 })
 export class DividerComponent {

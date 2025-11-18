@@ -33,37 +33,65 @@
 
 /** Generate host context rules
  *
- * This mixin generates contextual CSS rules based on a SCSS map.
- * It provides a `var()` reference for each map entry as an argument to the `@content` block.
+ * This mixin generates contextual CSS rules from a SCSS map.
+ * It allows you to choose the output mode:
  *
- * This is useful when you need to apply multiple CSS properties dynamically
- * from a map (e.g. colors, gaps, spacing...) while keeping full flexibility
- * inside the content block.
+ * - `"var"`  → exposes the CSS custom property (`var(--...)`) for each entry
+ * - `"name"` → exposes the map key (identifier) for each entry
+ *
+ * This mixin unifies both behaviors into a single, typed API while keeping
+ * full flexibility inside the content block using `@content`.
  *
  * @param {Map} $map - SCSS map containing key/value pairs.
  * @param {String} $prefix - Prefix of the CSS class (e.g. "mcs-color").
- * @param {String | null} $suffix [optional] - Optional suffix for the CSS variable name (e.g. "-brand").
+ * @param {String} $mode ["var"] - Output mode: `"var"` or `"name"`. Validated internally.
+ * @param {String | null} $suffix [optional] - Optional suffix appended to the CSS variable name.
  *
- * Usage:
+ * Usage (mode: var):
  * ```
- * @include mixins.generate-host-context-rules(colors.$mcs-color-map, "mcs-color") using ($var) {
+ * @include mixins.generate-host-context(colors.$mcs-color-map, "mcs-color", "var") using ($var) {
  *   background-color: $var;
  *   border-color: $var;
  * }
  * ```
  *
- * Result (for the first item of the map):
+ * Usage (mode: name):
  * ```
- * :host-context(.mcs-color--primary) {
- *   background-color: var(--mcs-color--primary);
- *   border-color: var(--mcs-color--primary);
+ * @include mixins.generate-host-context(states.$status-map, "mcs-status", "name") using ($name) {
+ *   content: $name;
+ * }
+ * ```
+ *
+ * Default mode:
+ * ```
+ * @include mixins.generate-host-context($map: colors.$map, $prefix: "mcs-color") using ($var) {
+ *   color: $var;
  * }
  * ```
  */
-@mixin generate-host-context-rules($map, $prefix, $suffix: null) {
+
+// Allowed modes
+$generate-host-context-modes: (
+  "var": true,
+  "name": true,
+);
+
+@mixin generate-host-context($map, $prefix, $mode: "var", $suffix: null) {
+  // Validate mode
+  @if not map-has-key($generate-host-context-modes, $mode) {
+    @error "Invalid mode `#{$mode}`. Expected one of: #{map-keys($generate-host-context-modes)}.";
+  }
+
+  // Iterate through map entries
   @each $name, $value in $map {
     :host-context(.#{$prefix}--#{$name}) {
-      @content(var(--#{$prefix}#{$suffix}--#{$name}));
+
+      @if $mode == "var" {
+        @content(var(--#{$prefix}#{$suffix}--#{$name}));
+
+      } @else if $mode == "name" {
+        @content($name);
+      }
     }
   }
 }

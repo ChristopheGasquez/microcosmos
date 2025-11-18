@@ -13,13 +13,13 @@
   }
 }
 
-// Color
-@include mixins.generate-host-context-rules(colors.$mcs-color-map, "mcs-color") using($var) {
+// Colors
+@include mixins.generate-host-context(colors.$mcs-color-map, "mcs-color") using($var) {
   color: $var;
 }
 
-// Generic size
-@include mixins.generate-host-context-rules(sizes.$mcs-size-map, "mcs-size") using($var) {
+// Generic sizes
+@include mixins.generate-host-context(sizes.$mcs-size-map, "mcs-size") using($var) {
   ::ng-deep .mcs-icon svg {
     width: calc($var * 4);
     height: calc($var * 4)

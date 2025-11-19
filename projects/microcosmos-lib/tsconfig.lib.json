@@ -12,11 +12,7 @@
     "preserveConstEnums": true,
     "verbatimModuleSyntax": true,
     "inlineSources": true,
-    "types": [],
-//    "paths": {
-//      "@constants/*": [ "constants/*"],
-//      "@components/*": [ "components/*"],
-//    }
+    "types": []
   },
   "include": [
     "src/**/*.ts",

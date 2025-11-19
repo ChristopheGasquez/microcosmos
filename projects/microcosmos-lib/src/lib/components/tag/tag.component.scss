@@ -7,6 +7,7 @@
   display: inline-flex;
   padding: .4em .8em;
   gap: .8em;
+  user-select: none;
 
   // To preserve height even if the tag is empty ;)
   &:empty::after {

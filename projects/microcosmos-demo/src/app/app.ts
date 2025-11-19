@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {
-  ChipComponent,
+  ChipComponent, type Colors,
   COLORS,
   DividerComponent,
   GAPS,
@@ -34,6 +34,7 @@ export class App {
   protected readonly COLORS = COLORS;
   protected readonly SIZES = SIZES;
   protected readonly VARIANTS = VARIANTS;
+  colorTest: Colors = COLORS.BRAND;
 
   select = signal(false);
 }

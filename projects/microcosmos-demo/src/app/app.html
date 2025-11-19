@@ -2,12 +2,12 @@
   <div class="content">
     <div class="left-side">
 
-      <button>First focus for dev</button>
+      <button (click)="colorTest = colorTest === COLORS.BRAND ? COLORS.CONTRAST : COLORS.BRAND">First focus for dev</button>
 
       <mcs-icon [name]="'person-3'"
                 [color]="COLORS.NEUTRAL"
                 [size]="SIZES.XXL"></mcs-icon>
-      <mcs-hello [color]="COLORS.BRAND"></mcs-hello>
+      <mcs-hello [color]="colorTest"></mcs-hello>
 
       <mcs-divider></mcs-divider>
 

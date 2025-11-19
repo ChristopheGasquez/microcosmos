@@ -5,6 +5,7 @@
 
 :host {
   cursor: pointer;
+  user-select: none;
 
   .mcs-tag {
     transition: .2s ease-out;

@@ -31,16 +31,11 @@ import { TagComponent } from '../tag/tag.component';
       <ng-content></ng-content>
       @if (isRemovable) {
 
-
-
-
-
 <!--Todo: replace by mcs-button with close icon (after is development ;)-->
         <mcs-icon [name]="'close'"
                   [proportionalToTheFont]="true"></mcs-icon>
       }
     </mcs-tag>
-
   `,
   styleUrl: './chip.component.scss',
   host: {

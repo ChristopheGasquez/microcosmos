@@ -28,13 +28,7 @@
       "path": "./projects/microcosmos-lib/tsconfig.lib.json"
     },
     {
-      "path": "./projects/microcosmos-lib/tsconfig.spec.json"
-    },
-    {
       "path": "./projects/microcosmos-demo/tsconfig.app.json"
-    },
-    {
-      "path": "./projects/microcosmos-demo/tsconfig.spec.json"
     }
   ]
 }

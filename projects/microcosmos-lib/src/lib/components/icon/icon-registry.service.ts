@@ -4,7 +4,6 @@ import { Injectable } from '@angular/core';
 export class IconRegistry {
   private cache = new Map<string, string>();
 
-  // enregistrement direct
   register(name: string, svg: string) {
     this.cache.set(name, svg);
   }

@@ -1,59 +1,134 @@
-# Microcosmos
+# 🧬 Microcosmos Library
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.9.
+| Project | Version | License | Build | Storybook |
+|---------|---------|---------|-------|-----------|
+| Microcosmos | 0.0.0 | MIT | ![Build](https://img.shields.io/badge/build-passing-brightgreen) | [View Storybook](http://localhost:6006) |
 
-## Development server
 
-To start a local development server, run:
+Microcosmos is an **Angular component library** designed to be reusable, modular, and easily integrated into any Angular application.  
+It provides a collection of UI components, utilities, and shared styles—similar in spirit to modern design systems or UI component libraries, but without relying on any external frameworks.
 
-```bash
-ng serve
-```
+The library is built using **ng-packagr**, documented with **Storybook**, and includes an SVG-based icon system powered by internal generation scripts.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🚀 Installation
 
 ```bash
-ng generate component component-name
+npm install
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
+
+## 🗂️ Library Structure
+
+```
+projects/microcosmos-lib/
+│
+├── src/
+│   ├── lib/
+│   │   ├── components/
+│   │   │   └── icon/          # SVG icon system + scripts
+│   │   └── styles/            # Shared SCSS styles
+│   └── public-api.ts          # Public API of the library
+│
+├── .storybook/                # Storybook configuration
+└── package.json
+```
+
+---
+
+## ▶️ Available Scripts
+
+### 📚 Build the Library
+
+| Script | Description |
+|--------|-------------|
+| `npm run lib:build` | Builds the library using ng-packagr |
+| `npm run lib:build:watch` | Builds the library in watch mode |
+
+---
+
+### 🧪 Tests
+
+| Script | Description |
+|--------|-------------|
+| `npm run lib:test:watch` | Runs tests in watch mode |
+| `npm run lib:test:coverage` | Full test run with coverage (Chrome Headless) |
+
+---
+
+### 🎨 Icon System
+
+The library includes an automated icon generator that processes SVG files.
+
+| Script | Description |
+|--------|-------------|
+| `npm run lib:scrap-icons` | Scrapes or transforms source SVG icons |
+| `npm run lib:generate-icons` | Generates TypeScript icon definitions |
+
+⚠️ The `prebuild` script automatically calls `generate-icons` before building the library.
+
+---
+
+## 📖 Storybook — Interactive Documentation
+
+Storybook is used to visually explore, test, and document the library’s components.
+
+### ▶️ Start Storybook
 
 ```bash
-ng generate --help
+npm run storybook:start
 ```
 
-## Building
+Default URL:  
+http://localhost:6006
 
-To build the project run:
+### 🏗️ Build static Storybook documentation
 
 ```bash
-ng build
+npm run storybook:build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Output directory:
 
-## Running unit tests
+```
+dist/storybook/microcosmos-lib/
+```
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+---
+
+## 🛠️ Technologies
+
+- Angular 20
+- ng-packagr
+- TypeScript 5.9
+- Storybook 10
+- SCSS
+- RxJS
+
+---
+
+## 📝 Code Style
+
+Prettier configuration ensures consistent formatting:
+
+- printWidth: 100
+- singleQuote: true
+- Angular HTML parser enabled
+
+---
+
+## 📦 Distribution
+
+After building the library, the package is available in:
+
+```
+dist/microcosmos-lib/
+```
+
+To publish (if `private` is set to `false`):
 
 ```bash
-ng test
+npm publish dist/microcosmos-lib
 ```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

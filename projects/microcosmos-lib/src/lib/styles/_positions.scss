@@ -1,0 +1,62 @@
+///////////////////////////////
+////       POSITIONS       ////
+///////////////////////////////
+
+//// Private values ////
+$_top-left: "top-left";
+$_top-right: "top-right";
+$_bottom-right: "bottom-right";
+$_bottom-left: "bottom-left";
+$_inline: "inline";
+
+//// Default values ////
+
+
+//// Positions ////
+$mcs-position-name: (
+  $_top-left,
+  $_top-right,
+  $_bottom-right,
+  $_bottom-left,
+  //$_inline
+);
+
+// Top left
+$mcs-position--top-left: (
+  position: absolute,
+  top: 0,
+  left: 0,
+  transform: translate(-50%, -50%)
+);
+
+// Top right
+$mcs-position--top-right: (
+  position: absolute,
+  top: 0,
+  right: 0,
+  transform: translate(70%, -50%)
+);
+
+// bottom right
+$mcs-position--bottom-right: (
+  position: absolute,
+  bottom: 0,
+  right: 0,
+  transform: translate(70%, 50%)
+);
+
+// Bottom left
+$mcs-position--bottom-left: (
+  position: absolute,
+  bottom: 0,
+  left: 0,
+  transform: translate(-50%, 50%)
+);
+
+// Positions map
+$mcs-positions: (
+  top-left: $mcs-position--top-left,
+  top-right: $mcs-position--top-right,
+  bottom-right: $mcs-position--bottom-right,
+  bottom-left: $mcs-position--bottom-left,
+);

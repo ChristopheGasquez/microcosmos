@@ -1,7 +1,10 @@
+@use "sass:map" as map;
 @use "../../styles/colors" as colors;
 @use "../../styles/variants" as variants;
 @use "../../styles/mixins" as mixins;
 @use "../../styles/functions" as functions;
+
+$_host: 'mcs-chip';
 
 :host {
   cursor: pointer;
@@ -13,7 +16,7 @@
   }
 }
 
-:host-context(.mcs-selectable--false) {
+:host-context(.#{$_host}.mcs-selectable--false) {
   cursor: auto;
 }
 
@@ -23,20 +26,20 @@
 
   // Variants
   $_variantPrefix: "mcs-variant";
-  @include mixins.generate-host-context(variants.$mcs-variant-name, "mcs-color--#{$palette}.#{$_variantPrefix}", "name") using($variant) {
-    $variant-map: map-get(variants.$mcs-variants, $variant);
-    $color--tone: map-get($variant-map, "color");
-    $bg--hover-tone: map-get($variant-map, "bg-color--hover");
+  @include mixins.generate-host-context(variants.$mcs-variant-name, $_host, "mcs-color--#{$palette}.#{$_variantPrefix}", "name") using($variant) {
+    $variant-map: map.get(variants.$mcs-variants, $variant);
+    $color--tone: map.get($variant-map, "color");
+    $bg--hover-tone: map.get($variant-map, "bg-color--hover");
 
     .mcs-icon {
       color: var(--mcs-color--#{$palette}--#{$color--tone});
     }
   }
 
-  @include mixins.generate-host-context(variants.$mcs-variant-name, "mcs-selectable--true.mcs-color--#{$palette}.#{$_variantPrefix}", "name") using($variant) {
-    $variant-map: map-get(variants.$mcs-variants, $variant);
-    $color--hover-tone: map-get($variant-map, "color--hover");
-    $bg--hover-tone: map-get($variant-map, "bg-color--hover");
+  @include mixins.generate-host-context(variants.$mcs-variant-name, $_host, "mcs-selectable--true.mcs-color--#{$palette}.#{$_variantPrefix}", "name") using($variant) {
+    $variant-map: map.get(variants.$mcs-variants, $variant);
+    $color--hover-tone: map.get($variant-map, "color--hover");
+    $bg--hover-tone: map.get($variant-map, "bg-color--hover");
     &:hover {
       .mcs-tag {
         color: var(--mcs-color--#{$palette}--#{$color--hover-tone});
@@ -48,9 +51,9 @@
       }
     }
   }
-  @include mixins.generate-host-context(variants.$mcs-variant-name, "mcs-selected--true.mcs-color--#{$palette}.#{$_variantPrefix}", "name") using($variant) {
-    $variant-map: map-get(variants.$mcs-variants, $variant);
-    $color--selected-tone: map-get($variant-map, "color--selected");
+  @include mixins.generate-host-context(variants.$mcs-variant-name, $_host, "mcs-selected--true.mcs-color--#{$palette}.#{$_variantPrefix}", "name") using($variant) {
+    $variant-map: map.get(variants.$mcs-variants, $variant);
+    $color--selected-tone: map.get($variant-map, "color--selected");
     .mcs-tag {
       color: var(--mcs-color--#{$palette}--#{$color--selected-tone});
     }

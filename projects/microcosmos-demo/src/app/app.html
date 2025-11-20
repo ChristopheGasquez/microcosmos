@@ -1,154 +1,153 @@
-<main class="main">
-  <div class="content">
-    <div class="left-side">
+<mcs-container [screen]="SCREENS.LG">
+  <button title="les titles c'est moche" (click)="colorTest = colorTest === COLORS.BRAND ? COLORS.CONTRAST : COLORS.BRAND">First focus for dev</button>
+  <mcs-icon [name]="'person-3'"
+            [color]="COLORS.NEUTRAL"
+            [size]="SIZES.XXL"></mcs-icon>
 
-      <button (click)="colorTest = colorTest === COLORS.BRAND ? COLORS.CONTRAST : COLORS.BRAND">First focus for dev</button>
+  <mcs-hello [color]="colorTest"></mcs-hello>
 
-      <mcs-icon [name]="'person-3'"
-                [color]="COLORS.NEUTRAL"
-                [size]="SIZES.XXL"></mcs-icon>
-      <mcs-hello [color]="colorTest"></mcs-hello>
+  <mcs-divider></mcs-divider>
 
-      <mcs-divider></mcs-divider>
+  <mcs-icon [name]="'edit'"></mcs-icon>
 
-      <mcs-icon [name]="'edit'"></mcs-icon>
+  <mcs-tag style="position: relative" [color]="COLORS.WARNING"
+           [variant]="VARIANTS.FILLED">
+    Voici un tag !
+    <mcs-badge [value]="1230" [max]="99"></mcs-badge>
+  </mcs-tag>
 
-      <mcs-tag [color]="COLORS.WARNING"
-               [variant]="VARIANTS.FILLED">Voici un tag !</mcs-tag>
+  <mcs-flex [gap]="GAPS.MD">
+    <mcs-tag [color]="COLORS.BRAND"
+             [variant]="VARIANTS.FILLED">Voici un tag !</mcs-tag>
+    <mcs-tag [color]="COLORS.CONTRAST"
+             [variant]="VARIANTS.OUTLINED">Voici un tag !</mcs-tag>
+    <mcs-tag [color]="COLORS.ERROR"
+             [variant]="VARIANTS.TONED">Voici un tag !</mcs-tag>
+    <mcs-tag [color]="COLORS.ERROR"
+             [variant]="VARIANTS.TONED">Voici un tag !</mcs-tag>
+    <mcs-tag [color]="COLORS.CONTRAST"
+             [variant]="VARIANTS.OUTLINED">
+      <mcs-icon [name]="'snowboarding'"
+                [proportionalToTheFont]="true"></mcs-icon>
+      <span>
+        Whouhouuuu !
+      </span>
+    </mcs-tag>
 
-<mcs-flex [gap]="GAPS.MD">
-      <mcs-tag [color]="COLORS.BRAND"
-               [variant]="VARIANTS.FILLED">Voici un tag !</mcs-tag>
-      <mcs-tag [color]="COLORS.CONTRAST"
-               [variant]="VARIANTS.OUTLINED">Voici un tag !</mcs-tag>
-      <mcs-tag [color]="COLORS.ERROR"
-               [variant]="VARIANTS.TONED">Voici un tag !</mcs-tag>
-      <mcs-tag [color]="COLORS.ERROR"
-               [variant]="VARIANTS.TONED">Voici un tag !</mcs-tag>
-      <mcs-tag [color]="COLORS.CONTRAST"
-               [variant]="VARIANTS.OUTLINED">
-        <mcs-icon [name]="'snowboarding'"
-                  [proportionalToTheFont]="true"></mcs-icon>
-        <span>
-          Whouhouuuu !
-        </span>
-      </mcs-tag>
+    <mcs-tag [color]="COLORS.BRAND"
+             [variant]="VARIANTS.OUTLINED">
+      <mcs-icon [name]="'snowboarding'"
+                [proportionalToTheFont]="true"></mcs-icon>
+      <mcs-icon [name]="'sports-bar'"
+                [proportionalToTheFont]="true"></mcs-icon>
+      <mcs-icon [name]="'sunny'"
+                [proportionalToTheFont]="true"></mcs-icon>
+      <mcs-icon [name]="'beach-access'"
+                [proportionalToTheFont]="true"></mcs-icon>
+    </mcs-tag>
+    <mcs-tag [color]="COLORS.NEUTRAL"
+             [variant]="VARIANTS.OUTLINED">
+      <mcs-icon [name]="'circle'"
+                [color]="COLORS.SUCCESS"
+                [proportionalToTheFont]="true"></mcs-icon>
+      <mcs-icon [name]="'circle'"
+                [color]="COLORS.WARNING"
+                [proportionalToTheFont]="true"></mcs-icon>
+      <mcs-icon [name]="'circle'"
+                [color]="COLORS.ERROR"
+                [proportionalToTheFont]="true"></mcs-icon>
+    </mcs-tag>
+  </mcs-flex>
 
+  <mcs-divider [gap]="GAPS.MD"
+               [thickness]="THICKNESS.LG"
+               [rounded]="true"
+               [color]="COLORS.BRAND"></mcs-divider>
+  <mcs-divider [gap]="GAPS.XS"
+               [thickness]="THICKNESS.SM"
+               [rounded]="true"
+               [color]="COLORS.CONTRAST"></mcs-divider>
 
-      <mcs-tag [color]="COLORS.BRAND"
-               [variant]="VARIANTS.OUTLINED">
-        <mcs-icon [name]="'snowboarding'"
-                  [proportionalToTheFont]="true"></mcs-icon>
-        <mcs-icon [name]="'sports-bar'"
-                  [proportionalToTheFont]="true"></mcs-icon>
-        <mcs-icon [name]="'sunny'"
-                  [proportionalToTheFont]="true"></mcs-icon>
-        <mcs-icon [name]="'beach-access'"
-                  [proportionalToTheFont]="true"></mcs-icon>
+  <mcs-divider></mcs-divider>
 
-      </mcs-tag>
+  <div style="display: flex; flex-direction: row; gap: 12px; flex-wrap: wrap; margin-top: 12px">
 
-        <mcs-tag [color]="COLORS.NEUTRAL"
-                 [variant]="VARIANTS.OUTLINED">
-        <mcs-icon [name]="'circle'"
-                  [color]="COLORS.SUCCESS"
-                  [proportionalToTheFont]="true"></mcs-icon>
-        <mcs-icon [name]="'circle'"
-                  [color]="COLORS.WARNING"
-                  [proportionalToTheFont]="true"></mcs-icon>
-        <mcs-icon [name]="'circle'"
-                  [color]="COLORS.ERROR"
-                  [proportionalToTheFont]="true"></mcs-icon>
-        </mcs-tag>
-</mcs-flex>
+    <mcs-chip [color]="COLORS.BRAND"
+              [elevated]="true"
+              [selected]="select()"
+              (click)="select.set(!select())">
+      Voici un Chip
+    </mcs-chip>
 
+    <mcs-chip [color]="COLORS.NEUTRAL"
+              [elevated]="false"
+              [variant]="VARIANTS.TONED"
+              [selected]="select()"
+              (click)="select.set(!select())">
+      Voici un Chip
+    </mcs-chip>
 
-      <mcs-divider [gap]="GAPS.MD"
-                   [thickness]="THICKNESS.LG"
-                   [rounded]="true"
-                   [color]="COLORS.BRAND"></mcs-divider>
-      <mcs-divider [gap]="GAPS.XS"
-                   [thickness]="THICKNESS.SM"
-                   [rounded]="true"
-                   [color]="COLORS.CONTRAST"></mcs-divider>
+    <mcs-chip [color]="COLORS.SUCCESS"
+              [elevated]="true"
+              [variant]="VARIANTS.FILLED"
+              [selected]="select()"
+              (click)="select.set(!select())">
+      Voici un Chip
+    </mcs-chip>
 
+    <mcs-chip [color]="COLORS.CONTRAST"
+              [elevated]="false"
+              [variant]="VARIANTS.OUTLINED"
+              [isSelectable]="false"
+              [selected]="true">
+      Voici un Chip
+    </mcs-chip>
 
-      <mcs-divider></mcs-divider>
+    <mcs-chip [color]="COLORS.ERROR"
+              [elevated]="true"
+              [variant]="VARIANTS.OUTLINED"
+              [selected]="select()"
+              (click)="select.set(!select())">
+      Voici un Chip
+    </mcs-chip>
 
+    <mcs-chip [color]="COLORS.WARNING"
+              [elevated]="false"
+              [variant]="VARIANTS.TONED"
+              [selected]="select()"
+              (click)="select.set(!select())">
+      Voici un Chip
+    </mcs-chip>
 
-      <div style="display: flex; flex-direction: row; gap: 12px; flex-wrap: wrap; margin-top: 12px">
+    <mcs-chip [color]="COLORS.INFO"
+              [elevated]="true"
+              [variant]="VARIANTS.FILLED"
+              [selected]="select()"
+              (click)="select.set(!select())">
+      Voici un Chip
+    </mcs-chip>
 
-        <mcs-chip [color]="COLORS.BRAND"
-                  [elevated]="true"
-                  [selected]="select()"
-                  (click)="select.set(!select())">
-          Voici un Chip
-        </mcs-chip>
-        <mcs-chip [color]="COLORS.NEUTRAL"
-                  [elevated]="false"
-                  [variant]="VARIANTS.TONED"
-                  [selected]="select()"
-                  (click)="select.set(!select())">
-          Voici un Chip
-        </mcs-chip>
-        <mcs-chip [color]="COLORS.SUCCESS"
-                  [elevated]="true"
-                  [variant]="VARIANTS.FILLED"
-                  [selected]="select()"
-                  (click)="select.set(!select())">
-          Voici un Chip
-        </mcs-chip>
-        <mcs-chip [color]="COLORS.CONTRAST"
-                  [elevated]="false"
-                  [variant]="VARIANTS.OUTLINED"
-                  [isSelectable]="false"
-                  [selected]="true">
-          Voici un Chip
-        </mcs-chip>
-        <mcs-chip [color]="COLORS.ERROR"
-                  [elevated]="true"
-                  [variant]="VARIANTS.OUTLINED"
-                  [selected]="select()"
-                  (click)="select.set(!select())">
-          Voici un Chip
-        </mcs-chip>
-        <mcs-chip [color]="COLORS.WARNING"
-                  [elevated]="false"
-                  [variant]="VARIANTS.TONED"
-                  [selected]="select()"
-                  (click)="select.set(!select())">
-          Voici un Chip
-        </mcs-chip>
-        <mcs-chip [color]="COLORS.INFO"
-                  [elevated]="true"
-                  [variant]="VARIANTS.FILLED"
-                  [selected]="select()"
-                  (click)="select.set(!select())">
-          Voici un Chip
-        </mcs-chip>
-        <mcs-chip [color]="COLORS.HIGHLIGHT"
-                  [elevated]="false"
-                  [variant]="VARIANTS.OUTLINED"
-                  [selected]="!select()"
-                  (click)="select.set(!select())">
-          Sélection inversé
-        </mcs-chip>
-        <mcs-chip [color]="COLORS.DISABLE"
-                  [elevated]="false"
-                  [variant]="VARIANTS.OUTLINED"
-                  [isSelectable]="false">
-          Non sélectionable
-        </mcs-chip>
-      </div>
-      <mcs-divider></mcs-divider>
+    <mcs-chip [color]="COLORS.HIGHLIGHT"
+              [elevated]="false"
+              [variant]="VARIANTS.OUTLINED"
+              [selected]="!select()"
+              (click)="select.set(!select())">
+      Sélection inversé
+    </mcs-chip>
 
-
-
-      <p>Lorem ipsum dolor <mcs-icon name="home"
-                                     [proportionalToTheFont]="true"></mcs-icon> sit amet, consectetur adipisicing elit. Ab dolorum expedita explicabo facere, fuga fugit hic id illum inventore ipsa iure labore mollitia nihil odit omnis, quae quas quibusdam sapiente.</p>
-
-    </div>
+    <mcs-chip [color]="COLORS.DISABLE"
+              [elevated]="false"
+              [variant]="VARIANTS.OUTLINED"
+              [isSelectable]="false">
+      Non sélectionable
+    </mcs-chip>
   </div>
-</main>
+  <mcs-divider></mcs-divider>
 
-<router-outlet/>
+  <p>Lorem ipsum dolor
+    <mcs-icon name="home"
+              [proportionalToTheFont]="true"></mcs-icon>
+    sit amet, consectetur adipisicing elit. Ab dolorum expedita explicabo facere, fuga fugit hic id illum inventore ipsa iure labore mollitia nihil odit omnis, quae quas quibusdam sapiente.
+  </p>
+  <router-outlet/>
+</mcs-container>

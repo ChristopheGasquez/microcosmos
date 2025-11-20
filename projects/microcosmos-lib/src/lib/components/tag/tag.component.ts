@@ -1,7 +1,6 @@
 import { Component, HostBinding, Input } from '@angular/core';
 import { COLORS, type Colors } from '../../constants';
-import { VARIANTS } from '../../constants/variants';
-import type { Variants } from '../../constants/variants';
+import { VARIANTS, type Variants } from '../../constants/variants';
 
 @Component({
   standalone: true,

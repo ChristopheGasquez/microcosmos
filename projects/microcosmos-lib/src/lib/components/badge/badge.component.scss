@@ -1,29 +1,34 @@
 @use "sass:map" as map;
 @use "../../styles/colors" as colors;
-@use "../../styles/variants" as variants;
 @use "../../styles/mixins" as mixins;
-@use "../../styles/functions" as functions;
+@use "../../styles/positions" as positions;
+@use "../../styles/variants" as variants;
 
-$_host: "mcs-tag";
+$_host: "mcs-badge";
 
 :host {
+  position: relative;
   display: inline-flex;
-  padding: .4em .8em;
-  gap: .8em;
-  user-select: none;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  min-width: 1.2em;
+  padding: 0.3em 0.4em;
+  font-size: 0.75em;
+  transition: all 0.2s ease;
 
-  // To preserve height even if the tag is empty ;)
-  &:empty::after {
-    content: "-";
-    color: transparent;
+  span {
+    display: inline-block;
+    line-height: 1;
+    padding: 0 0.3em;
   }
 }
 
 // Colors
 $_color-prefix: "mcs-color";
 @include mixins.generate-host-context(colors.$mcs-palette-name-map, $_host, $_color-prefix, "name") using($name) {
-  background-color: var(--#{$_color-prefix}--#{$name}--10);
-  color: var(--#{$_color-prefix}--#{$name});;
+  background-color: var(--#{$_color-prefix}--#{$name}--60);
+  color: var(--#{$_color-prefix}--#{$name}--10);;
 }
 
 // Elevated
@@ -31,8 +36,14 @@ $_color-prefix: "mcs-color";
   box-shadow: 0 1px 2px rgba(colors.$mcs-color--ink, .12), 0 2px 4px rgba(colors.$mcs-color--ink, .08),
 }
 
+// Position
+$_position-prefix: "mcs-position";
+@include mixins.generate-host-context(positions.$mcs-position-name, $_host, $_position-prefix, "name") using($position) {
+  @include mixins.apply-map(map.get(positions.$mcs-positions, $position))
+}
+
 // Rounded
-:host-context(.#{$_host}.mcs-rounded--true) {
+:host-context(#{$_host}.mcs-rounded--true) {
   border-radius: .4rem;
 }
 
@@ -55,10 +66,20 @@ $_color-prefix: "mcs-color";
     border-color: var(--mcs-color--#{$palette}--#{$border-tone});
     border-width: var(--mcs-size--#{$border-width});
 
-    // To preserve the height despite the border
+    @if ($variant == variants.$mcs-variant-toned) {
+      background-color: var(--mcs-color--#{$palette}--#{$bg-tone});
+      color: var(--mcs-color--#{$palette}--#{$color-tone + 20});
+    }
+    @if ($variant == variants.$mcs-variant-filled) {
+      background-color: var(--mcs-color--#{$palette}--#{$bg-tone - 20});
+      @if ($palette == 'highlight') {
+        color: var(--mcs-color--#{$palette}--#{$color-tone + 50});
+      }
+    }
+
     @if ($border-style != "none") {
-      padding-top: calc(.4em - var(--mcs-size--#{$border-width}));
-      padding-bottom: calc(.4em - var(--mcs-size--#{$border-width}));
+      padding-top: calc(.3em - var(--mcs-size--#{$border-width}));
+      padding-bottom: calc(.3em - var(--mcs-size--#{$border-width}));
     }
   }
 }

@@ -1,3 +1,4 @@
+export * from './badge/badge.component';
 export * from './chip/chip.component';
 export * from './divider/divider.component';
 export * from './hello/hello.component';

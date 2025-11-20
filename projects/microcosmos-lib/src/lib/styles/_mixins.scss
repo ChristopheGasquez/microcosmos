@@ -1,3 +1,6 @@
+@use "sass:map";
+@use "sass:list";
+
 /** Generate custom properties
  *
  * This mixin generates CSS custom properties (`--variables`) from a SCSS map.
@@ -76,15 +79,15 @@ $generate-host-context-modes: (
   "name": true,
 );
 
-@mixin generate-host-context($map, $prefix, $mode: "var", $suffix: null) {
+@mixin generate-host-context($map, $host, $prefix, $mode: "var", $suffix: null) {
   // Validate mode
-  @if not map-has-key($generate-host-context-modes, $mode) {
+  @if not map.has-key($generate-host-context-modes, $mode) {
     @error "Invalid mode `#{$mode}`. Expected one of: #{map-keys($generate-host-context-modes)}.";
   }
 
   // Iterate through map entries
   @each $name, $value in $map {
-    :host-context(.#{$prefix}--#{$name}) {
+    :host-context(.#{$host}.#{$prefix}--#{$name}) {
 
       @if $mode == "var" {
         @content(var(--#{$prefix}#{$suffix}--#{$name}));
@@ -150,8 +153,8 @@ $generate-host-context-modes: (
 @mixin generate-font-face-range($family, $unicode-ranges, $styles, $weights) {
   @each $range-name, $unicode in $unicode-ranges {
     @each $style in $styles {
-      @for $i from 1 through length($weights) {
-        $weight: nth($weights, $i);
+      @for $i from 1 through list.length($weights) {
+        $weight: list.nth($weights, $i);
         @font-face {
           font-family: $family;
           font-style: $style;
@@ -162,5 +165,12 @@ $generate-host-context-modes: (
         }
       }
     }
+  }
+}
+
+
+@mixin apply-map($map) {
+  @each $prop, $value in $map {
+    #{$prop}: #{$value};
   }
 }

@@ -2,6 +2,8 @@
 @use "../../styles/mixins" as mixins;
 @use "../../styles/sizes" as sizes;
 
+$_host: "mcs-icon";
+
 :host {
   display: inline-flex;
   align-items: center;
@@ -15,12 +17,12 @@
 }
 
 // Colors
-@include mixins.generate-host-context(colors.$mcs-color-map, "mcs-color") using($var) {
+@include mixins.generate-host-context(colors.$mcs-color-map, $_host, "mcs-color") using($var) {
   color: $var;
 }
 
 // Generic sizes
-@include mixins.generate-host-context(sizes.$mcs-size-map, "mcs-size") using($var) {
+@include mixins.generate-host-context(sizes.$mcs-size-map, $_host, "mcs-size") using($var) {
   ::ng-deep .mcs-icon svg {
     width: calc($var * 4);
     height: calc($var * 4)
@@ -28,7 +30,7 @@
 }
 
 // Proportional to the font
-:host-context(.mcs-icon.mcs-proportional--font) {
+:host-context(.#{$_host}.mcs-icon.mcs-proportional--font) {
   ::ng-deep .mcs-icon svg {
     width: 1em;
     height: 1em

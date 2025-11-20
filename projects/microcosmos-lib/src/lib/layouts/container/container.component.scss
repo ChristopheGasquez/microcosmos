@@ -1,0 +1,21 @@
+@use "../../styles/mixins" as mixins;
+@use "../../styles/screens" as screens;
+
+$_host: "mcs-container";
+
+:host {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+}
+
+// Full height
+:host-context(.mcs-full-height--true) {
+  height: 100%;
+}
+
+// Screen
+@include mixins.generate-host-context(screens.$mcs-screen-map, $_host, "mcs-screen") using($var) {
+  max-width: $var;
+}
+

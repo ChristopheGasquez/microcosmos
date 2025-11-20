@@ -3,21 +3,25 @@ import { RouterOutlet } from '@angular/router';
 import {
   ChipComponent, type Colors,
   COLORS,
+  ContainerComponent,
   DividerComponent,
   FlexComponent,
   GAPS,
   HelloComponent,
   IconComponent,
+  SCREENS,
   SIZES,
   TagComponent,
   THICKNESS,
   VARIANTS,
 } from 'microcosmos-lib';
+import { BadgeComponent } from '../../../microcosmos-lib/src/lib/components';
 
 @Component({
   standalone: true,
   selector: 'app-root',
   imports: [
+    BadgeComponent,
     ChipComponent,
     DividerComponent,
     FlexComponent,
@@ -25,6 +29,7 @@ import {
     IconComponent,
     RouterOutlet,
     TagComponent,
+    ContainerComponent
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss',
@@ -34,6 +39,7 @@ export class App {
   protected readonly GAPS = GAPS;
   protected readonly THICKNESS = THICKNESS;
   protected readonly COLORS = COLORS;
+  protected readonly SCREENS = SCREENS;
   protected readonly SIZES = SIZES;
   protected readonly VARIANTS = VARIANTS;
   colorTest: Colors = COLORS.BRAND;

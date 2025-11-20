@@ -4,6 +4,7 @@ import {
   ChipComponent, type Colors,
   COLORS,
   DividerComponent,
+  FlexComponent,
   GAPS,
   HelloComponent,
   IconComponent,
@@ -19,6 +20,7 @@ import {
   imports: [
     ChipComponent,
     DividerComponent,
+    FlexComponent,
     HelloComponent,
     IconComponent,
     RouterOutlet,

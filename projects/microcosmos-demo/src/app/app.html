@@ -16,8 +16,7 @@
       <mcs-tag [color]="COLORS.WARNING"
                [variant]="VARIANTS.FILLED">Voici un tag !</mcs-tag>
 
-      <div style="display: flex; flex-direction: row; gap: 12px; flex-wrap: wrap; margin-top: 12px">
-
+<mcs-flex [gap]="GAPS.MD">
       <mcs-tag [color]="COLORS.BRAND"
                [variant]="VARIANTS.FILLED">Voici un tag !</mcs-tag>
       <mcs-tag [color]="COLORS.CONTRAST"
@@ -35,6 +34,7 @@
         </span>
       </mcs-tag>
 
+
       <mcs-tag [color]="COLORS.BRAND"
                [variant]="VARIANTS.OUTLINED">
         <mcs-icon [name]="'snowboarding'"
@@ -47,8 +47,9 @@
                   [proportionalToTheFont]="true"></mcs-icon>
 
       </mcs-tag>
-      <mcs-tag [color]="COLORS.NEUTRAL"
-               [variant]="VARIANTS.OUTLINED">
+
+        <mcs-tag [color]="COLORS.NEUTRAL"
+                 [variant]="VARIANTS.OUTLINED">
         <mcs-icon [name]="'circle'"
                   [color]="COLORS.SUCCESS"
                   [proportionalToTheFont]="true"></mcs-icon>
@@ -58,8 +59,8 @@
         <mcs-icon [name]="'circle'"
                   [color]="COLORS.ERROR"
                   [proportionalToTheFont]="true"></mcs-icon>
-      </mcs-tag>
-      </div>
+        </mcs-tag>
+</mcs-flex>
 
 
       <mcs-divider [gap]="GAPS.MD"

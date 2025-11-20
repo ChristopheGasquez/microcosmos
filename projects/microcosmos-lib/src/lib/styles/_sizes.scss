@@ -40,6 +40,7 @@ $mcs-size-map: (
 );
 
 //// GAP ////
+$mcs-gap--zero: 0;
 $mcs-gap--xs: $mcs-size--xs;
 $mcs-gap--s: $mcs-size--s;
 $mcs-gap--sm: $mcs-size--sm;
@@ -48,6 +49,7 @@ $mcs-gap--lg: $mcs-size--lg;
 $mcs-gap--xl: $mcs-size--xl;
 
 $mcs-gap-map: (
+  zero: $mcs-gap--zero,
   xs: $mcs-gap--xs,
   s: $mcs-gap--s,
   sm: $mcs-gap--sm,

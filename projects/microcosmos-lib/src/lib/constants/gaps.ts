@@ -1,7 +1,7 @@
 import type { ValueOf } from '../utils/types';
-import { COLORS } from './colors';
 
 export const GAPS = {
+  ZERO: 'zero',
   XS: 'xs',
   S: 's',
   SM: 'sm',

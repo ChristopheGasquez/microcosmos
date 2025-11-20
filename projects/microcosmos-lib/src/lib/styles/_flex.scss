@@ -1,0 +1,35 @@
+//////////////////////////////
+////         FLEX         ////
+//////////////////////////////
+
+//// FLEX MAP ////
+
+// Align
+$mcs-flex-align-map: (
+  center: "center",
+  end: "end",
+  start: "start",
+);
+
+// Direction
+$mcs-flex-direction-map: (
+  horizontal: "row",
+  vertical: "column"
+);
+
+// Justify
+$mcs-flex-justify-map: (
+  around: "space-around",
+  between:"space-between",
+  center: "center",
+  end: "end",
+  evenly: "space-evenly",
+  start: "start"
+);
+
+// Wrap
+$mcs-flex-wrap-map: (
+  wrap: "wrap",
+  nowrap: "nowrap",
+  reverse: "wrap-reverse"
+);

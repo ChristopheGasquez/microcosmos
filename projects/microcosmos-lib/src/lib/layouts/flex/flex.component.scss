@@ -1,0 +1,38 @@
+@use "../../styles/flex" as flexs;
+@use "../../styles/mixins" as mixins;
+@use "../../styles/sizes" as sizes;
+
+:host {
+  display: flex;
+}
+
+// align
+@include mixins.generate-host-context(flexs.$mcs-flex-align-map, "mcs-flex-align") using($var) {
+  align-items: $var;
+}
+
+// Direction
+@include mixins.generate-host-context(flexs.$mcs-flex-direction-map, "mcs-flex-direction") using($var) {
+  flex-direction: $var;
+}
+
+// Full height
+:host-context(.mcs-full-height--true) {
+  height: 100%;
+}
+
+// Gaps
+@include mixins.generate-host-context(sizes.$mcs-gap-map, "mcs-gap") using($var) {
+  gap: $var;
+}
+
+// Justify
+@include mixins.generate-host-context(flexs.$mcs-flex-justify-map, "mcs-flex-justify") using($var) {
+  justify-content: $var;
+}
+
+// Wrap
+@include mixins.generate-host-context(flexs.$mcs-flex-wrap-map, "mcs-flex-wrap") using($var) {
+  flex-wrap: $var;
+}
+

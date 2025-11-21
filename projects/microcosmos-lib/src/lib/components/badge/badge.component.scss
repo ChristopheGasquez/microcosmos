@@ -44,7 +44,9 @@ $_position-prefix: "mcs-position";
 
 // Rounded
 :host-context(#{$_host}.mcs-rounded--true) {
-  border-radius: .4rem;
+  &:host {
+    border-radius: .4rem;
+  }
 }
 
 // Variants - Palettes
@@ -72,7 +74,7 @@ $_position-prefix: "mcs-position";
     }
     @if ($variant == variants.$mcs-variant-filled) {
       background-color: var(--mcs-color--#{$palette}--#{$bg-tone - 20});
-      @if ($palette == 'highlight') {
+      @if ($palette == "highlight") {
         color: var(--mcs-color--#{$palette}--#{$color-tone + 50});
       }
     }

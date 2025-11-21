@@ -11,15 +11,16 @@ const preview: Preview = {
     options: {
       storySort: {
         order: [
+          'Hello',
           'Layouts',
           'Components',
           [
-            'Hello',
             'Badges',
             'Chips', [ 'Chip' ],
             'Dividers',
             'Icons', [ 'Icon', 'Icon list' ],
             'Tags', [ 'Tag', 'Tag with icons' ],
+            'Titles'
           ],
         ],
       },

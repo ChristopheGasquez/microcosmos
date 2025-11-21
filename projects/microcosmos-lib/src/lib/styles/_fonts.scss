@@ -1,12 +1,17 @@
+@use 'sass:map' as map;
 @use "./mixins" as mixins;
 
 //////////////////////////////
 ////      FONTS LIST      ////
 //////////////////////////////
+
+// Family
 $font-family-map: (
   raleway: "Raleway",
   brand: "Raleway",
 );
+
+// Weight
 $font-weight-map: (
   thin: 100,
   extra-light: 200,
@@ -17,6 +22,27 @@ $font-weight-map: (
   bold: 700,
   extra-bold: 800,
   heavy: 900
+);
+
+//// TITLE MAP ////
+
+// Title size
+$font-title-size-map: (
+  h1: 2.25rem,
+  h2: 1.75rem,
+  h3: 1.5rem,
+  h4: 1.25rem,
+  h5:1rem,
+  h6: .75rem
+);
+
+$font-title-weight-map: (
+  h1: map.get($font-weight-map, "bold"),
+  h2: map.get($font-weight-map, "bold"),
+  h3: map.get($font-weight-map, "medium"),
+  h4: map.get($font-weight-map, "regular"),
+  h5: map.get($font-weight-map, "regular"),
+  h6: map.get($font-weight-map, "light"),
 );
 
 //////////////////////////////

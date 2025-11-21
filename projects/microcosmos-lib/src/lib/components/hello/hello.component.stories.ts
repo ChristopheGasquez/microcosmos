@@ -3,7 +3,7 @@ import { COLORS, WEIGHT } from '../../constants';
 import { HelloComponent } from './hello.component';
 
 const meta: Meta<HelloComponent> = {
-  title: 'Components/Hello',
+  title: 'Hello/Hello',
   component: HelloComponent,
   argTypes: {
     color: {

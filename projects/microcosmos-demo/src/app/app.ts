@@ -1,26 +1,31 @@
+import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {
-  ChipComponent, type Colors,
+  BadgeComponent,
+  ChipComponent, Colors,
   COLORS,
   ContainerComponent,
   DividerComponent,
   FlexComponent,
+  FLEX_DIRECTION,
   GAPS,
   HelloComponent,
   IconComponent,
   SCREENS,
   SIZES,
   TagComponent,
-  THICKNESS,
-  VARIANTS,
+  THICKNESS, Variants,
+  VARIANTS, FLEX_ALIGN, FLEX_JUSTIFY, TitleComponent, TEXT_ALIGN,
 } from 'microcosmos-lib';
-import { BadgeComponent } from '../../../microcosmos-lib/src/lib/components';
+import { ICON_NAMES, IconName } from '../../../microcosmos-lib/src/lib/components/icon/icon-names';
 
 @Component({
   standalone: true,
   selector: 'app-root',
   imports: [
+    ContainerComponent,
+    CommonModule,
     BadgeComponent,
     ChipComponent,
     DividerComponent,
@@ -29,7 +34,7 @@ import { BadgeComponent } from '../../../microcosmos-lib/src/lib/components';
     IconComponent,
     RouterOutlet,
     TagComponent,
-    ContainerComponent
+    TitleComponent
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss',
@@ -42,7 +47,28 @@ export class App {
   protected readonly SCREENS = SCREENS;
   protected readonly SIZES = SIZES;
   protected readonly VARIANTS = VARIANTS;
-  colorTest: Colors = COLORS.BRAND;
+  protected readonly FLEX_DIRECTION = FLEX_DIRECTION;
+  protected readonly FLEX_ALIGN = FLEX_ALIGN;
+  protected readonly FLEX_JUSTIFY = FLEX_JUSTIFY;
+  protected readonly TEXT_ALIGN = TEXT_ALIGN;
 
-  select = signal(false);
+  colors: Colors[] = Object.values(this.COLORS).slice(2);
+  variants: Variants[] = Object.values(this.VARIANTS);
+
+  chips: string[] = [ 'One Chip', 'Two Chips', 'Three Cheeps', 'For Chips', 'Five Chips', 'Six Chips', 'Seven Chips', 'Height Chips', 'Nine Chips' ];
+  tags: string[] = Array.from({ length: 13 }, (_, i): string => `Tag number ${i}`);
+  icons: IconName[] = ICON_NAMES.slice(567, 583);
+
+  getValueWithI<T>(map: T[], i: number): T {
+    return map[ i % map.length ];
+  }
+
+  isFirstPart(map: any[], i: number): boolean {
+    return (map.length / 2) > i;
+  }
+  isInQuarter<T>(map: T[], i: number): boolean {
+    const q = Math.floor(map.length / 4);
+    return i < q || i >= map.length - q;
+  }
+
 }

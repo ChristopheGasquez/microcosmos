@@ -4,7 +4,7 @@
 @use "../../styles/mixins" as mixins;
 @use "../../styles/functions" as functions;
 
-$_host: 'mcs-chip';
+$_host: "mcs-chip";
 
 :host {
   cursor: pointer;
@@ -17,7 +17,9 @@ $_host: 'mcs-chip';
 }
 
 :host-context(.#{$_host}.mcs-selectable--false) {
-  cursor: auto;
+  &:host {
+    cursor: auto;
+  }
 }
 
 

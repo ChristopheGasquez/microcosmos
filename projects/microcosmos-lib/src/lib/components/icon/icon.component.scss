@@ -31,8 +31,10 @@ $_host: "mcs-icon";
 
 // Proportional to the font
 :host-context(.#{$_host}.mcs-icon.mcs-proportional--font) {
-  ::ng-deep .mcs-icon svg {
-    width: 1em;
-    height: 1em
+  &:host {
+    ::ng-deep .mcs-icon svg {
+      width: 1em;
+      height: 1em
+    }
   }
 }

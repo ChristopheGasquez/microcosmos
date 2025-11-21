@@ -5,6 +5,7 @@
 @use "./screens" as screens;
 @use "./sizes" as sizes;
 @use "./variants" as variants;
+@use "./texts" as texts;
 
 //////////////////////////////
 ////  DEFINED TYPOGRAPHY  ////
@@ -43,9 +44,16 @@
   // Thickness
   @include mixins.generate-custom-properties(sizes.$mcs-thickness-map, 'mcs-thickness');
 
-  //// FONTS FAMILY ////
+  //// FONTS ////
+
+  // Family
   @include mixins.generate-custom-properties(fonts.$font-family-map, 'mcs-font');
+
+  // Weight
   @include mixins.generate-custom-properties(fonts.$font-weight-map, 'mcs-weight');
+
+  // Title
+  @include mixins.generate-custom-properties(fonts.$font-title-size-map, "mcs-title");
 
   //// VARIANTS ////
   // Useless ?? @include mixins.generate-custom-properties(variants.$mcs-variant-map, 'mcs-variant')
@@ -71,6 +79,10 @@
   // Wrap
   @include mixins.generate-custom-properties(flexs.$mcs-flex-wrap-map, 'mcs-flex-wrap');
 
+  //// TEXT ////
+
+  // Align
+  @include mixins.generate-custom-properties(texts.$mcs-text-align-map, 'mcs-text-align');
 }
 
 ///////////////////////////////

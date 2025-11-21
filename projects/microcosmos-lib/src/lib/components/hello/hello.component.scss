@@ -7,7 +7,7 @@ $_host: "mcs-hello";
 
 // Colors
 @include mixins.generate-host-context(colors.$mcs-color-map, $_host, "mcs-color") using($var) {
-  color: $var
+  color: $var;
 }
 
 // Weights
@@ -16,4 +16,3 @@ $_host: "mcs-hello";
     font-weight: $var !important;
   }
 }
-

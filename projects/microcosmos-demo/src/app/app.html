@@ -1,153 +1,104 @@
-<mcs-container [screen]="SCREENS.LG">
-  <button title="les titles c'est moche" (click)="colorTest = colorTest === COLORS.BRAND ? COLORS.CONTRAST : COLORS.BRAND">First focus for dev</button>
-  <mcs-icon [name]="'person-3'"
-            [color]="COLORS.NEUTRAL"
-            [size]="SIZES.XXL"></mcs-icon>
+<!-- MAIN CONTAINER -->
+<mcs-container [screen]="SCREENS.MD"
+               [fullHeight]="true"
+               style="padding-bottom: 24px">
 
-  <mcs-hello [color]="colorTest"></mcs-hello>
+  <!-- HELLO -->
+  <mcs-hello [color]="COLORS.BRAND"
+             weight="semi-bold"></mcs-hello><!-- HELLO -->
+
+
+  <!-- DIVIDER -->
+  <mcs-divider [color]="COLORS.BRAND"
+               [gap]="GAPS.XL"
+               [rounded]="true"
+               [thickness]="THICKNESS.LG"> {{ 'test' }}</mcs-divider><!-- DIVIDER -->
+
+  <mcs-h3>Chips</mcs-h3>
+  <!-- FLEX CONTAINER -->
+  <mcs-flex [gap]="GAPS.MD">
+
+  <!-- CHIPS LOOP -->
+    @for (chip of chips; track chip; let i = $index) {
+      <mcs-chip [color]="getValueWithI(colors, i)"
+                [variant]="getValueWithI(variants, i)"
+                [rounded]="i < (chips.length / 2)"
+                [isSelectable]="isFirstPart(chips, i)"
+                [selected]="isInQuarter(chips, i)"
+                [elevated]="isFirstPart(chips, i) && isInQuarter(chips, i)">
+        {{ chip }}
+      </mcs-chip>
+    }<!-- CHIPS LOOP -->
+  </mcs-flex><!-- FLEX CONTAINER -->
 
   <mcs-divider></mcs-divider>
 
-  <mcs-icon [name]="'edit'"></mcs-icon>
-
-  <mcs-tag style="position: relative" [color]="COLORS.WARNING"
-           [variant]="VARIANTS.FILLED">
-    Voici un tag !
-    <mcs-badge [value]="1230" [max]="99"></mcs-badge>
-  </mcs-tag>
+  <mcs-h3>Tags</mcs-h3>
 
   <mcs-flex [gap]="GAPS.MD">
-    <mcs-tag [color]="COLORS.BRAND"
-             [variant]="VARIANTS.FILLED">Voici un tag !</mcs-tag>
-    <mcs-tag [color]="COLORS.CONTRAST"
-             [variant]="VARIANTS.OUTLINED">Voici un tag !</mcs-tag>
-    <mcs-tag [color]="COLORS.ERROR"
-             [variant]="VARIANTS.TONED">Voici un tag !</mcs-tag>
-    <mcs-tag [color]="COLORS.ERROR"
-             [variant]="VARIANTS.TONED">Voici un tag !</mcs-tag>
-    <mcs-tag [color]="COLORS.CONTRAST"
-             [variant]="VARIANTS.OUTLINED">
-      <mcs-icon [name]="'snowboarding'"
-                [proportionalToTheFont]="true"></mcs-icon>
-      <span>
-        Whouhouuuu !
-      </span>
-    </mcs-tag>
-
-    <mcs-tag [color]="COLORS.BRAND"
-             [variant]="VARIANTS.OUTLINED">
-      <mcs-icon [name]="'snowboarding'"
-                [proportionalToTheFont]="true"></mcs-icon>
-      <mcs-icon [name]="'sports-bar'"
-                [proportionalToTheFont]="true"></mcs-icon>
-      <mcs-icon [name]="'sunny'"
-                [proportionalToTheFont]="true"></mcs-icon>
-      <mcs-icon [name]="'beach-access'"
-                [proportionalToTheFont]="true"></mcs-icon>
-    </mcs-tag>
-    <mcs-tag [color]="COLORS.NEUTRAL"
-             [variant]="VARIANTS.OUTLINED">
-      <mcs-icon [name]="'circle'"
-                [color]="COLORS.SUCCESS"
-                [proportionalToTheFont]="true"></mcs-icon>
-      <mcs-icon [name]="'circle'"
-                [color]="COLORS.WARNING"
-                [proportionalToTheFont]="true"></mcs-icon>
-      <mcs-icon [name]="'circle'"
-                [color]="COLORS.ERROR"
-                [proportionalToTheFont]="true"></mcs-icon>
-    </mcs-tag>
+    @for (tag of tags; track tag; let i = $index) {
+      <mcs-tag style="position: relative"
+               [color]="getValueWithI(colors, i)"
+               [variant]="getValueWithI(variants, i)"
+               [rounded]="i < (tags.length / 2)"
+               [elevated]="isFirstPart(tags, i) && isInQuarter(tags, i)">
+        {{ tag }}
+        @if (i === 4) {
+          <mcs-badge [rounded]="true"
+                     [max]="10"
+                     [value]="'16'"></mcs-badge>
+        }
+          </mcs-tag>
+    }
   </mcs-flex>
 
-  <mcs-divider [gap]="GAPS.MD"
-               [thickness]="THICKNESS.LG"
-               [rounded]="true"
-               [color]="COLORS.BRAND"></mcs-divider>
-  <mcs-divider [gap]="GAPS.XS"
-               [thickness]="THICKNESS.SM"
-               [rounded]="true"
-               [color]="COLORS.CONTRAST"></mcs-divider>
+  <mcs-h3>Icons</mcs-h3>
+
+  <mcs-flex [gap]="GAPS.MD"
+            [justify]="FLEX_JUSTIFY.BETWEEN">
+<!--Todo: wrap on card-->
+    @for (icon of icons; track icon; let i = $index) {
+
+      <mcs-flex [direction]="FLEX_DIRECTION.VERTICAL"
+                [align]="FLEX_ALIGN.CENTER"
+                [gap]="GAPS.SM"
+                style="flex-grow: 1; padding: 12px; border: 1px solid var(--mcs-color--neutral--20); border-radius: 6px">
+
+
+      <mcs-icon [name]="icon"
+                [color]="getValueWithI(colors, i)"
+                size="md"></mcs-icon>
+
+        <!-- Todo: wrap on text-ellipsis-->
+      <div style="min-width: 0; width: 100%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; text-align: center">
+        {{ icon }}
+      </div>
+    </mcs-flex>
+    }
+
+
+  </mcs-flex>
 
   <mcs-divider></mcs-divider>
+  <mcs-h3>Titles</mcs-h3>
 
-  <div style="display: flex; flex-direction: row; gap: 12px; flex-wrap: wrap; margin-top: 12px">
+  <div style="padding: 12px; border: 1px solid var(--mcs-color--neutral--20); border-radius: 6px">
 
-    <mcs-chip [color]="COLORS.BRAND"
-              [elevated]="true"
-              [selected]="select()"
-              (click)="select.set(!select())">
-      Voici un Chip
-    </mcs-chip>
-
-    <mcs-chip [color]="COLORS.NEUTRAL"
-              [elevated]="false"
-              [variant]="VARIANTS.TONED"
-              [selected]="select()"
-              (click)="select.set(!select())">
-      Voici un Chip
-    </mcs-chip>
-
-    <mcs-chip [color]="COLORS.SUCCESS"
-              [elevated]="true"
-              [variant]="VARIANTS.FILLED"
-              [selected]="select()"
-              (click)="select.set(!select())">
-      Voici un Chip
-    </mcs-chip>
-
-    <mcs-chip [color]="COLORS.CONTRAST"
-              [elevated]="false"
-              [variant]="VARIANTS.OUTLINED"
-              [isSelectable]="false"
-              [selected]="true">
-      Voici un Chip
-    </mcs-chip>
-
-    <mcs-chip [color]="COLORS.ERROR"
-              [elevated]="true"
-              [variant]="VARIANTS.OUTLINED"
-              [selected]="select()"
-              (click)="select.set(!select())">
-      Voici un Chip
-    </mcs-chip>
-
-    <mcs-chip [color]="COLORS.WARNING"
-              [elevated]="false"
-              [variant]="VARIANTS.TONED"
-              [selected]="select()"
-              (click)="select.set(!select())">
-      Voici un Chip
-    </mcs-chip>
-
-    <mcs-chip [color]="COLORS.INFO"
-              [elevated]="true"
-              [variant]="VARIANTS.FILLED"
-              [selected]="select()"
-              (click)="select.set(!select())">
-      Voici un Chip
-    </mcs-chip>
-
-    <mcs-chip [color]="COLORS.HIGHLIGHT"
-              [elevated]="false"
-              [variant]="VARIANTS.OUTLINED"
-              [selected]="!select()"
-              (click)="select.set(!select())">
-      Sélection inversé
-    </mcs-chip>
-
-    <mcs-chip [color]="COLORS.DISABLE"
-              [elevated]="false"
-              [variant]="VARIANTS.OUTLINED"
-              [isSelectable]="false">
-      Non sélectionable
-    </mcs-chip>
+    <mcs-h1 [color]="COLORS.BRAND">Title level 1 color Brand</mcs-h1>
+    <p style="margin: 0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, architecto assumenda cumque dicta distinctio, enim iure minus mollitia, nam nostrum officia qui quis temporibus! Distinctio in iusto praesentium soluta. Quaerat.</p>
+    <mcs-h2 [color]="COLORS.CONTRAST">Title level 2 color Contrast</mcs-h2>
+    <p style="margin: 0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, architecto assumenda cumque dicta distinctio, enim iure minus mollitia, nam nostrum officia qui quis temporibus!</p>
+    <mcs-h3 [align]="TEXT_ALIGN.CENTER">Title level 3 align center</mcs-h3>
+    <p style="margin: 0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, architecto assumenda cumque dicta distinctio, enim iure minus mollitia, nam nostrum officia qui quis temporibus!</p>
+    <mcs-h4 [align]="TEXT_ALIGN.CENTER">Title level 4 align center</mcs-h4>
+    <p style="margin: 0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, architecto assumenda cumque dicta distinctio, enim iure minus mollitia, nam nostrum officia qui quis temporibus!</p>
+    <mcs-h5 [align]="TEXT_ALIGN.END">Title level 5 align end</mcs-h5>
+    <p style="margin: 0">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <mcs-h6 [align]="TEXT_ALIGN.END">Title level 6 align end</mcs-h6>
+    <p style="margin: 0">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
   </div>
+
   <mcs-divider></mcs-divider>
 
-  <p>Lorem ipsum dolor
-    <mcs-icon name="home"
-              [proportionalToTheFont]="true"></mcs-icon>
-    sit amet, consectetur adipisicing elit. Ab dolorum expedita explicabo facere, fuga fugit hic id illum inventore ipsa iure labore mollitia nihil odit omnis, quae quas quibusdam sapiente.
-  </p>
-  <router-outlet/>
-</mcs-container>
+
+</mcs-container><!-- MAIN CONTAINER -->

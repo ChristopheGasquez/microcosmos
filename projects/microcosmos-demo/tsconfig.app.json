@@ -7,7 +7,7 @@
     "outDir": "../../out-tsc/app",
     "types": [],
     "paths": {
-      "microcosmos-lib": [ "../../dist/microcosmos-lib"]
+      "microcosmos-lib": [ "../microcosmos-lib/src/public-api.ts"]
     }
   },
   "include": [

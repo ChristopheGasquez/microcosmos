@@ -25,7 +25,9 @@ $_host: "mcs-divider";
 }
 
 :host-context(.#{$_host}.mcs-rounded--false) {
-  border-radius: .25em;
+  &:host {
+    border-radius: .25em;
+  }
 }
 
 // Thicknesses

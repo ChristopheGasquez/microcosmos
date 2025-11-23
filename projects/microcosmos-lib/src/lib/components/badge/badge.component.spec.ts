@@ -1,7 +1,7 @@
 import { createComponent } from '../../../testing/utils/create-component';
 import { getClasses, expectHostClasses, expectHostClassesAbsent } from '../../../testing/utils';
 import { BadgeComponent } from './badge.component';
-import { COLORS, POSITIONS, VARIANTS } from '../../constants';
+import { COLORS, CORNER_POSITIONS, VARIANTS } from '../../constants';
 
 describe('BadgeComponent', () => {
   let fixture: any;
@@ -24,7 +24,7 @@ describe('BadgeComponent', () => {
     expectHostClasses(host, [
       `mcs-color--${COLORS.ERROR}`,
       'mcs-elevated--false',
-      `mcs-position--${POSITIONS.TOP_RIGHT}`,
+      `mcs-position--${CORNER_POSITIONS.TOP_RIGHT}`,
       'mcs-rounded--true',
       `mcs-variant--${VARIANTS.FILLED}`,
     ]);
@@ -33,7 +33,7 @@ describe('BadgeComponent', () => {
   it('should update host classes when inputs change', () => {
     component.color = COLORS.BRAND;
     component.elevated = true;
-    component.position = POSITIONS.BOTTOM_LEFT;
+    component.position = CORNER_POSITIONS.BOTTOM_LEFT;
     component.rounded = false;
     component.variant = VARIANTS.OUTLINED;
     fixture.detectChanges();
@@ -41,7 +41,7 @@ describe('BadgeComponent', () => {
     expectHostClasses(host, [
       `mcs-color--${COLORS.BRAND}`,
       'mcs-elevated--true',
-      `mcs-position--${POSITIONS.BOTTOM_LEFT}`,
+      `mcs-position--${CORNER_POSITIONS.BOTTOM_LEFT}`,
       'mcs-rounded--false',
       `mcs-variant--${VARIANTS.OUTLINED}`,
     ]);
@@ -49,7 +49,7 @@ describe('BadgeComponent', () => {
     expectHostClassesAbsent(host, [
       `mcs-color--${COLORS.ERROR}`,
       'mcs-elevated--false',
-      `mcs-position--${POSITIONS.TOP_RIGHT}`,
+      `mcs-position--${CORNER_POSITIONS.TOP_RIGHT}`,
       'mcs-rounded--true',
       `mcs-variant--${VARIANTS.FILLED}`,
     ]);

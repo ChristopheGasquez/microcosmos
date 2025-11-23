@@ -3,7 +3,6 @@
 @use "../../styles/variants" as variants;
 @use "../../styles/mixins" as mixins;
 @use "../../styles/functions" as functions;
-@use "../../styles/reset-mixins" as resets;
 
 :host {
   display: inline-block;
@@ -12,7 +11,7 @@
   cursor: pointer;
 
   .mcs-button__inner {
-    @include resets.reset-button;
+    @include mixins.reset-button;
 
     display: inline-flex;
     gap: .8em;

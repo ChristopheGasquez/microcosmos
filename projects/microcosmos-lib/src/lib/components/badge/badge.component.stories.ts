@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import type { Meta, StoryObj } from '@storybook/angular';
-import { COLORS, type Colors, POSITIONS, type Positions, VARIANTS, type Variants } from '../../constants';
+import { COLORS, type Colors, CORNER_POSITIONS, type CornerPositions, VARIANTS, type Variants } from '../../constants';
 import { BadgeComponent } from './badge.component';
 import { TagComponent } from '../tag/tag.component';
 
@@ -31,7 +31,7 @@ class StoryBadgeWrapperComponent {
   @Input() public value?: string | number;
   @Input() public max?: number;
   @Input() public color: Colors = COLORS.ERROR;
-  @Input() public position: Positions = POSITIONS.TOP_RIGHT;
+  @Input() public position: CornerPositions = CORNER_POSITIONS.TOP_RIGHT;
   @Input() public variant: Variants = VARIANTS.FILLED;
   @Input() public rounded: boolean = true;
   @Input() public elevated: boolean = false;
@@ -63,7 +63,7 @@ const meta: Meta<StoryBadgeWrapperComponent> = {
     },
     position: {
       control: 'select',
-      options: Object.values(POSITIONS),
+      options: Object.values(CORNER_POSITIONS),
     },
     variant: {
       control: 'select',
@@ -81,7 +81,7 @@ const meta: Meta<StoryBadgeWrapperComponent> = {
     value: '590',
     max: 99,
     color: COLORS.ERROR,
-    position: POSITIONS.TOP_RIGHT,
+    position: CORNER_POSITIONS.TOP_RIGHT,
     variant: VARIANTS.FILLED,
     rounded: true,
     elevated: false, // <-- valeur par défaut

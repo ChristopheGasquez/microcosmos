@@ -1,0 +1,71 @@
+@use "sass:map";
+@use "sass:list";
+
+/** Generate contextual :host CSS rules
+ *
+ * This mixin generates contextual CSS rules from a SCSS map, applying styles inside a
+ * `:host(.prefix--name)` selector for each map entry.
+ *
+ * It supports two output modes:
+ *
+ * - `"var"`  → passes the corresponding CSS custom property value (`var(--...)`) to `@content`
+ * - `"name"` → passes the map key (identifier) to `@content`
+ *
+ * Use the `@content` block to inject the desired CSS using the value provided depending on the mode.
+ *
+ * @param {Map} $map - SCSS map containing key/value pairs to iterate over.
+ * @param {String} $prefix - Prefix used for generating CSS class modifiers and variable names.
+ * @param {String} $mode ["var"] - Output mode: `"var"` or `"name"`. Validated internally.
+ * @param {String | null} $suffix [optional] - Optional suffix appended to the CSS variable name.
+ *
+ * Usage (mode: var):
+ * ```
+ * @include mixins.generate-host-context(colors.$mcs-color-map, "mcs-color", "var") using ($var) {
+ *   background-color: $var;
+ *   border-color: $var;
+ * }
+ * ```
+ *
+ * Usage (mode: name):
+ * ```
+ * @include mixins.generate-host-context(states.$status-map, "mcs-status", "name") using ($name) {
+ *   content: $name;
+ * }
+ * ```
+ *
+ * Default mode (`"var"`):
+ * ```
+ * @include mixins.generate-host-context($map: colors.$map, $prefix: "mcs-color") using ($var) {
+ *   color: $var;
+ * }
+ * ```
+ *
+ * Notes:
+ * - Produces selectors of the form `:host(.prefix--name)`.
+ * - Inside the content block, the argument is either a CSS variable reference or the map key.
+ */
+@mixin generate-host-context($map, $prefix, $mode: "var", $suffix: null) {
+
+  // Allowed modes
+  $generate-host-context-modes: (
+    "var": true,
+    "name": true,
+  );
+
+  // Validate mode
+  @if not map.has-key($generate-host-context-modes, $mode) {
+    @error "Invalid mode `#{$mode}`. Expected one of: #{map-keys($generate-host-context-modes)}.";
+  }
+
+  // Iterate through map entries
+  @each $name, $value in $map {
+    :host(.#{$prefix}--#{$name}) {
+      @if $mode == "var" {
+        @content(var(--#{$prefix}#{$suffix}--#{$name}));
+
+      } @else if $mode == "name" {
+        @content($name);
+      }
+    }
+  }
+}

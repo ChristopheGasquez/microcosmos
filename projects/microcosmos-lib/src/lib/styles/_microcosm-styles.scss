@@ -1,7 +1,6 @@
 @use "./borders" as borders;
 @use "./colors" as colors;
 @use "./flex" as flexs;
-@use "./mixins" as mixins;
 @use "./screens" as screens;
 @use "./sizes" as sizes;
 @use "./utilities" as utilities;
@@ -9,9 +8,19 @@
 @use "./texts" as texts;
 
 //////////////////////////////
+////        MIXINS        ////
+//////////////////////////////
+@use "./mixins" as mixins;
+
+//////////////////////////////
 ////  DEFINED TYPOGRAPHY  ////
 //////////////////////////////
 @use "./fonts";
+
+//////////////////////////////
+////      DIRECTIVES      ////
+//////////////////////////////
+@use "./directives";
 
 ///////////////////////////////////
 //// DEFINED CUSTOM PROPERTIES ////
@@ -99,7 +108,6 @@ html, body {
   margin: 0;
   padding: 0;
 }
-
 
 ///////////////////////////////
 ////     GLOBAL STYLES     ////

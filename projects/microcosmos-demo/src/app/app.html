@@ -50,8 +50,14 @@
     <mcs-button>Second</mcs-button>
     <mcs-button>Third</mcs-button>
     <mcs-button [color]="COLORS.ERROR"
-                [variant]="VARIANTS.OUTLINED">Forth <mcs-icon [name]="'close'"
-                                                              [proportionalToTheFont]="true"></mcs-icon></mcs-button>
+                [variant]="VARIANTS.OUTLINED"
+                [mcsTooltip]="'Ne pas clicker'"
+                [mcsTooltipPosition]="CENTRAL_POSITIONS.RIGHT"
+                [mcsTooltipDelay]="0">
+
+      Forth
+      <mcs-icon [name]="'close'"
+                [proportionalToTheFont]="true"></mcs-icon></mcs-button>
   </mcs-button-group>
   <!-- BUTTONS SECTION -->
 
@@ -113,6 +119,9 @@
       <mcs-flex [direction]="FLEX_DIRECTION.VERTICAL"
                 [align]="FLEX_ALIGN.CENTER"
                 [gap]="GAPS.SM"
+                [mcsTooltip]="icon"
+                [mcsTooltipPosition]="'bottom'"
+                [mcsTooltipDelay]="100"
                 style="flex-grow: 1; padding: 12px; border: 1px solid var(--mcs-color--neutral--20); border-radius: 6px">
 
 

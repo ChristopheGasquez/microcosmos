@@ -1,0 +1,33 @@
+@use './../mixins' as mixins;
+
+.mcs-tooltip {
+  position: absolute;
+  display: inline-block;
+  pointer-events: none;
+  padding: 0.4em 0.8em;
+  font-size: 0.85rem;
+  border-radius: 0.4rem;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 9999;
+  white-space: nowrap;
+  background-color: var(--mcs-color--neutral--80);
+  color: var(--mcs-color--neutral--10);
+
+  .mcs-tooltip-arrow {
+    width: 0;
+    height: 0;
+    position: absolute;
+  }
+
+  @include mixins.tooltip-arrow(top, var(--mcs-color--neutral--80));
+  @include mixins.tooltip-arrow(bottom, var(--mcs-color--neutral--80));
+  @include mixins.tooltip-arrow(left, var(--mcs-color--neutral--80));
+  @include mixins.tooltip-arrow(right, var(--mcs-color--neutral--80));
+
+  &.show {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

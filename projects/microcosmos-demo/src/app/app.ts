@@ -3,7 +3,8 @@ import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {
   BadgeComponent,
-  ChipComponent, Colors,
+  ChipComponent,
+  Colors,
   COLORS,
   ContainerComponent,
   DividerComponent,
@@ -15,8 +16,16 @@ import {
   SCREENS,
   SIZES,
   TagComponent,
-  THICKNESS, Variants,
-  VARIANTS, FLEX_ALIGN, FLEX_JUSTIFY, TitleComponent, TEXT_ALIGN, ButtonComponent, ButtonGroupComponent,
+  THICKNESS,
+  Variants,
+  VARIANTS,
+  FLEX_ALIGN,
+  FLEX_JUSTIFY,
+  TitleComponent,
+  TEXT_ALIGN,
+  ButtonComponent,
+  ButtonGroupComponent,
+  McsTooltipDirective, CENTRAL_POSITIONS,
 } from 'microcosmos-lib';
 import { ICON_NAMES, IconName } from '../../../microcosmos-lib/src/lib/components/icon/icon-names';
 
@@ -37,6 +46,7 @@ import { ICON_NAMES, IconName } from '../../../microcosmos-lib/src/lib/component
     RouterOutlet,
     TagComponent,
     TitleComponent,
+    McsTooltipDirective,
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss',
@@ -79,4 +89,5 @@ export class App {
   }
 
   protected readonly ICON_NAMES = ICON_NAMES;
+  protected readonly CENTRAL_POSITIONS = CENTRAL_POSITIONS;
 }

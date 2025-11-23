@@ -1,5 +1,5 @@
 import { Component, HostBinding, Input } from '@angular/core';
-import { COLORS, type Colors, POSITIONS, type Positions, VARIANTS, type Variants } from '../../constants';
+import { COLORS, type Colors, CORNER_POSITIONS, type CornerPositions, VARIANTS, type Variants } from '../../constants';
 
 @Component({
   standalone: true,
@@ -24,7 +24,7 @@ export class BadgeComponent {
 
   @Input() public color: Colors = COLORS.ERROR;
   @Input() public elevated: boolean = false;
-  @Input() public position: Positions = POSITIONS.TOP_RIGHT;
+  @Input() public position: CornerPositions = CORNER_POSITIONS.TOP_RIGHT;
   @Input() public rounded: boolean = true;
   @Input() public variant: Variants = VARIANTS.FILLED;
   @Input() public value?: string | number;

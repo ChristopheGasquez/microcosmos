@@ -1,0 +1,32 @@
+/** Generate custom properties
+ *
+ * This mixin generates CSS custom properties (`--variables`) from a SCSS map.
+ * Each key/value pair in the map is transformed into a CSS variable, prefixed by the given name.
+ *
+ * Typically used inside a `:root` selector to expose design tokens
+ * (e.g. colors, spacings, typography scales...) as CSS variables.
+ *
+ * @param {Map} $map - SCSS map containing key/value pairs to convert.
+ * @param {String} $prefix - Prefix for the generated CSS variables (e.g. "mcs-color-brand").
+ *
+ * Usage:
+ * ```
+ * :root {
+ *   @include mixins.generate-custom-properties(colors.$mcs-palette-brand, 'mcs-color-brand');
+ * }
+ * ```
+ *
+ * Result (for the first item of the map):
+ * ```
+ * :root {
+ *   --mcs-color-brand--05: #f5f0ff;
+ *   --mcs-color-brand--10: #e0ccff;
+ *   ...
+ * }
+ * ```
+ */
+@mixin generate-custom-properties($map, $prefix) {
+  @each $key, $value in $map {
+    --#{$prefix}--#{$key}: #{$value};
+  }
+}

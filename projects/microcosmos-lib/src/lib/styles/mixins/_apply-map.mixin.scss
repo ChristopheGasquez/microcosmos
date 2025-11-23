@@ -1,0 +1,42 @@
+/** Apply CSS properties from a SCSS map
+ *
+ * This mixin iterates over a SCSS map and outputs each entry as a CSS
+ * declaration, where the map key becomes the property name and the map
+ * value becomes the property value.
+ *
+ * Use this when you want to generate multiple CSS properties dynamically
+ * from a configuration map.
+ *
+ * @param {Map} $map - SCSS map containing property/value pairs to emit.
+ *
+ * Usage:
+ * ```
+ * $button-styles: (
+ *   padding: 1rem,
+ *   background-color: blue,
+ *   color: white,
+ * );
+ *
+ * .button {
+ *   @include apply-map($button-styles);
+ * }
+ * ```
+ *
+ * Output:
+ * ```
+ * .button {
+ *   padding: 1rem;
+ *   background-color: blue;
+ *   color: white;
+ * }
+ * ```
+ *
+ * Notes:
+ * - Keys must be valid CSS property names.
+ * - Values are output as-is; ensure units are included where needed.
+ */
+@mixin apply-map($map) {
+  @each $prop, $value in $map {
+    #{$prop}: #{$value};
+  }
+}

@@ -1,0 +1,73 @@
+/** Tooltip arrow generator
+ *
+ * This mixin generates the CSS for the tooltip arrow based on its position relative to
+ * the tooltip container. It automatically creates a small triangle pointing toward
+ * the host element using border techniques.
+ *
+ * It expects a CSS class on the tooltip container following the pattern:
+ * `.mcs-position--<position>`, where `<position>` is `top`, `bottom`, `left` or `right`.
+ *
+ * @param {String} $pos - The position of the tooltip relative to the host element.
+ *                        Valid values: "top", "bottom", "left", "right".
+ * @param {Color}  $color - The background color of the tooltip, which will be used
+ *                          for the arrow.
+ *
+ * Usage:
+ * ```
+ * .mcs-tooltip {
+ *   @include tooltip-arrow(top, var(--mcs-color--neutral--80));
+ *   @include tooltip-arrow(bottom, var(--mcs-color--neutral--80));
+ *   @include tooltip-arrow(left, var(--mcs-color--neutral--80));
+ *   @include tooltip-arrow(right, var(--mcs-color--neutral--80));
+ * }
+ * ```
+ *
+ * Notes:
+ * - The arrow itself must be a child element with class `.mcs-tooltip-arrow`.
+ * - The mixin positions the arrow according to `$pos`:
+ *   - `top`    → arrow at the bottom of the tooltip
+ *   - `bottom` → arrow at the top
+ *   - `left`   → arrow on the right side
+ *   - `right`  → arrow on the left side
+ * - Uses `border-width` and `border-color` technique to create a triangle pointing
+ *   toward the host element.
+ * - This mixin is designed to be used within the tooltip component's CSS, which
+ *   handles absolute positioning and transitions.
+ */
+@mixin tooltip-arrow($pos, $color) {
+  &.mcs-position--#{$pos} .mcs-tooltip-arrow {
+    width: 0;
+    height: 0;
+    position: absolute;
+
+    @if $pos == top {
+      bottom: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 6px 6px 0 6px;
+      border-style: solid;
+      border-color: $color transparent transparent transparent;
+    } @else if $pos == bottom {
+      top: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 0 6px 6px 6px;
+      border-style: solid;
+      border-color: transparent transparent $color transparent;
+    } @else if $pos == left {
+      right: -6px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-width: 6px 0 6px 6px;
+      border-style: solid;
+      border-color: transparent transparent transparent $color;
+    } @else if $pos == right {
+      left: -6px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-width: 6px 6px 6px 0;
+      border-style: solid;
+      border-color: transparent $color transparent transparent;
+    }
+  }
+}

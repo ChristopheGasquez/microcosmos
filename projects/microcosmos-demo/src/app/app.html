@@ -14,6 +14,31 @@
                [rounded]="true"
                [thickness]="THICKNESS.LG"> {{ 'test' }}</mcs-divider><!-- DIVIDER -->
 
+
+  <!-- BUTTONS SECTION -->
+  <mcs-h3>Buttons</mcs-h3>
+
+  <mcs-flex [gap]="GAPS.MD">
+
+    @for (button of buttons; let i = $index; track i; let odd = $odd) {
+      <mcs-button [color]="getValueWithI(colors, i)"
+                  [variant]="getValueWithI(variants, i)"
+                  [rounded]="i < (buttons.length / 2)"
+                  [elevated]="isFirstPart(chips, i) && isInQuarter(chips, i)"
+                  [disabled]="isFirstPart(buttons, i) && isInQuarter(buttons, i) && odd"
+                  (click)="logMe('mcs button n°' + (i + 1))">
+        Mon boutton {{ i }}
+
+        @if (odd) {<mcs-icon [name]="icons[i]" [proportionalToTheFont]="true"></mcs-icon>}
+      </mcs-button>
+    }
+
+  </mcs-flex>
+  <!-- BUTTONS SECTION -->
+
+  <mcs-divider></mcs-divider>
+
+  <!-- CHIPS SECTIONS -->
   <mcs-h3>Chips</mcs-h3>
   <!-- FLEX CONTAINER -->
   <mcs-flex [gap]="GAPS.MD">
@@ -25,14 +50,17 @@
                 [rounded]="i < (chips.length / 2)"
                 [isSelectable]="isFirstPart(chips, i)"
                 [selected]="isInQuarter(chips, i)"
-                [elevated]="isFirstPart(chips, i) && isInQuarter(chips, i)">
+                [elevated]="isFirstPart(chips, i) && isInQuarter(chips, i)"
+                (click)="logMe('mcs chip n°' + (i + 1))">
         {{ chip }}
       </mcs-chip>
     }<!-- CHIPS LOOP -->
   </mcs-flex><!-- FLEX CONTAINER -->
+  <!-- CHIPS SECTIONS -->
 
   <mcs-divider></mcs-divider>
 
+  <!-- TAGS SECTION -->
   <mcs-h3>Tags</mcs-h3>
 
   <mcs-flex [gap]="GAPS.MD">
@@ -51,7 +79,11 @@
           </mcs-tag>
     }
   </mcs-flex>
+  <!-- TAGS SECTION -->
 
+  <mcs-divider></mcs-divider>
+
+  <!-- ICONS SECTION -->
   <mcs-h3>Icons</mcs-h3>
 
   <mcs-flex [gap]="GAPS.MD"
@@ -78,8 +110,11 @@
 
 
   </mcs-flex>
+  <!-- ICONS SECTION -->
 
   <mcs-divider></mcs-divider>
+
+  <!-- TITLES SECTION -->
   <mcs-h3>Titles</mcs-h3>
 
   <div style="padding: 12px; border: 1px solid var(--mcs-color--neutral--20); border-radius: 6px">
@@ -97,9 +132,8 @@
     <mcs-h6 [align]="TEXT_ALIGN.END">Title level 6 align end</mcs-h6>
     <p style="margin: 0">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
   </div>
+  <!-- TITLES SECTION -->
 
   <mcs-divider></mcs-divider>
 
-
 </mcs-container><!-- MAIN CONTAINER -->
-

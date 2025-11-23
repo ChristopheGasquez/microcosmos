@@ -48,6 +48,7 @@
       }
     }
   }
+
   @include mixins.generate-host-context(variants.$mcs-variant-name, "mcs-selected--true.mcs-color--#{$palette}.#{$_variantPrefix}", "name") using($variant) {
     $variant-map: map.get(variants.$mcs-variants, $variant);
     $color--selected-tone: map.get($variant-map, "color--selected");

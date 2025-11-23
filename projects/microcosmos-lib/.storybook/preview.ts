@@ -16,6 +16,7 @@ const preview: Preview = {
           'Components',
           [
             'Badges',
+            'Buttons',
             'Chips', [ 'Chip' ],
             'Dividers',
             'Icons', [ 'Icon', 'Icon list' ],

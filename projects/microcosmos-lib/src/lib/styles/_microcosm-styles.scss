@@ -91,6 +91,7 @@
 
 *, *::before, *::after {
   box-sizing: border-box;
+  outline-color: var(--mcs-color--focus, #2222ff);
 }
 
 html, body {

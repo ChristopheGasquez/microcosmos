@@ -1,0 +1,103 @@
+@use "sass:map" as map;
+@use "../../styles/colors" as colors;
+@use "../../styles/variants" as variants;
+@use "../../styles/mixins" as mixins;
+@use "../../styles/functions" as functions;
+@use "../../styles/reset-mixins" as resets;
+
+:host {
+  display: inline-block;
+  padding: .8em 1em;
+  user-select: none;
+  cursor: pointer;
+
+  .mcs-button__inner {
+    @include resets.reset-button;
+
+    display: inline-flex;
+    gap: .8em;
+
+  }
+
+  // To preserve height if empty
+  .mcs-button__inner:empty::after {
+    content: "-";
+    color: transparent;
+  }
+}
+
+// Disabled
+:host(.mcs-disabled--true) {
+  pointer-events: none;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+// Elevated
+:host(.mcs-elevated--true) {
+  box-shadow: 0 1px 2px rgba(colors.$mcs-color--ink, 0.12), 0 2px 4px rgba(colors.$mcs-color--ink, 0.08);
+}
+
+// Rounded
+:host(.mcs-rounded--true) {
+  border-radius: 1.6em;
+
+}
+
+// Colors
+$_color-prefix: "mcs-color";
+@include mixins.generate-host-context(colors.$mcs-palette-name-map, $_color-prefix, "name") using($name) {
+  background-color: var(--#{$_color-prefix}--#{$name}--10);
+  color: var(--#{$_color-prefix}--#{$name});
+
+}
+
+// Variants - Palettes
+@each $palette in colors.$mcs-palette-name-map {
+
+  $_variantPrefix: "mcs-variant";
+
+  @include mixins.generate-host-context(variants.$mcs-variant-name, "mcs-color--#{$palette}.#{$_variantPrefix}", "name") using($variant) {
+    $variant-map: map.get(variants.$mcs-variants, $variant);
+    $bg-tone: map.get($variant-map, "bg-color");
+    $bg--hover-tone: map.get($variant-map, "bg-color--hover");
+    $color-tone: map.get($variant-map, "color");
+    $color--hover-tone: map.get($variant-map, "color--hover");
+    $border-style: map.get($variant-map, "border-style");
+    $border-tone: map.get($variant-map, "border-color");
+    $border-width: map.get($variant-map, "border-width");
+
+    background-color: var(--mcs-color--#{$palette}--#{$bg-tone});
+    color: var(--mcs-color--#{$palette}--#{$color-tone});
+    border-style: var(--mcs-border-style--#{$border-style});
+    border-color: var(--mcs-color--#{$palette}--#{$border-tone});
+    border-width: var(--mcs-size--#{$border-width});
+
+    @if ($border-style != "none") {
+      padding-top: calc(0.8em - var(--mcs-size--#{$border-width}));
+      padding-bottom: calc(0.8em - var(--mcs-size--#{$border-width}));
+    }
+
+
+    &:not(.mcs-disabled--true):hover {
+      color: var(--mcs-color--#{$palette}--#{$color--hover-tone});
+      background-color: var(--mcs-color--#{$palette}--#{$bg--hover-tone});
+
+
+      .mcs-icon {
+        color: var(--mcs-color--#{$palette}--#{$color--hover-tone});
+      }
+    }
+
+
+    .mcs-icon {
+      color: var(--mcs-color--#{$palette}--#{$color-tone});
+    }
+  }
+}
+
+// Focus visible
+:host(:focus-within) {
+  outline-width: 2px;
+  outline-style: solid;
+}

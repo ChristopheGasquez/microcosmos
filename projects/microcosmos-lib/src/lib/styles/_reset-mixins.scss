@@ -1,0 +1,10 @@
+@mixin reset-button() {
+  all: unset;
+  display: inline;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 1;
+  text-decoration: none;
+  transition: 0.2s ease-out;
+  padding: 0;
+}

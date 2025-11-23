@@ -16,7 +16,7 @@ import {
   SIZES,
   TagComponent,
   THICKNESS, Variants,
-  VARIANTS, FLEX_ALIGN, FLEX_JUSTIFY, TitleComponent, TEXT_ALIGN,
+  VARIANTS, FLEX_ALIGN, FLEX_JUSTIFY, TitleComponent, TEXT_ALIGN, ButtonComponent,
 } from 'microcosmos-lib';
 import { ICON_NAMES, IconName } from '../../../microcosmos-lib/src/lib/components/icon/icon-names';
 
@@ -34,7 +34,8 @@ import { ICON_NAMES, IconName } from '../../../microcosmos-lib/src/lib/component
     IconComponent,
     RouterOutlet,
     TagComponent,
-    TitleComponent
+    TitleComponent,
+    ButtonComponent,
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss',
@@ -55,6 +56,7 @@ export class App {
   colors: Colors[] = Object.values(this.COLORS).slice(2);
   variants: Variants[] = Object.values(this.VARIANTS);
 
+  buttons: null[] = Array(16);
   chips: string[] = [ 'One Chip', 'Two Chips', 'Three Cheeps', 'For Chips', 'Five Chips', 'Six Chips', 'Seven Chips', 'Height Chips', 'Nine Chips' ];
   tags: string[] = Array.from({ length: 13 }, (_, i): string => `Tag number ${i}`);
   icons: IconName[] = ICON_NAMES.slice(567, 583);
@@ -69,6 +71,10 @@ export class App {
   isInQuarter<T>(map: T[], i: number): boolean {
     const q = Math.floor(map.length / 4);
     return i < q || i >= map.length - q;
+  }
+
+  logMe(me: string): void {
+    console.log('Log me =>', me);
   }
 
 }

@@ -3,7 +3,6 @@
 @use "../../styles/mixins" as mixins;
 @use "../../styles/texts" as texts;
 
-$_host: "mcs-title";
 :host {
   display: block;
   margin: 0;
@@ -18,19 +17,18 @@ $_host: "mcs-title";
 }
 
 // Align
-$_align-prefix: "mcs-text-align";
-@include mixins.generate-host-context(texts.$mcs-text-align-map, $_host, "mcs-text-align") using($var) {
+@include mixins.generate-host-context(texts.$mcs-text-align-map, "mcs-text-align") using($var) {
   text-align: $var;
 }
 
 // Colors
 $_color-prefix: "mcs-color";
-@include mixins.generate-host-context(colors.$mcs-palette-name-map, $_host, $_color-prefix, "name") using($name) {
+@include mixins.generate-host-context(colors.$mcs-palette-name-map, $_color-prefix, "name") using($name) {
   color: var(--#{$_color-prefix}--#{$name});;
 }
 
 // Ellipsis
-:host-context(.#{$_host}.mcs-ellipsis--true) {
+:host(.mcs-ellipsis--true) {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -42,15 +40,14 @@ $_color-prefix: "mcs-color";
 }
 
 // Sizes
-$_size-prefix: "mcs-title";
-@include mixins.generate-host-context(fonts.$font-title-size-map, $_host, $_size-prefix) using($var) {
+@include mixins.generate-host-context(fonts.$font-title-size-map, "mcs-title") using($var) {
   font-size: $var;
   margin-top: calc($var * .5);
   margin-bottom: calc($var * .25);
 }
 
 // Weights
-@include mixins.generate-host-context(fonts.$font-weight-map, $_host, "mcs-weight") using($var) {
+@include mixins.generate-host-context(fonts.$font-weight-map, "mcs-weight") using($var) {
   h1, h2, h3, h4, h5, h6 { // hn tag is required because the user agent use font-weight: bold !important on heading...
     font-weight: $var !important;
   }

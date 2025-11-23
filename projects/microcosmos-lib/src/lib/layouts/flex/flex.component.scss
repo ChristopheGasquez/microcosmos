@@ -2,39 +2,37 @@
 @use "../../styles/mixins" as mixins;
 @use "../../styles/sizes" as sizes;
 
-$_host: "mcs-flex";
-
 :host {
   display: flex;
 }
 
 // align
-@include mixins.generate-host-context(flexs.$mcs-flex-align-map, $_host, "mcs-flex-align") using($var) {
+@include mixins.generate-host-context(flexs.$mcs-flex-align-map, "mcs-flex-align") using($var) {
   align-items: $var;
 }
 
 // Direction
-@include mixins.generate-host-context(flexs.$mcs-flex-direction-map, $_host, "mcs-flex-direction") using($var) {
+@include mixins.generate-host-context(flexs.$mcs-flex-direction-map, "mcs-flex-direction") using($var) {
   flex-direction: $var;
 }
 
 // Full height
-:host-context(#{$_host}.mcs-full-height--true) {
+:host(.mcs-full-height--true) {
   min-height: 100%;
 }
 
 // Gaps
-@include mixins.generate-host-context(sizes.$mcs-gap-map, $_host, "mcs-gap") using($var) {
+@include mixins.generate-host-context(sizes.$mcs-gap-map, "mcs-gap") using($var) {
   gap: $var;
 }
 
 // Justify
-@include mixins.generate-host-context(flexs.$mcs-flex-justify-map, $_host, "mcs-flex-justify") using($var) {
+@include mixins.generate-host-context(flexs.$mcs-flex-justify-map, "mcs-flex-justify") using($var) {
   justify-content: $var;
 }
 
 // Wrap
-@include mixins.generate-host-context(flexs.$mcs-flex-wrap-map, $_host, "mcs-flex-wrap") using($var) {
+@include mixins.generate-host-context(flexs.$mcs-flex-wrap-map, "mcs-flex-wrap") using($var) {
   flex-wrap: $var;
 }
 

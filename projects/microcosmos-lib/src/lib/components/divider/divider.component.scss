@@ -2,36 +2,31 @@
 @use "../../styles/mixins" as mixins;
 @use "../../styles/sizes" as sizes;
 
-$_host: "mcs-divider";
-
 :host {
   display: block;
   user-select: none;
 }
 
 // Colors
-@include mixins.generate-host-context(colors.$mcs-color-map, $_host, "mcs-color") using($var) {
+@include mixins.generate-host-context(colors.$mcs-color-map, "mcs-color") using($var) {
   background-color: $var;
 }
 
 // Gaps
-@include mixins.generate-host-context(sizes.$mcs-gap-map, $_host, "mcs-gap") using($var) {
+@include mixins.generate-host-context(sizes.$mcs-gap-map, "mcs-gap") using($var) {
   margin: $var 0;
 }
 
 // Rounded
-:host-context(.#{$_host}.mcs-rounded--true) {
+:host(.mcs-rounded--true) {
   border-radius: .2rem;
 }
 
-:host-context(.#{$_host}.mcs-rounded--false) {
-  &:host {
-    border-radius: .25em;
-  }
+:host(.mcs-rounded--false) {
+  border-radius: .25em;
 }
 
 // Thicknesses
-$_thicknessPrefix: "mcs-thickness";
-@include mixins.generate-host-context(sizes.$mcs-thickness-map, $_host, "mcs-thickness") using($var) {
+@include mixins.generate-host-context(sizes.$mcs-thickness-map, "mcs-thickness") using($var) {
   height: $var;
 }

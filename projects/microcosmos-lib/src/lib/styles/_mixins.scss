@@ -1,13 +1,6 @@
 @use "sass:map";
 @use "sass:list";
 
-// Allowed modes
-$generate-host-context-modes: (
-  "var": true,
-  "name": true,
-);
-
-
 
 /** Generate custom properties
  *
@@ -42,25 +35,26 @@ $generate-host-context-modes: (
   }
 }
 
-/** Generate host-context CSS rules
+/** Generate contextual :host CSS rules
  *
- * This mixin generates contextual CSS rules from a SCSS map, targeting a specific host element.
- * It allows you to choose the output mode:
+ * This mixin generates contextual CSS rules from a SCSS map, applying styles inside a
+ * `:host(.prefix--name)` selector for each map entry.
  *
- * - `"var"`  → outputs the CSS custom property (`var(--...)`) for each map entry
- * - `"name"` → outputs the map key (identifier) for each entry
+ * It supports two output modes:
  *
- * Both modes can be used in a single, typed API while keeping full flexibility inside the content block using `@content`.
+ * - `"var"`  → passes the corresponding CSS custom property value (`var(--...)`) to `@content`
+ * - `"name"` → passes the map key (identifier) to `@content`
  *
- * @param {Map} $map - SCSS map containing key/value pairs.
- * @param {String} $host - CSS class or selector of the host element to target with `:host-context`.
- * @param {String} $prefix - Prefix used for generating CSS classes and variable names (e.g. `"mcs-color"`).
+ * Use the `@content` block to inject the desired CSS using the value provided depending on the mode.
+ *
+ * @param {Map} $map - SCSS map containing key/value pairs to iterate over.
+ * @param {String} $prefix - Prefix used for generating CSS class modifiers and variable names.
  * @param {String} $mode ["var"] - Output mode: `"var"` or `"name"`. Validated internally.
  * @param {String | null} $suffix [optional] - Optional suffix appended to the CSS variable name.
  *
  * Usage (mode: var):
  * ```
- * @include mixins.generate-host-context(colors.$mcs-color-map, "mcs-button", "mcs-color", "var") using ($var) {
+ * @include mixins.generate-host-context(colors.$mcs-color-map, "mcs-color", "var") using ($var) {
  *   background-color: $var;
  *   border-color: $var;
  * }
@@ -68,23 +62,30 @@ $generate-host-context-modes: (
  *
  * Usage (mode: name):
  * ```
- * @include mixins.generate-host-context(states.$status-map, "mcs-alert", "mcs-status", "name") using ($name) {
+ * @include mixins.generate-host-context(states.$status-map, "mcs-status", "name") using ($name) {
  *   content: $name;
  * }
  * ```
  *
  * Default mode (`"var"`):
  * ```
- * @include mixins.generate-host-context($map: colors.$map, $host: "mcs-button", $prefix: "mcs-color") using ($var) {
+ * @include mixins.generate-host-context($map: colors.$map, $prefix: "mcs-color") using ($var) {
  *   color: $var;
  * }
  * ```
  *
  * Notes:
- * - The mixin wraps the content in a `:host-context(.host.prefix--name)` selector.
- * - Use `@content` to inject the desired CSS using the generated variable or name.
+ * - Produces selectors of the form `:host(.prefix--name)`.
+ * - Inside the content block, the argument is either a CSS variable reference or the map key.
  */
-@mixin generate-host-context($map, $host, $prefix, $mode: "var", $suffix: null) {
+@mixin generate-host-context($map, $prefix, $mode: "var", $suffix: null) {
+
+  // Allowed modes
+  $generate-host-context-modes: (
+    "var": true,
+    "name": true,
+  );
+
   // Validate mode
   @if not map.has-key($generate-host-context-modes, $mode) {
     @error "Invalid mode `#{$mode}`. Expected one of: #{map-keys($generate-host-context-modes)}.";
@@ -92,15 +93,12 @@ $generate-host-context-modes: (
 
   // Iterate through map entries
   @each $name, $value in $map {
-    :host-context(.#{$host}.#{$prefix}--#{$name}) {
-      &:host {
+    :host(.#{$prefix}--#{$name}) {
+      @if $mode == "var" {
+        @content(var(--#{$prefix}#{$suffix}--#{$name}));
 
-        @if $mode == "var" {
-          @content(var(--#{$prefix}#{$suffix}--#{$name}));
-
-        } @else if $mode == "name" {
-          @content($name);
-        }
+      } @else if $mode == "name" {
+        @content($name);
       }
     }
   }
@@ -175,7 +173,43 @@ $generate-host-context-modes: (
   }
 }
 
-
+/** Apply CSS properties from a SCSS map
+ *
+ * This mixin iterates over a SCSS map and outputs each entry as a CSS
+ * declaration, where the map key becomes the property name and the map
+ * value becomes the property value.
+ *
+ * Use this when you want to generate multiple CSS properties dynamically
+ * from a configuration map.
+ *
+ * @param {Map} $map - SCSS map containing property/value pairs to emit.
+ *
+ * Usage:
+ * ```
+ * $button-styles: (
+ *   padding: 1rem,
+ *   background-color: blue,
+ *   color: white,
+ * );
+ *
+ * .button {
+ *   @include apply-map($button-styles);
+ * }
+ * ```
+ *
+ * Output:
+ * ```
+ * .button {
+ *   padding: 1rem;
+ *   background-color: blue;
+ *   color: white;
+ * }
+ * ```
+ *
+ * Notes:
+ * - Keys must be valid CSS property names.
+ * - Values are output as-is; ensure units are included where needed.
+ */
 @mixin apply-map($map) {
   @each $prop, $value in $map {
     #{$prop}: #{$value};

@@ -4,8 +4,6 @@
 @use "../../styles/mixins" as mixins;
 @use "../../styles/functions" as functions;
 
-$_host: "mcs-tag";
-
 :host {
   display: inline-flex;
   padding: .4em .8em;
@@ -22,23 +20,20 @@ $_host: "mcs-tag";
 
 // Colors
 $_color-prefix: "mcs-color";
-@include mixins.generate-host-context(colors.$mcs-palette-name-map, $_host, $_color-prefix, "name") using($name) {
+@include mixins.generate-host-context(colors.$mcs-palette-name-map, $_color-prefix, "name") using($name) {
   background-color: var(--#{$_color-prefix}--#{$name}--10);
   color: var(--#{$_color-prefix}--#{$name});;
 }
 
 // Elevated
-:host-context(.#{$_host}.mcs-elevated--true) {
-  &:host {
-    box-shadow: 0 1px 2px rgba(colors.$mcs-color--ink, .12), 0 2px 4px rgba(colors.$mcs-color--ink, .08),
-  }
+:host(.mcs-elevated--true) {
+  box-shadow: 0 1px 2px rgba(colors.$mcs-color--ink, .12), 0 2px 4px rgba(colors.$mcs-color--ink, .08),
+
 }
 
 // Rounded
-:host-context(.#{$_host}.mcs-rounded--true) {
-  &:host {
-    border-radius: .4rem;
-  }
+:host(.mcs-rounded--true) {
+  border-radius: .4rem;
 }
 
 // Variants - Palettes
@@ -46,7 +41,7 @@ $_color-prefix: "mcs-color";
 
   // Variants
   $_variantPrefix: "mcs-variant";
-  @include mixins.generate-host-context(variants.$mcs-variant-name, $_host, "mcs-color--#{$palette}.#{$_variantPrefix}", "name") using($variant) {
+  @include mixins.generate-host-context(variants.$mcs-variant-name, "mcs-color--#{$palette}.#{$_variantPrefix}", "name") using($variant) {
     $variant-map: map.get(variants.$mcs-variants, $variant);
     $bg-tone: map.get($variant-map, "bg-color");
     $color-tone: map.get($variant-map, "color");

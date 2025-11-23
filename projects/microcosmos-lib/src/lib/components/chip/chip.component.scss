@@ -4,31 +4,26 @@
 @use "../../styles/mixins" as mixins;
 @use "../../styles/functions" as functions;
 
-$_host: "mcs-chip";
-
 :host {
   cursor: pointer;
   user-select: none;
 
   .mcs-tag {
     transition: .2s ease-out;
-
   }
 }
 
-:host-context(.#{$_host}.mcs-selectable--false) {
-  &:host {
-    cursor: auto;
-  }
+:host(.mcs-selectable--false) {
+  cursor: auto;
 }
-
 
 // Palettes
 @each $palette in colors.$mcs-palette-name-map {
 
   // Variants
   $_variantPrefix: "mcs-variant";
-  @include mixins.generate-host-context(variants.$mcs-variant-name, $_host, "mcs-color--#{$palette}.#{$_variantPrefix}", "name") using($variant) {
+
+  @include mixins.generate-host-context(variants.$mcs-variant-name, "mcs-color--#{$palette}.#{$_variantPrefix}", "name") using($variant) {
     $variant-map: map.get(variants.$mcs-variants, $variant);
     $color--tone: map.get($variant-map, "color");
     $bg--hover-tone: map.get($variant-map, "bg-color--hover");
@@ -38,7 +33,7 @@ $_host: "mcs-chip";
     }
   }
 
-  @include mixins.generate-host-context(variants.$mcs-variant-name, $_host, "mcs-selectable--true.mcs-color--#{$palette}.#{$_variantPrefix}", "name") using($variant) {
+  @include mixins.generate-host-context(variants.$mcs-variant-name, "mcs-selectable--true.mcs-color--#{$palette}.#{$_variantPrefix}", "name") using($variant) {
     $variant-map: map.get(variants.$mcs-variants, $variant);
     $color--hover-tone: map.get($variant-map, "color--hover");
     $bg--hover-tone: map.get($variant-map, "bg-color--hover");
@@ -53,7 +48,7 @@ $_host: "mcs-chip";
       }
     }
   }
-  @include mixins.generate-host-context(variants.$mcs-variant-name, $_host, "mcs-selected--true.mcs-color--#{$palette}.#{$_variantPrefix}", "name") using($variant) {
+  @include mixins.generate-host-context(variants.$mcs-variant-name, "mcs-selected--true.mcs-color--#{$palette}.#{$_variantPrefix}", "name") using($variant) {
     $variant-map: map.get(variants.$mcs-variants, $variant);
     $color--selected-tone: map.get($variant-map, "color--selected");
     .mcs-tag {

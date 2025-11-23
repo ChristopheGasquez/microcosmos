@@ -4,8 +4,6 @@
 @use "../../styles/positions" as positions;
 @use "../../styles/variants" as variants;
 
-$_host: "mcs-badge";
-
 :host {
   position: relative;
   display: inline-flex;
@@ -26,35 +24,31 @@ $_host: "mcs-badge";
 
 // Colors
 $_color-prefix: "mcs-color";
-@include mixins.generate-host-context(colors.$mcs-palette-name-map, $_host, $_color-prefix, "name") using($name) {
+@include mixins.generate-host-context(colors.$mcs-palette-name-map, $_color-prefix, "name") using($name) {
   background-color: var(--#{$_color-prefix}--#{$name}--60);
   color: var(--#{$_color-prefix}--#{$name}--10);;
 }
 
 // Elevated
-:host-context(.#{$_host}.mcs-elevated--true) {
+:host(.mcs-elevated--true) {
   box-shadow: 0 1px 2px rgba(colors.$mcs-color--ink, .12), 0 2px 4px rgba(colors.$mcs-color--ink, .08),
 }
 
 // Position
-$_position-prefix: "mcs-position";
-@include mixins.generate-host-context(positions.$mcs-position-name, $_host, $_position-prefix, "name") using($position) {
+@include mixins.generate-host-context(positions.$mcs-position-name, "mcs-position", "name") using($position) {
   @include mixins.apply-map(map.get(positions.$mcs-positions, $position))
 }
 
 // Rounded
-:host-context(#{$_host}.mcs-rounded--true) {
-  &:host {
-    border-radius: .4rem;
-  }
+:host(.mcs-rounded--true) {
+  border-radius: .4rem;
 }
 
 // Variants - Palettes
 @each $palette in colors.$mcs-palette-name-map {
 
   // Variants
-  $_variantPrefix: "mcs-variant";
-  @include mixins.generate-host-context(variants.$mcs-variant-name, $_host, "mcs-color--#{$palette}.#{$_variantPrefix}", "name") using($variant) {
+  @include mixins.generate-host-context(variants.$mcs-variant-name, "mcs-color--#{$palette}.mcs-variant", "name") using($variant) {
     $variant-map: map.get(variants.$mcs-variants, $variant);
     $bg-tone: map.get($variant-map, "bg-color");
     $color-tone: map.get($variant-map, "color");

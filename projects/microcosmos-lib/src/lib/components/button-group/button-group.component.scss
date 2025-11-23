@@ -1,0 +1,14 @@
+@use "../../styles/flex" as flexs;
+@use "../../styles/mixins" as mixins;
+//@use "../../styles/sizes" as sizes;
+
+
+:host {
+  display: inline-flex;
+  gap: var(--mcs-thickness--xs);
+}
+
+// Direction
+@include mixins.generate-host-context(flexs.$mcs-flex-direction-map, "mcs-flex-direction") using($var) {
+  flex-direction: $var;
+}

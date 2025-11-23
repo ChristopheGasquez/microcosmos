@@ -96,6 +96,21 @@ $_color-prefix: "mcs-color";
   }
 }
 
+// Button Group
+:host(.mcs-button--first) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+:host(.mcs-button--middle) {
+  border-radius: 0;
+}
+
+:host(.mcs-button--last) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
 // Focus visible
 :host(:focus-within) {
   outline-width: 2px;

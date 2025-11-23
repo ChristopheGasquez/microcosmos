@@ -42,6 +42,9 @@ export class ButtonComponent {
     `.trim();
   }
 
+  constructor(public hostElement: ElementRef<HTMLElement>) {} // ✅ important
+
+
   onFocus(): void {
     this.#isFocused.set(true);
   }

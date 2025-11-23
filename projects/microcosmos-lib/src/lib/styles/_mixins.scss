@@ -215,3 +215,77 @@
     #{$prop}: #{$value};
   }
 }
+
+/** Generate utility CSS classes from rule and value maps
+ *
+ * This mixin iterates over two SCSS maps to generate utility classes following
+ * the naming convention: `mcs-{rule}--{value}`.
+ *
+ * The first map defines utility rule identifiers and the CSS properties they
+ * correspond to. The second map defines, for each rule, the permitted value
+ * identifiers and their resulting CSS values.
+ *
+ * Use this mixin when you want to automatically produce consistent,
+ * convention-based utility classes in bulk without writing each one manually.
+ *
+ * @param {Map} $rules-map  - A SCSS map where:
+ *   - the key is the utility rule name (e.g., `pos`, `z`)
+ *   - the value is the CSS property to output (e.g., `position`, `z-index`)
+ *
+ * @param {Map} $values-map - A SCSS map where:
+ *   - each key matches a rule key from `$rules-map`
+ *   - each value is a nested map of value identifiers and CSS values
+ *
+ * Class naming convention produced:
+ * ```
+ * .mcs-{rule-key}--{value-key} {
+ *   {css-prop}: {css-value};
+ * }
+ * ```
+ *
+ * Usage:
+ * ```
+ * $rules: (
+ *   pos: position,
+ *   z: z-index,
+ * );
+ *
+ * $values: (
+ *   pos: (
+ *     relative: relative,
+ *     absolute: absolute,
+ *   ),
+ *   z: (
+ *     1: 1,
+ *     10: 10,
+ *   ),
+ * );
+ *
+ * @include generate-mcs-utilities($rules, $values);
+ * ```
+ *
+ * Output:
+ * ```
+ * .mcs-pos--relative { position: relative; }
+ * .mcs-pos--absolute { position: absolute; }
+ * .mcs-z--1 { z-index: 1; }
+ * .mcs-z--10 { z-index: 10; }
+ * ```
+ *
+ * Notes:
+ * - Rule keys in `$rules-map` must exist in `$values-map`.
+ * - Values are emitted as-is; include units or CSS vars where needed.
+ * - This mixin does not namespace or scope output—import it wisely.
+ * - Ideal for generating utility-first helpers in a design system.
+ */
+@mixin generate-mcs-utilities($rules-map, $values-map) {
+  @each $rule-key, $css-prop in $rules-map {
+    $values: map.get($values-map, $rule-key);
+
+    @each $value-key, $css-value in $values {
+      .mcs-#{$rule-key}--#{$value-key} {
+        #{$css-prop}: #{$css-value};
+      }
+    }
+  }
+}

@@ -36,6 +36,23 @@
     }
 
   </mcs-flex>
+
+  <mcs-divider [gap]="GAPS.LG"></mcs-divider>
+
+  <mcs-h4 [color]="COLORS.INFO">Button groups</mcs-h4>
+
+  <mcs-button-group [variant]="VARIANTS.OUTLINED"
+                    [rounded]="true"
+                    [elevated]="false"
+                    [color]="COLORS.CONTRAST"
+                    [disabled]="false">
+    <mcs-button>First</mcs-button>
+    <mcs-button>Second</mcs-button>
+    <mcs-button>Third</mcs-button>
+    <mcs-button [color]="COLORS.ERROR"
+                [variant]="VARIANTS.OUTLINED">Forth <mcs-icon [name]="'close'"
+                                                              [proportionalToTheFont]="true"></mcs-icon></mcs-button>
+  </mcs-button-group>
   <!-- BUTTONS SECTION -->
 
   <mcs-divider></mcs-divider>
@@ -67,7 +84,7 @@
 
   <mcs-flex [gap]="GAPS.MD">
     @for (tag of tags; track tag; let i = $index) {
-      <mcs-tag style="position: relative"
+      <mcs-tag class="mcs-pos--relative"
                [color]="getValueWithI(colors, i)"
                [variant]="getValueWithI(variants, i)"
                [rounded]="i < (tags.length / 2)"
@@ -78,7 +95,7 @@
                      [max]="10"
                      [value]="'16'"></mcs-badge>
         }
-          </mcs-tag>
+      </mcs-tag>
     }
   </mcs-flex>
   <!-- TAGS SECTION -->
@@ -119,8 +136,9 @@
   <!-- TITLES SECTION -->
   <mcs-h3>Titles</mcs-h3>
 
+  <!-- Todo: Wrap on card component. -->
   <div style="padding: 12px; border: 1px solid; border-radius: 6px"
-       [style.border-block-color]="'var(--mcs-color--neutral--20)'">
+       [style.border-color]="'var(--mcs-color--neutral--20)'">
 
     <mcs-h1 [color]="COLORS.BRAND">Title level 1 color Brand</mcs-h1>
     <p style="margin: 0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, architecto assumenda cumque dicta distinctio, enim iure minus mollitia, nam nostrum officia qui quis temporibus! Distinctio in iusto praesentium soluta. Quaerat.</p>

@@ -1,5 +1,6 @@
 export * from './badge/badge.component';
 export * from './button/button.component';
+export * from './button-group/button-group.component';
 export * from './chip/chip.component';
 export * from './divider/divider.component';
 export * from './hello/hello.component';

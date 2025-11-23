@@ -1,0 +1,42 @@
+@use "./mixins" as mixins;
+
+///////////////////////////////////
+//// DEFINED UTILITIES CLASSES ////
+///////////////////////////////////
+
+//// Utilities rules ////
+$mcs-utility-rules: (
+  pos: position,
+  overflow: overflow,
+  display: display,
+  pointer: pointer-events,
+);
+
+//// Utilities values ////
+$mcs-utility-values: (
+  pos: (
+    relative: relative,
+    absolute: absolute,
+  ),
+  overflow: (
+    hidden: hidden,
+    auto: auto,
+  ),
+  display: (
+    flex: flex,
+    inline-flex: inline-flex,
+    block: block,
+    inline-block: inline-block,
+    inline: inline,
+  ),
+  pointer: (
+    none: none,
+    auto: auto,
+    cursor: cursor,
+  )
+);
+
+//// Generate utilities ////
+@include mixins.generate-mcs-utilities($mcs-utility-rules, $mcs-utility-values);
+
+

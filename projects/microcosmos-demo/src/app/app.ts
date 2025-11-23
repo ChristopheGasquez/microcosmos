@@ -16,7 +16,7 @@ import {
   SIZES,
   TagComponent,
   THICKNESS, Variants,
-  VARIANTS, FLEX_ALIGN, FLEX_JUSTIFY, TitleComponent, TEXT_ALIGN, ButtonComponent,
+  VARIANTS, FLEX_ALIGN, FLEX_JUSTIFY, TitleComponent, TEXT_ALIGN, ButtonComponent, ButtonGroupComponent,
 } from 'microcosmos-lib';
 import { ICON_NAMES, IconName } from '../../../microcosmos-lib/src/lib/components/icon/icon-names';
 
@@ -24,9 +24,11 @@ import { ICON_NAMES, IconName } from '../../../microcosmos-lib/src/lib/component
   standalone: true,
   selector: 'app-root',
   imports: [
+    BadgeComponent,
+    ButtonComponent,
+    ButtonGroupComponent,
     ContainerComponent,
     CommonModule,
-    BadgeComponent,
     ChipComponent,
     DividerComponent,
     FlexComponent,
@@ -35,7 +37,6 @@ import { ICON_NAMES, IconName } from '../../../microcosmos-lib/src/lib/component
     RouterOutlet,
     TagComponent,
     TitleComponent,
-    ButtonComponent,
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss',
@@ -77,4 +78,5 @@ export class App {
     console.log('Log me =>', me);
   }
 
+  protected readonly ICON_NAMES = ICON_NAMES;
 }

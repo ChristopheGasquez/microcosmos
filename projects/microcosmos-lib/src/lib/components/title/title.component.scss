@@ -24,16 +24,13 @@
 // Colors
 $_color-prefix: "mcs-color";
 @include mixins.generate-host-context(colors.$mcs-palette-name-map, $_color-prefix, "name") using($name) {
-  color: var(--#{$_color-prefix}--#{$name});;
+  color: var(--#{$_color-prefix}--#{$name});
 }
 
 // Ellipsis
 :host(.mcs-ellipsis--true) {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-
   h1, h2, h3, h4, h5, h6 {
+    overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
   }
@@ -48,8 +45,9 @@ $_color-prefix: "mcs-color";
 
 // Weights
 @include mixins.generate-host-context(fonts.$font-weight-map, "mcs-weight") using($var) {
-  h1, h2, h3, h4, h5, h6 { // hn tag is required because the user agent use font-weight: bold !important on heading...
-    font-weight: $var !important;
+  font-weight: $var;
+  h1, h2, h3, h4, h5, h6 { // hn tag is required because the user agent use font-weight: bold on heading...
+    font-weight: $var;
   }
 }
 

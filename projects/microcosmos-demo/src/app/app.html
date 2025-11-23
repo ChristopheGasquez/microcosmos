@@ -28,8 +28,10 @@
                   [disabled]="isFirstPart(buttons, i) && isInQuarter(buttons, i) && odd"
                   (click)="logMe('mcs button n°' + (i + 1))">
         Mon boutton {{ i }}
-
-        @if (odd) {<mcs-icon [name]="icons[i]" [proportionalToTheFont]="true"></mcs-icon>}
+        @if (odd) {
+          <mcs-icon [name]="icons[i]"
+                    [proportionalToTheFont]="true"></mcs-icon>
+        }
       </mcs-button>
     }
 
@@ -117,7 +119,8 @@
   <!-- TITLES SECTION -->
   <mcs-h3>Titles</mcs-h3>
 
-  <div style="padding: 12px; border: 1px solid var(--mcs-color--neutral--20); border-radius: 6px">
+  <div style="padding: 12px; border: 1px solid; border-radius: 6px"
+       [style.border-block-color]="'var(--mcs-color--neutral--20)'">
 
     <mcs-h1 [color]="COLORS.BRAND">Title level 1 color Brand</mcs-h1>
     <p style="margin: 0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, architecto assumenda cumque dicta distinctio, enim iure minus mollitia, nam nostrum officia qui quis temporibus! Distinctio in iusto praesentium soluta. Quaerat.</p>

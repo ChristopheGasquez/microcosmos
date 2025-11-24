@@ -1,0 +1,11 @@
+@use "../../styles/mixins" as mixins;
+@use "../../styles/sizes" as sizes;
+
+:host {
+  display: grid;
+}
+
+// Gaps
+@include mixins.generate-host-context(sizes.$mcs-gap-map, "mcs-gap") using($var) {
+  gap: $var;
+}

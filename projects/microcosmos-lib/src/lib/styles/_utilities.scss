@@ -1,27 +1,22 @@
+@use "sass:map";
 @use "./mixins" as mixins;
-
+@use "./sizes" as sizes;
 ///////////////////////////////////
 //// DEFINED UTILITIES CLASSES ////
 ///////////////////////////////////
 
 //// Utilities rules ////
 $mcs-utility-rules: (
-  pos: position,
-  overflow: overflow,
   display: display,
+  m: margin,
+  overflow: overflow,
+  p: padding,
   pointer: pointer-events,
+  pos: position,
 );
 
 //// Utilities values ////
 $mcs-utility-values: (
-  pos: (
-    relative: relative,
-    absolute: absolute,
-  ),
-  overflow: (
-    hidden: hidden,
-    auto: auto,
-  ),
   display: (
     flex: flex,
     inline-flex: inline-flex,
@@ -29,11 +24,37 @@ $mcs-utility-values: (
     inline-block: inline-block,
     inline: inline,
   ),
+  m: (
+    zero: var(--mcs-gap--zero),
+    xs: var(--mcs-gap--xs),
+    s: var(--mcs-gap--s),
+    sm: var(--mcs-gap--sm),
+    md: var(--mcs-gap--md),
+    lg: var(--mcs-gap--lg),
+    xl: var(--mcs-gap--xl),
+  ),
+  overflow: (
+    hidden: hidden,
+    auto: auto,
+  ),
+  p: (
+    zero: var(--mcs-gap--zero),
+    xs: var(--mcs-gap--xs),
+    s: var(--mcs-gap--s),
+    sm: var(--mcs-gap--sm),
+    md: var(--mcs-gap--md),
+    lg: var(--mcs-gap--lg),
+    xl: var(--mcs-gap--xl),
+  ),
   pointer: (
     none: none,
     auto: auto,
     cursor: cursor,
-  )
+  ),
+  pos: (
+    relative: relative,
+    absolute: absolute,
+  ),
 );
 
 //// Generate utilities ////

@@ -13,8 +13,8 @@ import { IconComponent } from '../icon/icon.component';
 import { TagComponent } from '../tag/tag.component';
 
 @Component({
-  standalone: true,
   selector: 'mcs-chip',
+  standalone: true,
   imports: [
     TagComponent,
     IconComponent,

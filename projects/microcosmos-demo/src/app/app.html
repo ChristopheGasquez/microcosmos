@@ -14,7 +14,6 @@
                [rounded]="true"
                [thickness]="THICKNESS.LG"> {{ 'test' }}</mcs-divider><!-- DIVIDER -->
 
-
   <!-- BUTTONS SECTION -->
   <mcs-h3>Buttons</mcs-h3>
 
@@ -122,7 +121,7 @@
                 [align]="FLEX_ALIGN.CENTER"
                 [gap]="GAPS.SM"
                 [mcsTooltip]="icon"
-                [mcsTooltipPosition]="'bottom'"
+                [mcsTooltipPosition]="CENTRAL_POSITIONS.BOTTOM"
                 [mcsTooltipDelay]="100"
                 style="flex-grow: 1; padding: 12px; border: 1px solid var(--mcs-color--neutral--20); border-radius: 6px">
 
@@ -148,7 +147,8 @@
   <mcs-h3>Titles</mcs-h3>
 
   <!-- Todo: Wrap on card component. -->
-  <div style="padding: 12px; border: 1px solid; border-radius: 6px"
+  <div class="mcs-p--xl"
+       style="border: 1px solid; border-radius: 6px"
        [style.border-color]="'var(--mcs-color--neutral--20)'">
 
     <mcs-h1 [color]="COLORS.BRAND">Title level 1 color Brand</mcs-h1>
@@ -165,6 +165,21 @@
     <p style="margin: 0">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
   </div>
   <!-- TITLES SECTION -->
+
+  <mcs-divider></mcs-divider>
+
+  <mcs-h3>Grid</mcs-h3>
+
+  <mcs-grid [cols]="4"
+            [gap]="GAPS.XL">
+    @for (col of [ 1, 1, 2, 2, 2, 1, 2, 1 ]; let i = $index; track i) {
+      <mcs-grid-item [span]="col"
+                     class="mcs-p--lg"
+                     [style.background-color]="'var(--mcs-color--brand--10)'">
+        Item n°{{ i + 1 }}: span {{ col }}
+      </mcs-grid-item>
+    }
+  </mcs-grid>
 
   <mcs-divider></mcs-divider>
 

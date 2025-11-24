@@ -25,7 +25,7 @@ import {
   TEXT_ALIGN,
   ButtonComponent,
   ButtonGroupComponent,
-  TooltipDirective, CENTRAL_POSITIONS, ClickOutsideDirective,
+  TooltipDirective, CENTRAL_POSITIONS, ClickOutsideDirective, GridComponent, GridItemComponent,
 } from 'microcosmos-lib';
 import { ICON_NAMES, IconName } from '../../../microcosmos-lib/src/lib/components/icon/icon-names';
 
@@ -48,6 +48,8 @@ import { ICON_NAMES, IconName } from '../../../microcosmos-lib/src/lib/component
     RouterOutlet,
     TagComponent,
     TitleComponent,
+    GridComponent,
+    GridItemComponent,
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss',

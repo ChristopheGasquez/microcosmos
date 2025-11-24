@@ -3,29 +3,33 @@ import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {
   BadgeComponent,
+  ButtonComponent,
+  ButtonGroupComponent, CardComponent,
+  CENTRAL_POSITIONS,
   ChipComponent,
+  ClickOutsideDirective,
   Colors,
   COLORS,
   ContainerComponent,
   DividerComponent,
-  FlexComponent,
+  FLEX_ALIGN,
   FLEX_DIRECTION,
+  FLEX_JUSTIFY,
+  FlexComponent,
   GAPS,
+  GridComponent,
+  GridItemComponent,
   HelloComponent,
-  IconComponent,
+  IconComponent, PADDINGS,
   SCREENS,
   SIZES,
   TagComponent,
+  TEXT_ALIGN,
   THICKNESS,
+  TitleComponent,
+  TooltipDirective,
   Variants,
   VARIANTS,
-  FLEX_ALIGN,
-  FLEX_JUSTIFY,
-  TitleComponent,
-  TEXT_ALIGN,
-  ButtonComponent,
-  ButtonGroupComponent,
-  TooltipDirective, CENTRAL_POSITIONS, ClickOutsideDirective, GridComponent, GridItemComponent,
 } from 'microcosmos-lib';
 import { ICON_NAMES, IconName } from '../../../microcosmos-lib/src/lib/components/icon/icon-names';
 
@@ -50,6 +54,7 @@ import { ICON_NAMES, IconName } from '../../../microcosmos-lib/src/lib/component
     TitleComponent,
     GridComponent,
     GridItemComponent,
+    CardComponent,
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss',
@@ -72,8 +77,9 @@ export class App {
 
   buttons: null[] = Array(16);
   chips: string[] = [ 'One Chip', 'Two Chips', 'Three Cheeps', 'For Chips', 'Five Chips', 'Six Chips', 'Seven Chips', 'Height Chips', 'Nine Chips' ];
-  tags: string[] = Array.from({ length: 13 }, (_, i): string => `Tag number ${i}`);
+  tags: string[] = Array.from({ length: 13 }, (_, i): string => `Tag number ${ i }`);
   icons: IconName[] = ICON_NAMES.slice(567, 583);
+  grid: number[] = [ 1, 1, 2, 2, 2, 1, 2, 1 ];
 
   getValueWithI<T>(map: T[], i: number): T {
     return map[ i % map.length ];
@@ -82,6 +88,7 @@ export class App {
   isFirstPart(map: any[], i: number): boolean {
     return (map.length / 2) > i;
   }
+
   isInQuarter<T>(map: T[], i: number): boolean {
     const q = Math.floor(map.length / 4);
     return i < q || i >= map.length - q;
@@ -93,4 +100,5 @@ export class App {
 
   protected readonly ICON_NAMES = ICON_NAMES;
   protected readonly CENTRAL_POSITIONS = CENTRAL_POSITIONS;
+  protected readonly PADDINGS = PADDINGS;
 }

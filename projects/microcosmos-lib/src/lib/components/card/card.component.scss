@@ -2,19 +2,12 @@
 @use "../../styles/colors" as colors;
 @use "../../styles/variants" as variants;
 @use "../../styles/mixins" as mixins;
+@use "../../styles/sizes" as sizes;
+//@use "../../styles/functions" as functions;
+
 
 :host {
-  display: inline-flex;
-  padding: .4em .8em;
-  gap: .8em;
-  user-select: none;
-  min-width: 1.5ch;
-
-  // To preserve height even if the tag is empty ;)
-  &:empty::after {
-    content: "-";
-    color: transparent;
-  }
+  display: inline-block;
 }
 
 // Colors
@@ -29,10 +22,31 @@ $_color-prefix: "mcs-color";
   box-shadow: 0 1px 2px var(--mcs-color--shadow--left), 0 2px 4px var(--mcs-color--shadow--right),
 }
 
+// Full Height
+:host(.mcs-full-height--true) {
+  height: 100%;
+}
+
+// Full Width
+:host(.mcs-full-width--true) {
+  width: 100%;
+}
+
+// Margin
+@include mixins.generate-host-context(sizes.$mcs-margin-map, "mcs-m") using($var) {
+  margin: $var;
+}
+
+// Padding
+@include mixins.generate-host-context(sizes.$mcs-padding-map, "mcs-p") using($var) {
+  padding: $var;
+}
+
 // Rounded
 :host(.mcs-rounded--true) {
   border-radius: .4em;
 }
+
 
 // Variants - Palettes
 @each $palette in colors.$mcs-palette-name-map {
@@ -41,22 +55,29 @@ $_color-prefix: "mcs-color";
   $_variantPrefix: "mcs-variant";
   @include mixins.generate-host-context(variants.$mcs-variant-name, "mcs-color--#{$palette}.#{$_variantPrefix}", "name") using($variant) {
     $variant-map: map.get(variants.$mcs-variants, $variant);
-    $bg-tone: map.get($variant-map, "bg-color");
-    $color-tone: map.get($variant-map, "color");
+    $bg-tone: map.get($variant-map, "card--bg-color");
     $border-style: map.get($variant-map, "border-style");
-    $border-tone: map.get($variant-map, "border-color");
+    $border-tone: map.get($variant-map, "card--border-color");
     $border-width: map.get($variant-map, "border-width");
 
     background-color: var(--mcs-color--#{$palette}--#{$bg-tone});
-    color: var(--mcs-color--#{$palette}--#{$color-tone});
     border-style: var(--mcs-border-style--#{$border-style});
     border-color: var(--mcs-color--#{$palette}--#{$border-tone});
     border-width: var(--mcs-size--#{$border-width});
 
-    // To preserve the height despite the border
-    @if ($border-style != "none") {
-      padding-top: calc(.4em - var(--mcs-size--#{$border-width}));
+    // Need update to match with variable padding... To preserve the height despite the border
+    /*@if ($border-style != "none") {
+      padding-top: calc(inherit - var(--mcs-size--#{$border-width}));
       padding-bottom: calc(.4em - var(--mcs-size--#{$border-width}));
+    }*/
+  }
+
+  @include mixins.generate-host-context(variants.$mcs-variant-name, "mcs-selectable--true.mcs-color--#{$palette}.#{$_variantPrefix}", "name") using($variant) {
+    $variant-map: map.get(variants.$mcs-variants, $variant);
+    $bg--hover-tone: map.get($variant-map, "card--bg-color--hover");
+    &:hover {
+      background-color: var(--mcs-color--#{$palette}--#{$bg--hover-tone});
     }
   }
 }
+

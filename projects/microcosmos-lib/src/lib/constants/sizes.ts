@@ -1,7 +1,7 @@
 import type { ValueOf } from '../utils/types';
-import { COLORS } from './colors';
 
 export const SIZES = {
+ ZERO:   'zero',
  XXXS:   'xxxs',
  XXS: 'xxs',
  XS: 'xs',

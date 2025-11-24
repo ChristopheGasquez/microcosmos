@@ -13,25 +13,15 @@ $_ridge: ridge;
 $_inset: inset;
 $_outset: outset;
 
-//// Default border styles ////
-$mcs-border-style--none: $_none;
-$mcs-border-style--solid: $_solid;
-$mcs-border-style--dotted: $_dotted;
-$mcs-border-style--dashed: $_dashed;
-$mcs-border-style--double: $_double;
-$mcs-border-style--groove: $_groove;
-$mcs-border-style--ridge: $_ridge;
-$mcs-border-style--inset: $_inset;
-$mcs-border-style--outset: $_outset;
-
+//// Border style ////
 $mcs-border-style-map: (
-  none: $mcs-border-style--none,
-  solid: $mcs-border-style--solid,
-  dotted: $mcs-border-style--dotted,
-  dashed: $mcs-border-style--dashed,
-  double: $mcs-border-style--double,
-  groove: $mcs-border-style--groove,
-  ridge: $mcs-border-style--ridge,
-  inset: $mcs-border-style--inset,
-  outset: $mcs-border-style--outset,
+  none:$_none,
+  solid:$_solid,
+  dotted:$_dotted,
+  dashed:$_dashed,
+  double:$_double,
+  groove:$_groove,
+  ridge:$_ridge,
+  inset:$_inset,
+  outset:$_outset,
 )

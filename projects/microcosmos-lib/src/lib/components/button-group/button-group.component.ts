@@ -23,7 +23,7 @@ import { ButtonComponent } from '../button/button.component';
 })
 export class ButtonGroupComponent implements AfterContentInit {
   @Input() color?: Colors;
-  @Input() disabled?: boolean;
+  @Input() disabled: boolean = false;
   @Input() elevated: boolean = false;
   @Input() rounded: boolean = true;
   @Input() variant?: Variants;

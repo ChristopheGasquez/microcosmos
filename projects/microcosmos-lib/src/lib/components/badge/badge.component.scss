@@ -31,7 +31,7 @@ $_color-prefix: "mcs-color";
 
 // Elevated
 :host(.mcs-elevated--true) {
-  box-shadow: 0 1px 2px rgba(colors.$mcs-color--ink, .12), 0 2px 4px rgba(colors.$mcs-color--ink, .08),
+  box-shadow: 0 1px 2px var(--mcs-color--shadow--left), 0 2px 4px var(--mcs-color--shadow--right),
 }
 
 // Position

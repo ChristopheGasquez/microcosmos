@@ -32,6 +32,9 @@
   // Base colors
   @include mixins.generate-custom-properties(colors.$mcs-color-map, 'mcs-color');
 
+  // Shadow
+  @include mixins.generate-custom-properties(colors.$mcs-color-shadow, 'mcs-color--shadow');
+
   // Palettes
   @include mixins.generate-custom-properties(colors.$mcs-palette-brand, 'mcs-color--brand');
   @include mixins.generate-custom-properties(colors.$mcs-palette-contrast, 'mcs-color--contrast');
@@ -50,6 +53,10 @@
 
   // Gaps
   @include mixins.generate-custom-properties(sizes.$mcs-gap-map, 'mcs-gap');
+
+  // Padding & Margin
+  @include mixins.generate-custom-properties(sizes.$mcs-padding-map, 'mcs-p');
+  @include mixins.generate-custom-properties(sizes.$mcs-margin-map, 'mcs-m');
 
   // Thickness
   @include mixins.generate-custom-properties(sizes.$mcs-thickness-map, 'mcs-thickness');

@@ -114,27 +114,26 @@
 
   <mcs-flex [gap]="GAPS.MD"
             [justify]="FLEX_JUSTIFY.BETWEEN">
-<!--Todo: wrap on card-->
+
     @for (icon of icons; track icon; let i = $index) {
+      <mcs-card [padding]="PADDINGS.MD"
+                [style]="{flexGrow: 1}">
+        <mcs-flex [direction]="FLEX_DIRECTION.VERTICAL"
+                  [align]="FLEX_ALIGN.CENTER"
+                  [gap]="GAPS.SM"
+                  [mcsTooltip]="icon"
+                  [mcsTooltipPosition]="CENTRAL_POSITIONS.BOTTOM"
+                  [mcsTooltipDelay]="100">
+        <mcs-icon [name]="icon"
+                  [color]="getValueWithI(colors, i)"
+                  size="md"></mcs-icon>
 
-      <mcs-flex [direction]="FLEX_DIRECTION.VERTICAL"
-                [align]="FLEX_ALIGN.CENTER"
-                [gap]="GAPS.SM"
-                [mcsTooltip]="icon"
-                [mcsTooltipPosition]="CENTRAL_POSITIONS.BOTTOM"
-                [mcsTooltipDelay]="100"
-                style="flex-grow: 1; padding: 12px; border: 1px solid var(--mcs-color--neutral--20); border-radius: 6px">
-
-
-      <mcs-icon [name]="icon"
-                [color]="getValueWithI(colors, i)"
-                size="md"></mcs-icon>
-
-        <!-- Todo: wrap on text-ellipsis-->
-      <div style="min-width: 0; width: 100%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; text-align: center">
-        {{ icon }}
-      </div>
-    </mcs-flex>
+          <!-- Todo: wrap on text-ellipsis-->
+          <div style="min-width: 0; width: 100%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; text-align: center">
+          {{ icon }}
+          </div>
+        </mcs-flex>
+      </mcs-card>
     }
 
 
@@ -146,24 +145,20 @@
   <!-- TITLES SECTION -->
   <mcs-h3>Titles</mcs-h3>
 
-  <!-- Todo: Wrap on card component. -->
-  <div class="mcs-p--xl"
-       style="border: 1px solid; border-radius: 6px"
-       [style.border-color]="'var(--mcs-color--neutral--20)'">
-
+  <mcs-card [fullWidth]="true">
     <mcs-h1 [color]="COLORS.BRAND">Title level 1 color Brand</mcs-h1>
-    <p style="margin: 0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, architecto assumenda cumque dicta distinctio, enim iure minus mollitia, nam nostrum officia qui quis temporibus! Distinctio in iusto praesentium soluta. Quaerat.</p>
+    <p class="mcs-m--zero">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, architecto assumenda cumque dicta distinctio, enim iure minus mollitia, nam nostrum officia qui quis temporibus! Distinctio in iusto praesentium soluta. Quaerat.</p>
     <mcs-h2 [color]="COLORS.CONTRAST">Title level 2 color Contrast</mcs-h2>
-    <p style="margin: 0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, architecto assumenda cumque dicta distinctio, enim iure minus mollitia, nam nostrum officia qui quis temporibus!</p>
+    <p class="mcs-m--zero">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, architecto assumenda cumque dicta distinctio, enim iure minus mollitia, nam nostrum officia qui quis temporibus!</p>
     <mcs-h3 [align]="TEXT_ALIGN.CENTER">Title level 3 align center</mcs-h3>
-    <p style="margin: 0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, architecto assumenda cumque dicta distinctio, enim iure minus mollitia, nam nostrum officia qui quis temporibus!</p>
+    <p class="mcs-m--zero">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, architecto assumenda cumque dicta distinctio, enim iure minus mollitia, nam nostrum officia qui quis temporibus!</p>
     <mcs-h4 [align]="TEXT_ALIGN.CENTER">Title level 4 align center</mcs-h4>
-    <p style="margin: 0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, architecto assumenda cumque dicta distinctio, enim iure minus mollitia, nam nostrum officia qui quis temporibus!</p>
+    <p class="mcs-m--zero">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, architecto assumenda cumque dicta distinctio, enim iure minus mollitia, nam nostrum officia qui quis temporibus!</p>
     <mcs-h5 [align]="TEXT_ALIGN.END">Title level 5 align end</mcs-h5>
-    <p style="margin: 0">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <p class="mcs-m--zero">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
     <mcs-h6 [align]="TEXT_ALIGN.END">Title level 6 align end</mcs-h6>
-    <p style="margin: 0">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-  </div>
+    <p class="mcs-m--zero">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+  </mcs-card>
   <!-- TITLES SECTION -->
 
   <mcs-divider></mcs-divider>
@@ -172,11 +167,14 @@
 
   <mcs-grid [cols]="4"
             [gap]="GAPS.XL">
-    @for (col of [ 1, 1, 2, 2, 2, 1, 2, 1 ]; let i = $index; track i) {
-      <mcs-grid-item [span]="col"
-                     class="mcs-p--lg"
-                     [style.background-color]="'var(--mcs-color--brand--10)'">
-        Item n°{{ i + 1 }}: span {{ col }}
+    @for (col of grid; let i = $index; track i) {
+      <mcs-grid-item [span]="col">
+        <mcs-card [variant]="VARIANTS.TONED"
+                  [color]="COLORS.BRAND"
+                  [rounded]="false"
+                  [fullWidth]="true">
+          Item n°{{ i + 1 }}: span {{ col }}
+        </mcs-card>
       </mcs-grid-item>
     }
   </mcs-grid>
@@ -184,3 +182,4 @@
   <mcs-divider></mcs-divider>
 
 </mcs-container><!-- MAIN CONTAINER -->
+

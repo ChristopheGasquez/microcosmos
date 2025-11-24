@@ -3,6 +3,7 @@
 ///////////////////////////////
 
 //// Private values ////
+$_zero: 0;
 $_xxxs: 1px;
 $_xxs: 2px;
 $_xs: 4px;
@@ -14,59 +15,39 @@ $_xl: 24px;
 $_xxl: 32px;
 $_xxxl: 56px;
 
-//// Default sizes ////
-$mcs-size--xxxs: $_xxxs;
-$mcs-size--xxs: $_xxs;
-$mcs-size--xs: $_xs;
-$mcs-size--s: $_s;
-$mcs-size--sm: $_sm;
-$mcs-size--md: $_md;
-$mcs-size--lg: $_lg;
-$mcs-size--xl: $_xl;
-$mcs-size--xxl: $_xxl;
-$mcs-size--xxxl: $_xxxl;
-
 $mcs-size-map: (
-  xxxs: $mcs-size--xxxs,
-  xxs: $mcs-size--xxs,
-  xs: $mcs-size--xs,
-  s: $mcs-size--s,
-  sm: $mcs-size--sm,
-  md: $mcs-size--md,
-  lg: $mcs-size--lg,
-  xl: $mcs-size--xl,
-  xxl: $mcs-size--xxl,
-  xxxl: $mcs-size--xxxl,
+  zero: $_zero,
+  xxxs: $_xxxs,
+  xxs: $_xxs,
+  xs: $_xs,
+  s: $_s,
+  sm: $_sm,
+  md: $_md,
+  lg: $_lg,
+  xl: $_xl,
+  xxl: $_xxl,
+  xxxl: $_xxxl,
 );
 
-//// GAP ////
-$mcs-gap--zero: 0;
-$mcs-gap--xs: $mcs-size--xs;
-$mcs-gap--s: $mcs-size--s;
-$mcs-gap--sm: $mcs-size--sm;
-$mcs-gap--md: $mcs-size--md;
-$mcs-gap--lg: $mcs-size--lg;
-$mcs-gap--xl: $mcs-size--xl;
+//// PADDING & MARGIN ////
+$mcs-padding-map: $mcs-size-map;
+$mcs-margin-map: $mcs-size-map;
 
+//// GAP ////
 $mcs-gap-map: (
-  zero: $mcs-gap--zero,
-  xs: $mcs-gap--xs,
-  s: $mcs-gap--s,
-  sm: $mcs-gap--sm,
-  md: $mcs-gap--md,
-  lg: $mcs-gap--lg,
-  xl: $mcs-gap--xl,
+  zero: $_zero,
+  xs: $_xs,
+  s: $_s,
+  sm: $_sm,
+  md: $_md,
+  lg: $_lg,
+  xl: $_xl,
 );
 
 //// Thickness ////
-$mcs-thickness--xs: $mcs-size--xxxs;
-$mcs-thickness--sm: $mcs-size--xxs;
-$mcs-thickness--md: $mcs-size--xs;
-$mcs-thickness--lg: $mcs-size--s;
-
 $mcs-thickness-map: (
-  xs: $mcs-thickness--xs,
-  sm: $mcs-thickness--sm,
-  md: $mcs-thickness--md,
-  lg: $mcs-thickness--lg,
+  xs: $_xxxs,
+  sm: $_xxs,
+  md: $_xs,
+  lg: $_s,
 );

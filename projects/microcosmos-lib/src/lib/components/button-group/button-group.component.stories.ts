@@ -60,6 +60,7 @@ const meta: Meta<StoryButtonGroupWrapperComponent> = {
     },
     disabled: {
       control: 'boolean',
+      defaultValue: { summary: false },
     },
   },
   args: {
@@ -67,7 +68,7 @@ const meta: Meta<StoryButtonGroupWrapperComponent> = {
     variant: undefined,
     rounded: true,
     elevated: false,
-    disabled: undefined,
+    disabled: false,
   },
 } as Meta<StoryButtonGroupWrapperComponent>;
 

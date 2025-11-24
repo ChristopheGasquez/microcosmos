@@ -25,12 +25,15 @@ $mcs-variant-name: (
 
 // Toned
 $mcs-variant--toned: (
+  card--bg-color: 10,
+  card--bg-color--hover: 20,
+  card--border-color: none,
   bg-color: 10,
   bg-color--hover: 20,
   color: 50,
   color--hover: 70,
   color--selected: 80,
-  border-style: borders.$mcs-border-style--none,
+  border-style: none,
   border-color: none,
   border-width: 0,
   box-shadow: none,
@@ -38,12 +41,15 @@ $mcs-variant--toned: (
 
 // Filed
 $mcs-variant--filled: (
+  card--bg-color: 50,
+  card--bg-color--hover: 30,
+  card--border-color: none,
   bg-color: 70,
   bg-color--hover: 50,
   color: 20,
   color--hover: 10,
   color--selected: 30,
-  border-style: borders.$mcs-border-style--none,
+  border-style: none,
   border-color: none,
   border-width: 0,
   box-shadow: none,
@@ -51,12 +57,15 @@ $mcs-variant--filled: (
 
 // Outlined
 $mcs-variant--outlined: (
+  card--bg-color: 05,
+  card--bg-color--hover: 10,
+  card--border-color: 30,
   bg-color: 05,
   bg-color--hover: 10,
   color: 50,
   color--hover: 60,
   color--selected: 70,
-  border-style: borders.$mcs-border-style--solid,
+  border-style: solid,
   border-color: 50,
   border-width: "xxxs",
   box-shadow: none,
@@ -68,4 +77,4 @@ $mcs-variants: (
   filled: $mcs-variant--filled,
   toned: $mcs-variant--toned,
   outlined: $mcs-variant--outlined
-)
+);

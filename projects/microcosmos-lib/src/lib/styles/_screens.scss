@@ -12,20 +12,12 @@ $_xxl: 1536px;
 $_full: 100%;
 
 //// Default screens ////
-$mcs-screen--xs: $_xs;
-$mcs-screen--sm: $_sm;
-$mcs-screen--md: $_md;
-$mcs-screen--lg: $_lg;
-$mcs-screen--xl: $_xl;
-$mcs-screen--xxl: $_xxl;
-$mcs-screen--full: $_full;
-
 $mcs-screen-map: (
-  xs: $mcs-screen--xs,
-  sm: $mcs-screen--sm,
-  md: $mcs-screen--md,
-  lg: $mcs-screen--lg,
-  xl: $mcs-screen--xl,
-  xxl: $mcs-screen--xxl,
-  full: $mcs-screen--full,
+  xs: $_xs,
+  sm: $_sm,
+  md: $_md,
+  lg: $_lg,
+  xl: $_xl,
+  xxl: $_xxl,
+  full: $_full,
 );

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { CENTRAL_POSITIONS, CentralPositions } from '../../constants';
-import { McsTooltipDirective } from './tooltip.directive';
+import { TooltipDirective } from './tooltip.directive';
 
 @Component({
   template: `
@@ -10,7 +10,7 @@ import { McsTooltipDirective } from './tooltip.directive';
             [mcsTooltipPosition]="position"
             [mcsTooltipDelay]="delay">Hover me</button>`,
   standalone: true,
-  imports: [ McsTooltipDirective ],
+  imports: [ TooltipDirective ],
 })
 class TestHostComponent {
   content: string = 'Tooltip text';
@@ -22,7 +22,7 @@ describe('McsTooltipDirective', () => {
   let fixture: ComponentFixture<TestHostComponent>;
   let hostComponent: TestHostComponent;
   let buttonEl: HTMLButtonElement;
-  let directiveInstance: McsTooltipDirective;
+  let directiveInstance: TooltipDirective;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -33,8 +33,8 @@ describe('McsTooltipDirective', () => {
     hostComponent = fixture.componentInstance;
     fixture.detectChanges();
 
-    const debugEl = fixture.debugElement.query(By.directive(McsTooltipDirective));
-    directiveInstance = debugEl.injector.get(McsTooltipDirective);
+    const debugEl = fixture.debugElement.query(By.directive(TooltipDirective));
+    directiveInstance = debugEl.injector.get(TooltipDirective);
     buttonEl = debugEl.nativeElement;
   });
 

@@ -46,7 +46,9 @@
                     [elevated]="false"
                     [color]="COLORS.CONTRAST"
                     [disabled]="false">
-    <mcs-button>First</mcs-button>
+    <mcs-button (mcsClickOutside)="logMe('Out of First button')"
+                [mcsClickOutsideDisabled]="false"
+                (click)="logMe('First button')">First</mcs-button>
     <mcs-button>Second</mcs-button>
     <mcs-button>Third</mcs-button>
     <mcs-button [color]="COLORS.ERROR"

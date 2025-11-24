@@ -5,7 +5,7 @@ import { CENTRAL_POSITIONS, type CentralPositions } from '../../constants';
   selector: '[mcsTooltip]',
   standalone: true,
 })
-export class McsTooltipDirective implements OnDestroy {
+export class TooltipDirective implements OnDestroy {
   private static tooltipIdCounter: number = 0;
 
   #el: ElementRef = inject(ElementRef);
@@ -20,8 +20,8 @@ export class McsTooltipDirective implements OnDestroy {
   @Input() mcsTooltipDelay: number = 0;
 
   constructor() {
-    McsTooltipDirective.tooltipIdCounter += 1;
-    this.#id = `mcs-tooltip-${ McsTooltipDirective.tooltipIdCounter }`;
+    TooltipDirective.tooltipIdCounter += 1;
+    this.#id = `mcs-tooltip-${ TooltipDirective.tooltipIdCounter }`;
   }
 
   @HostListener('mouseenter')

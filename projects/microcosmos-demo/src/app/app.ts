@@ -25,7 +25,7 @@ import {
   TEXT_ALIGN,
   ButtonComponent,
   ButtonGroupComponent,
-  McsTooltipDirective, CENTRAL_POSITIONS,
+  TooltipDirective, CENTRAL_POSITIONS, ClickOutsideDirective,
 } from 'microcosmos-lib';
 import { ICON_NAMES, IconName } from '../../../microcosmos-lib/src/lib/components/icon/icon-names';
 
@@ -36,9 +36,11 @@ import { ICON_NAMES, IconName } from '../../../microcosmos-lib/src/lib/component
     BadgeComponent,
     ButtonComponent,
     ButtonGroupComponent,
+    ClickOutsideDirective,
     ContainerComponent,
     CommonModule,
     ChipComponent,
+    TooltipDirective,
     DividerComponent,
     FlexComponent,
     HelloComponent,
@@ -46,7 +48,6 @@ import { ICON_NAMES, IconName } from '../../../microcosmos-lib/src/lib/component
     RouterOutlet,
     TagComponent,
     TitleComponent,
-    McsTooltipDirective,
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss',

@@ -2,14 +2,14 @@ import { Component, Input } from '@angular/core';
 import type { Meta, StoryObj } from '@storybook/angular';
 import { CENTRAL_POSITIONS, type CentralPositions, FLEX_ALIGN, FLEX_JUSTIFY, GAPS, VARIANTS } from '../../constants';
 import { FlexComponent } from '../../layouts';
-import { McsTooltipDirective } from './tooltip.directive';
+import { TooltipDirective } from './tooltip.directive';
 import { TagComponent } from '../../components/tag/tag.component';
 import { COLORS } from '../../constants';
 
 @Component({
   selector: 'story-tooltip-wrapper',
   standalone: true,
-  imports: [ TagComponent, McsTooltipDirective, FlexComponent ],
+  imports: [ TagComponent, TooltipDirective, FlexComponent ],
   template: `
     <mcs-flex [justify]="FLEX_JUSTIFY.CENTER">
       <mcs-tag [variant]="VARIANTS.TONED"

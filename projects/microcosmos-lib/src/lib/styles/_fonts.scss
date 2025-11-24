@@ -11,6 +11,22 @@ $font-family-map: (
   brand: "Raleway",
 );
 
+// Style:
+$font-style-map: (
+  normal: normal,
+  italic: italic,
+);
+
+$font-size-map: (
+  xs: .75rem,
+  s: .875rem,
+  sm: .9375rem,
+  md: 1rem,
+  lg: 1.125rem,
+  xl: 1.25rem,
+  xxl: 1.5rem,
+);
+
 // Weight
 $font-weight-map: (
   thin: 100,

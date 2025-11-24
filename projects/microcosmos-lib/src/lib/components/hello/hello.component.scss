@@ -8,7 +8,7 @@
 }
 
 // Weights
-@include mixins.generate-host-context(fonts.$font-weight-map, "mcs-weight") using($var) {
+@include mixins.generate-host-context(fonts.$font-weight-map, "mcs-f-weight") using($var) {
   h2 { // H2 tag is required because the user agent use font-weight: bold !important on heading...
     font-weight: $var !important;
   }

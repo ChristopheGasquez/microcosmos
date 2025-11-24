@@ -26,7 +26,7 @@ describe('HelloComponent (improved tests)', () => {
   it('should apply default dynamic host classes', () => {
     expectHostClasses(host, [
       `mcs-color--${ COLORS.BRAND }`,
-      `mcs-weight--${ WEIGHT.REGULAR }`,
+      `mcs-f-weight--${ WEIGHT.REGULAR }`,
     ]);
   });
 
@@ -34,7 +34,7 @@ describe('HelloComponent (improved tests)', () => {
     // before change
     expectHostClasses(host, [
       `mcs-color--${ COLORS.BRAND }`,
-      `mcs-weight--${ WEIGHT.REGULAR }`,
+      `mcs-f-weight--${ WEIGHT.REGULAR }`,
     ]);
 
     // change inputs
@@ -45,11 +45,11 @@ describe('HelloComponent (improved tests)', () => {
     // after change
     expectHostClasses(host, [
       `mcs-color--${ COLORS.CONTRAST }`,
-      `mcs-weight--${ WEIGHT.BOLD }`,
+      `mcs-f-weight--${ WEIGHT.BOLD }`,
     ]);
     expectHostClassesAbsent(host, [
       `mcs-color--${ COLORS.BRAND }`,
-      `mcs-weight--${ WEIGHT.REGULAR }`,
+      `mcs-f-weight--${ WEIGHT.REGULAR }`,
     ]);
   });
 
@@ -65,7 +65,7 @@ describe('HelloComponent (improved tests)', () => {
     expect(classes.has(staticClass)).toBeTrue();
     expectHostClasses(host, [
       `mcs-color--${ COLORS.CONTRAST }`,
-      `mcs-weight--${ WEIGHT.BOLD }`,
+      `mcs-f-weight--${ WEIGHT.BOLD }`,
     ]);
   });
 });

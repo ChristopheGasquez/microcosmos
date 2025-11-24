@@ -58,7 +58,7 @@ describe('TitleComponent', () => {
     const classes = getClasses(titleHost);
     expect(classes.has('mcs-title--h1')).toBeTrue();
     expect(classes.has(`mcs-color--${COLORS.INK}`)).toBeTrue();
-    expect(classes.has(`mcs-weight--${WEIGHT.REGULAR}`)).toBeTrue();
+    expect(classes.has(`mcs-f-weight--${WEIGHT.REGULAR}`)).toBeTrue();
     expect(classes.has(`mcs-ellipsis--true`)).toBeTrue();
     expect(classes.has(`mcs-text-align--${TEXT_ALIGN.START}`)).toBeTrue();
   });
@@ -72,7 +72,7 @@ describe('TitleComponent', () => {
 
     const classes = getClasses(titleHost);
     expect(classes.has(`mcs-color--${COLORS.BRAND}`)).toBeTrue();
-    expect(classes.has(`mcs-weight--${WEIGHT.BOLD}`)).toBeTrue();
+    expect(classes.has(`mcs-f-weight--${WEIGHT.BOLD}`)).toBeTrue();
     expect(classes.has(`mcs-ellipsis--false`)).toBeTrue();
     expect(classes.has(`mcs-text-align--${TEXT_ALIGN.CENTER}`)).toBeTrue();
   });

@@ -46,7 +46,7 @@ $_color-prefix: "mcs-color";
 }
 
 // Weights
-@include mixins.generate-host-context(fonts.$font-weight-map, "mcs-weight") using($var) {
+@include mixins.generate-host-context(fonts.$font-weight-map, "mcs-f-weight") using($var) {
   font-weight: $var;
   h1, h2, h3, h4, h5, h6 { // hn tag is required because the user agent use font-weight: bold on heading...
     font-weight: $var;

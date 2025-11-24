@@ -41,7 +41,7 @@ export class TitleComponent {
       mcs-color--${ this.color }
       mcs-ellipsis--${ this.ellipsis ? 'true' : 'false' }
       mcs-text-align--${ this.align }
-      mcs-weight--${ this.weight }
+      mcs-f-weight--${ this.weight }
     `.trim();
   };
 }

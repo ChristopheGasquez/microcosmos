@@ -31,10 +31,8 @@
 
   // Base colors
   @include mixins.generate-custom-properties(colors.$mcs-color-map, 'mcs-color');
-
   // Shadow
   @include mixins.generate-custom-properties(colors.$mcs-color-shadow, 'mcs-color--shadow');
-
   // Palettes
   @include mixins.generate-custom-properties(colors.$mcs-palette-brand, 'mcs-color--brand');
   @include mixins.generate-custom-properties(colors.$mcs-palette-contrast, 'mcs-color--contrast');
@@ -50,25 +48,24 @@
 
   // Generic sizes
   @include mixins.generate-custom-properties(sizes.$mcs-size-map, 'mcs-size');
-
   // Gaps
   @include mixins.generate-custom-properties(sizes.$mcs-gap-map, 'mcs-gap');
-
   // Padding & Margin
   @include mixins.generate-custom-properties(sizes.$mcs-padding-map, 'mcs-p');
   @include mixins.generate-custom-properties(sizes.$mcs-margin-map, 'mcs-m');
-
   // Thickness
   @include mixins.generate-custom-properties(sizes.$mcs-thickness-map, 'mcs-thickness');
 
   //// FONTS ////
 
   // Family
-  @include mixins.generate-custom-properties(fonts.$font-family-map, 'mcs-font');
-
+  @include mixins.generate-custom-properties(fonts.$font-family-map, 'mcs-f-family');
+  // Size
+  @include mixins.generate-custom-properties(fonts.$font-size-map, 'mcs-f-size');
+  // Style
+  @include mixins.generate-custom-properties(fonts.$font-style-map, 'mcs-f-style');
   // Weight
-  @include mixins.generate-custom-properties(fonts.$font-weight-map, 'mcs-weight');
-
+  @include mixins.generate-custom-properties(fonts.$font-weight-map, 'mcs-f-weight');
   // Title
   @include mixins.generate-custom-properties(fonts.$font-title-size-map, "mcs-title");
 
@@ -83,16 +80,12 @@
 
   // Align
   @include mixins.generate-custom-properties(flexs.$mcs-flex-align-map, 'mcs-flex-align');
-
   // Direction
   @include mixins.generate-custom-properties(flexs.$mcs-flex-direction-map, 'mcs-flex-direction');
-
   // Justify
   @include mixins.generate-custom-properties(flexs.$mcs-flex-justify-map, 'mcs-flex-justify');
-
   // Screen
   @include mixins.generate-custom-properties(screens.$mcs-screen-map, 'mcs-screen');
-
   // Wrap
   @include mixins.generate-custom-properties(flexs.$mcs-flex-wrap-map, 'mcs-flex-wrap');
 
@@ -119,7 +112,6 @@ html, body {
 ///////////////////////////////
 ////     GLOBAL STYLES     ////
 ///////////////////////////////
-
 body {
   font-family: 'Raleway', sans-serif;
   font-style: normal;

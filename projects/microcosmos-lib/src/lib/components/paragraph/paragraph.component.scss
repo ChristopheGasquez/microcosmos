@@ -1,0 +1,42 @@
+@use "../../styles/colors" as colors;
+@use "../../styles/fonts" as fonts;
+@use "../../styles/mixins" as mixins;
+@use "../../styles/sizes" as sizes;
+@use "../../styles/texts" as texts;
+
+:host {
+  display: block;
+}
+
+// Align
+@include mixins.generate-host-context(texts.$mcs-text-align-map, "mcs-text-align") using($var) {
+  text-align: $var;
+}
+
+// Colors
+@include mixins.generate-host-context(colors.$mcs-palette-name-map, "mcs-color") using($var) {
+  color: $var;
+}
+
+// Font size
+@include mixins.generate-host-context(fonts.$font-size-map, "mcs-f-size") using($var) {
+  font-size: $var;
+}
+
+// Font style
+@include mixins.generate-host-context(fonts.$font-style-map, "mcs-f-style") using($var) {
+  font-style: $var;
+}
+
+// Margin bottom
+@include mixins.generate-host-context(sizes.$mcs-margin-map, "mcs-margin-bottom", "name") using($name) {
+  margin-bottom: var(--mcs-m--#{$name});
+}
+
+// Weights
+@include mixins.generate-host-context(fonts.$font-weight-map, "mcs-f-weight") using($var) {
+  font-weight: $var;
+  h1, h2, h3, h4, h5, h6 { // hn tag is required because the user agent use font-weight: bold on heading...
+    font-weight: $var;
+  }
+}

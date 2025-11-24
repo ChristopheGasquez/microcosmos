@@ -22,7 +22,7 @@ export class HelloComponent {
   @HostBinding('class') get hostClasses(): string {
     return `
     mcs-color--${ this.color }
-    mcs-weight--${ this.weight }
+    mcs-f-weight--${ this.weight }
     `.trim();
   }
 }

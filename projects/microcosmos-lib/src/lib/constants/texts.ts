@@ -4,6 +4,7 @@ export const TEXT_ALIGN = {
   CENTER: 'center',
   END: 'end',
   START: 'start',
+  JUSTIFY: 'justify'
 } as const;
 
 export type TextAlign = ValueOf<typeof TEXT_ALIGN>;

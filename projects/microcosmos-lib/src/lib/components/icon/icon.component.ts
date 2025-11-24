@@ -9,7 +9,11 @@ import { IconRegistry } from './icon-registry.service';
 @Component({
   selector: 'mcs-icon',
   standalone: true,
-  templateUrl: './icon.component.html',
+  template: `
+    <span class="mcs-icon"
+          [innerHTML]="svg()"
+          [style]="{fill: 'currentColor'}"></span>
+  `,
   styleUrls: [ './icon.component.scss' ],
   host: { 'class': 'mcs-icon' },
 })

@@ -23,8 +23,8 @@
 
 // Colors
 $_color-prefix: "mcs-color";
-@include mixins.generate-host-context(colors.$mcs-palette-name-map, $_color-prefix, "name") using($name) {
-  color: var(--#{$_color-prefix}--#{$name});
+@include mixins.generate-host-context(colors.$mcs-color-map, $_color-prefix) using($var) {
+  color: $var;
 }
 
 // Ellipsis

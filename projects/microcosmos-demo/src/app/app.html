@@ -1,10 +1,9 @@
 <!-- MAIN CONTAINER -->
-<mcs-container [screen]="SCREENS.MD"
-               [fullHeight]="true"
-               style="padding-bottom: 24px">
+<mcs-container class="mcs-p--xl" [screen]="SCREENS.MD"
+               [fullHeight]="true">
   <!-- HELLO -->
   <mcs-hello [color]="COLORS.BRAND"
-             weight="semi-bold"></mcs-hello><!-- HELLO -->
+             [weight]="WEIGHT.SEMI_BOLD"></mcs-hello><!-- HELLO -->
 
 
   <!-- DIVIDER -->
@@ -54,7 +53,6 @@
                 [mcsTooltip]="'Ne pas clicker'"
                 [mcsTooltipPosition]="CENTRAL_POSITIONS.RIGHT"
                 [mcsTooltipDelay]="0">
-
       Forth
       <mcs-icon [name]="'close'"
                 [proportionalToTheFont]="true"></mcs-icon></mcs-button>
@@ -125,7 +123,7 @@
                   [mcsTooltipDelay]="100">
         <mcs-icon [name]="icon"
                   [color]="getValueWithI(colors, i)"
-                  size="md"></mcs-icon>
+                  [size]="SIZES.MD"></mcs-icon>
 
           <!-- Todo: wrap on text-ellipsis-->
           <div style="min-width: 0; width: 100%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; text-align: center">
@@ -146,17 +144,17 @@
 
   <mcs-card [fullWidth]="true">
     <mcs-h1 [color]="COLORS.BRAND">Title level 1 color Brand</mcs-h1>
-    <p class="mcs-m--zero">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, architecto assumenda cumque dicta distinctio, enim iure minus mollitia, nam nostrum officia qui quis temporibus! Distinctio in iusto praesentium soluta. Quaerat.</p>
+    <mcs-p mcsEllipsis>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, architecto assumenda cumque dicta distinctio, enim iure minus mollitia, nam nostrum officia qui quis temporibus! Distinctio in iusto praesentium soluta. Quaerat.</mcs-p>
     <mcs-h2 [color]="COLORS.CONTRAST">Title level 2 color Contrast</mcs-h2>
-    <p class="mcs-m--zero">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, architecto assumenda cumque dicta distinctio, enim iure minus mollitia, nam nostrum officia qui quis temporibus!</p>
+    <mcs-p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, architecto assumenda cumque dicta distinctio, enim iure minus mollitia, nam nostrum officia qui quis temporibus!</mcs-p>
     <mcs-h3 [align]="TEXT_ALIGN.CENTER">Title level 3 align center</mcs-h3>
-    <p class="mcs-m--zero">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, architecto assumenda cumque dicta distinctio, enim iure minus mollitia, nam nostrum officia qui quis temporibus!</p>
+    <mcs-p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, architecto assumenda cumque dicta distinctio, enim iure minus mollitia, nam nostrum officia qui quis temporibus!</mcs-p>
     <mcs-h4 [align]="TEXT_ALIGN.CENTER">Title level 4 align center</mcs-h4>
-    <p class="mcs-m--zero">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, architecto assumenda cumque dicta distinctio, enim iure minus mollitia, nam nostrum officia qui quis temporibus!</p>
+    <mcs-p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, architecto assumenda cumque dicta distinctio, enim iure minus mollitia, nam nostrum officia qui quis temporibus!</mcs-p>
     <mcs-h5 [align]="TEXT_ALIGN.END">Title level 5 align end</mcs-h5>
-    <p class="mcs-m--zero">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <mcs-p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</mcs-p>
     <mcs-h6 [align]="TEXT_ALIGN.END">Title level 6 align end</mcs-h6>
-    <p class="mcs-m--zero">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <mcs-p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</mcs-p>
   </mcs-card>
   <!-- TITLES SECTION -->
 

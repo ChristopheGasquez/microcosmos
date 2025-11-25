@@ -11,7 +11,7 @@ import {
   Colors,
   COLORS,
   ContainerComponent,
-  DividerComponent,
+  DividerComponent, EllipsisDirective,
   FLEX_ALIGN,
   FLEX_DIRECTION,
   FLEX_JUSTIFY,
@@ -20,7 +20,7 @@ import {
   GridComponent,
   GridItemComponent,
   HelloComponent,
-  IconComponent, PADDINGS,
+  IconComponent, PADDINGS, ParagraphComponent,
   SCREENS,
   SIZES,
   TagComponent,
@@ -29,7 +29,7 @@ import {
   TitleComponent,
   TooltipDirective,
   Variants,
-  VARIANTS,
+  VARIANTS, WEIGHT,
 } from 'microcosmos-lib';
 import { ICON_NAMES, IconName } from '../../../microcosmos-lib/src/lib/components/icon/icon-names';
 
@@ -40,21 +40,23 @@ import { ICON_NAMES, IconName } from '../../../microcosmos-lib/src/lib/component
     BadgeComponent,
     ButtonComponent,
     ButtonGroupComponent,
+    CardComponent,
     ClickOutsideDirective,
     ContainerComponent,
     CommonModule,
     ChipComponent,
-    TooltipDirective,
     DividerComponent,
+    EllipsisDirective,
     FlexComponent,
+    GridComponent,
+    GridItemComponent,
     HelloComponent,
     IconComponent,
     RouterOutlet,
+    ParagraphComponent,
     TagComponent,
     TitleComponent,
-    GridComponent,
-    GridItemComponent,
-    CardComponent,
+    TooltipDirective,
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss',
@@ -101,4 +103,5 @@ export class App {
   protected readonly ICON_NAMES = ICON_NAMES;
   protected readonly CENTRAL_POSITIONS = CENTRAL_POSITIONS;
   protected readonly PADDINGS = PADDINGS;
+  protected readonly WEIGHT = WEIGHT;
 }

@@ -14,7 +14,7 @@
 }
 
 // Colors
-@include mixins.generate-host-context(colors.$mcs-palette-name-map, "mcs-color") using($var) {
+@include mixins.generate-host-context(colors.$mcs-color-map, "mcs-color") using($var) {
   color: $var;
 }
 

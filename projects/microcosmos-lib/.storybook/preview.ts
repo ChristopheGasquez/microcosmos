@@ -12,9 +12,13 @@ const preview: Preview = {
       storySort: {
         order: [
           'Hello',
+          'Directives', [
+            'Clicks',
+            'Ellipsis',
+            'Tooltips',
+          ],
           'Layouts',
-          'Components',
-          [
+          'Components', [
             'Badges',
             'Buttons',
             'Cards',
@@ -23,7 +27,7 @@ const preview: Preview = {
             'Icons', [ 'Icon', 'Icon list' ],
             'Paragraphs',
             'Tags', [ 'Tag', 'Tag with icons' ],
-            'Titles'
+            'Titles',
           ],
         ],
       },

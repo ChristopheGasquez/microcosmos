@@ -10,6 +10,10 @@ const config: StorybookConfig = {
   "framework": {
     "name": "@storybook/angular",
     "options": {}
-  }
-};
+  },
+  "staticDirs": [
+    '../src/assets',
+    { from: "../src/assets", to: "/assets"}
+  ],
+} as StorybookConfig;
 export default config;

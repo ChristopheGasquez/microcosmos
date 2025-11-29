@@ -25,6 +25,7 @@ const preview: Preview = {
             'Chips', [ 'Chip' ],
             'Dividers',
             'Icons', [ 'Icon', 'Icon list' ],
+            'Images',
             'Paragraphs',
             'Tags', [ 'Tag', 'Tag with icons' ],
             'Titles',

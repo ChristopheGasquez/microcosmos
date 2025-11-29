@@ -20,7 +20,7 @@ import {
   GridComponent,
   GridItemComponent,
   HelloComponent,
-  IconComponent, PADDINGS, ParagraphComponent,
+  IconComponent, ImageComponent, IMG_FIT, PADDINGS, ParagraphComponent,
   SCREENS,
   SIZES,
   TagComponent,
@@ -52,6 +52,7 @@ import { ICON_NAMES, IconName } from '../../../microcosmos-lib/src/lib/component
     GridItemComponent,
     HelloComponent,
     IconComponent,
+    ImageComponent,
     RouterOutlet,
     ParagraphComponent,
     TagComponent,
@@ -104,4 +105,5 @@ export class App {
   protected readonly CENTRAL_POSITIONS = CENTRAL_POSITIONS;
   protected readonly PADDINGS = PADDINGS;
   protected readonly WEIGHT = WEIGHT;
+  protected readonly IMG_FIT = IMG_FIT;
 }

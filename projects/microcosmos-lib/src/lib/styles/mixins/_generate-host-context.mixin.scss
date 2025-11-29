@@ -59,7 +59,7 @@
 
   // Iterate through map entries
   @each $name, $value in $map {
-    :host(.#{$prefix}--#{$name}) {
+    :host(.#{$prefix}--#{""+$name}) {
       @if $mode == "var" {
         @content(var(--#{$prefix}#{$suffix}--#{$name}));
 

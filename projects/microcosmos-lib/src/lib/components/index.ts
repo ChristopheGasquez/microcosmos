@@ -5,7 +5,8 @@ export * from './card/card.component';
 export * from './chip/chip.component';
 export * from './divider/divider.component';
 export * from './hello/hello.component';
-export * from './icon/icon.component'
+export * from './icon/icon.component';
+export * from './image/image.component';
 export * from './paragraph/paragraph.component'
 export * from './tag/tag.component';
 export * from './title/title.component';

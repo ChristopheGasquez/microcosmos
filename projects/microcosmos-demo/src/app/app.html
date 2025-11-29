@@ -1,5 +1,6 @@
 <!-- MAIN CONTAINER -->
-<mcs-container class="mcs-p--xl" [screen]="SCREENS.MD"
+<mcs-container class="mcs-p--xl"
+               [screen]="SCREENS.MD"
                [fullHeight]="true">
   <!-- HELLO -->
   <mcs-hello [color]="COLORS.BRAND"
@@ -175,6 +176,16 @@
       </mcs-grid-item>
     }
   </mcs-grid>
+
+  <mcs-divider></mcs-divider>
+
+  <div style="text-align: center">
+    <mcs-img [src]="'microview.jpg'"
+             [width]="200"
+             [height]="145"
+             [fit]="IMG_FIT.FILL"
+             [circle]="true"></mcs-img>
+  </div>
 
   <mcs-divider></mcs-divider>
 

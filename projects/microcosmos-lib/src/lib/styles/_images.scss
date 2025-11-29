@@ -1,0 +1,24 @@
+///////////////////////////////
+////         IMAGE         ////
+///////////////////////////////
+
+//
+
+
+$img-filter-map: (
+  blur: blur(5px),
+  contrast: contrast(200%),
+  gray:grayscale(100%),
+);
+
+$img-fit-map: (
+  cover  : cover,
+  contain  : contain,
+  fill  : fill,
+  none  : none,
+  scale-down : scale-down,
+);
+
+
+
+

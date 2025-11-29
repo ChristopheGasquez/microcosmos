@@ -28,6 +28,7 @@ import {
   THICKNESS,
   TitleComponent,
   TooltipDirective,
+  ThrottleClickDirective,
   Variants,
   VARIANTS, WEIGHT,
 } from 'microcosmos-lib';
@@ -58,6 +59,7 @@ import { ICON_NAMES, IconName } from '../../../microcosmos-lib/src/lib/component
     TagComponent,
     TitleComponent,
     TooltipDirective,
+    ThrottleClickDirective
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss',

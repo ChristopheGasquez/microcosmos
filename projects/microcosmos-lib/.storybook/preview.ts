@@ -13,8 +13,9 @@ const preview: Preview = {
         order: [
           'Hello',
           'Directives', [
-            'Clicks',
+            'Clicks Outside',
             'Ellipsis',
+            'Throttle Clicks',
             'Tooltips',
           ],
           'Layouts',

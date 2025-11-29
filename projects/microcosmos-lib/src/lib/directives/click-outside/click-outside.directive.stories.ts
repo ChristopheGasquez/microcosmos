@@ -54,7 +54,7 @@ class StoryClickOutsideWrapperComponent {
 }
 
 const meta: Meta<StoryClickOutsideWrapperComponent> = {
-  title: 'Directives/Clicks/Click Outside',
+  title: 'Directives/Clicks Outside/Click Outside',
   component: StoryClickOutsideWrapperComponent,
   standalone: true,
   argTypes: {

@@ -4,7 +4,9 @@
                [fullHeight]="true">
   <!-- HELLO -->
   <mcs-hello [color]="COLORS.BRAND"
-             [weight]="WEIGHT.SEMI_BOLD"></mcs-hello><!-- HELLO -->
+             [weight]="WEIGHT.SEMI_BOLD"
+             [mcsThrottleClickDelay]="500"
+             (mcsThrottleClick)="logMe('Hello !')"></mcs-hello><!-- HELLO -->
 
 
   <!-- DIVIDER -->
